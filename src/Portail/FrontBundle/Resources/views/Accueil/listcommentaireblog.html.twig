@@ -1,0 +1,18 @@
+{%for comment in comments%}
+			<li>
+				<div class="comment">
+					<div class="vcard">
+						<img src="{{asset('bundles/portailfront/images/avatar.gif')}}" width="80" height="80" alt="" class="avatar" />
+						<span class="comment_author">{{comment.user}}</span>
+						<span class="when_posted"><time datetime="{{ comment.created|localizeddate('medium', 'medium') }}">{{ comment.created|localizeddate('medium', 'medium') }}</time></span>
+						<div class="clear"></div>
+					</div>
+					<div class="posted_content"><div class="pointer_pc"></div>
+						<div class="comment-body">{{comment.comment}}</div>
+						<a href="#" class="comment-reply-link">Reply</a>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</li>
+                        {%endfor %}

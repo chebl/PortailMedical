@@ -1,0 +1,307 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %}
+
+{%block stylesheets%}
+{{parent() }}
+<link rel="stylesheet" href="{{asset('bundles/portailforum/css/reponses.css')}}">
+<link rel="stylesheet" href="{{asset('bundles/portailforum/css/message.css')}}">
+
+	<link rel="stylesheet" href="">
+	
+	<style>
+ #element_to_pop_up
+ {
+ background-color:#fff;
+    border-radius:15px;
+    color:#000;
+    display:none; 
+    padding:20px;
+    min-width:200px;
+    min-height: 100px;
+ }
+ .b-close {
+   cursor:pointer;
+    position:absolute;
+    right:10px;
+    top:5px;
+ 
+ }
+ </style>   
+{%endblock%}
+ {%block javascripts %}
+{{parent() }}
+  
+ <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
+                                <script type="text/javascript">
+                                    getTwitters('twitter_update_list', { 
+                                          id: '960development', 
+                                          count: 1,
+                                          enableLinks: true, 
+                                          ignoreReplies: true, 
+                                          clearContents: true,
+                                          template: '%text%'
+                                    });
+    
+
+	</script>	
+	
+	
+	
+
+<script src="{{asset('bundles/portailforum/js/jquery.bpopup.min.js')}}"></script>
+
+	
+		
+	
+
+<script>
+ // Semicolon (;) to ensure closing of earlier scripting
+    // Encapsulation
+    // $ is assigned to jQuery
+    ;(function($) {
+
+         // DOM Ready
+        $(function() {
+
+            // Binding a click event
+            // From jQuery v.1.7.0 use .on() instead of .bind()
+            $('#my-button').bind('click', function(e) {
+
+                // Prevents the default action to be triggered. 
+                e.preventDefault();
+
+                // Triggering bPopup when click event is fired
+                $('#element_to_pop_up').bPopup();
+
+            });
+
+        });
+
+    })(jQuery);
+ </script>  
+{%endblock%} 
+ {%block header %}
+
+  
+  	{% include 'PortailFrontBundle:Front:header.html.twig'%}
+ {%endblock%}
+ {%block container %}
+ 
+<div id="container" class="clearfix" width="100%">   
+             <div class="mainContainer"   style="position: relative;width:100%;">
+					<div class="mainContent" style="width:100%;background-color: rgb(252, 252, 255);">
+                 	<div id="headerMover" width="100%">
+					<div id="content1">
+					
+					
+		<div class="pageContent">
+			<!-- main content area -->
+
+{%for quest in question %}
+
+
+	<ol class="messageList" id="messageList">
+            <div class="linkGroup" style="float:right;">
+					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+						<label><a href="" id="my-button"> Répondre</a></label>
+                                             <label><a href="{{path('signalquestion',{'idquestion':quest.id})}}"> Signaler</a></label>
+                                              <label><a href="{{path('suppquestion',{'idquestion':quest.id})}}"> Supprimer</a></label>
+                                             
+                                               {%endif%} 
+                                                
+                    <div id="element_to_pop_up" >
+			<a class="b-close">X</a>
+
+	<form action="{{path('insertreponse')}}" method="post">
+	  <table>	
+	  <tr><td>Taper Votre Réponse
+	  </td>
+	  <td><textarea name="msg" cols="50" rows="3"></textarea></td>
+          <input type="hidden" value="{{quest.id}}" name="question"/>
+	</tr>
+	<tr><td><input type="submit" value="Repondre"></td>
+	</tr>
+	</table>
+	
+	</form>
+	
+	</div>                             
+					
+				</div>
+			
+	<li id="post-84023" class="message">
+
+	
+
+<div class="messageUserInfo" itemscope="itemscope" itemtype="http://data-vocabulary.org/Person">	
+<div class="messageUserBlock">
+	
+		<div class="avatarHolder">
+			<span class="helper"></span>
+                        {%if quest.membre.logo %}
+                        <a href="" class="avatar Av126944m" data-avatarhtml="true"><img src="{{asset('bundles/portailbloguser/uploads/')}}{{quest.membre.logo}}" height="90" width="90"></a>
+		{%else %}
+                            <a href="" class="avatar Av126944m" data-avatarhtml="true"><img src="{{asset('bundles/portailbloguser/uploads/avatar.gif')}}" height="90" width="90"></a>
+                        <!-- slot: message_user_info_avatar -->
+		{%endif%}
+                        </div>
+	
+
+
+	
+		<h3 class="userText">
+                    
+			<a href="" class="username" itemprop="name">{{quest.membre}}</a>
+			<em class="userTitle" itemprop="title">New Member</em>
+			<!-- slot: message_user_info_text -->
+		
+                    </h3>
+	
+	<span class="arrow"><span></span></span>
+</div>
+</div>
+
+	<div class="messageInfo primaryContent">
+		
+		
+		
+		
+		
+		<div class="messageContent">		
+			<article>
+				<blockquote class="messageText ugc baseHtml">
+					
+					{{quest.message}}
+                                         
+				</blockquote>
+			</article>
+			
+			
+		</div>
+		
+		<div class="messageMeta">
+			
+			<div class="privateControls">
+				
+				<span class="item muted">
+					<a href="" class="username author">{{quest.membre}}</a>,
+					<a href="" title="Permalink" class="datePermalink"><abbr class="DateTime" title="{{quest.datepublication|localizeddate('medium', 'medium')}}">{{quest.datepublication|localizeddate('medium', 'medium')}}</abbr></a>
+				</span>
+		
+			</div>
+		
+		</div>
+	
+		
+		<div id="likes-post-84023"></div>
+	</div>
+	
+	
+	
+</li>
+
+{%endfor %}					
+{%for rep in reponses.currentPageResults%} 
+
+<li id="post-84023" class="message">
+
+    <div class="linkGroup" style="float:right;">
+    
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+						
+                                             <label><a href="{{path('signalreponse',{'idreponse':rep.id})}}"> Signaler</a></label>
+                                              <label><a href="{{path('suppreponse',{'idreponse':rep.id})}}"> Supprimer</a></label>
+                                             
+                                               {%endif%} 
+    </div>
+
+<div class="messageUserInfo" itemscope="itemscope" itemtype="http://data-vocabulary.org/Person">	
+<div class="messageUserBlock">
+	
+		<div class="avatarHolder">
+			<span class="helper"></span>
+			{%if rep.membre.logo %}
+                        <a href="" class="avatar Av126944m" data-avatarhtml="true"><img src="{{asset('bundles/portailbloguser/uploads/')}}{{rep.membre.logo}}" height="90" width="90"></a>
+		{%else %}
+                            <a href="" class="avatar Av126944m" data-avatarhtml="true"><img src="{{asset('bundles/portailbloguser/uploads/avatar.gif')}}" height="90" width="90"></a>
+                        <!-- slot: message_user_info_avatar -->
+		{%endif%}
+		</div>
+	
+
+
+	
+		<h3 class="userText">
+			<a href="" class="username" itemprop="name">{{rep.membre}}</a>
+			<em class="userTitle" itemprop="title">New Member</em>
+		
+		</h3>
+	
+		
+	
+		
+
+
+	<span class="arrow"><span></span></span>
+</div>
+</div>
+
+	<div class="messageInfo primaryContent">
+		
+		
+		
+		
+		
+		<div class="messageContent">		
+			<article>
+				<blockquote class="messageText ugc baseHtml">
+					
+				{{rep.message}}	
+                                
+                                </blockquote>
+			</article>
+			
+			
+		</div>
+		
+		
+		
+		
+		
+		
+				
+		<div class="messageMeta">
+			
+			<div class="privateControls">
+				
+				<span class="item muted">
+					<a href="" class="username author">{{rep.membre}}</a>,
+					<a href="" title="Permalink" class="datePermalink"><abbr class="DateTime" data-time="1368564820" data-diff="500895" data-datestring="May 14, 2013" data-timestring="3:53 PM" title="{{rep.datepublication|localizeddate('medium', 'medium')}}">{{rep.datepublication|localizeddate('medium', 'medium')}}</abbr></a>
+				</span>
+			
+			</div>
+			
+			
+		</div>
+	
+		
+		<div id="likes-post-84023"></div>
+	</div>
+	
+	
+	
+</li>
+			
+{%endfor%}		
+		
+	</ol>
+ <div id="pagination">{{ pagerfanta(reponses, 'default') }}</div>
+	
+</div>
+	
+
+</div>
+
+	
+							</div></div>
+                     {%include 'PortailFrontBundle:Front:footer.html.twig'%}
+							{%endblock%}

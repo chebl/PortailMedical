@@ -1,0 +1,19 @@
+<div id="up_partners" style="display: none"> <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
+	<span style="font-size: medium">Ajouter un nouveau partenaire</span>
+        <div class="clear"></div>			
+                              <form action="{{ path('upload_partners') }}" method="post" {{ form_enctype(formpart) }}>
+                                        {{ form_errors(formpart) }}
+					<fieldset>
+                                            {{ form_row(formpart.nom, { 'label' : 'Nom de partenaire' }) }}
+                                            {{ form_row(formpart.site, { 'label' : 'Site web' }) }}
+                                            {{ form_row(formpart.file, { 'label' : 'Logo de partenaire' }) }}    
+					</fieldset>
+                                        
+                                        <fieldset>
+						<input class="button" type="submit" value="Enregistrer" />
+						
+					</fieldset>
+					
+				</form>
+				
+</div> 

@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+A contact was made by <h1>{{ contact.name }}</h1> at <h1>{{ "now" | date("Y-m-d H:i") }}</h1>.
+
+Reply-To: <h1>{{ contact.email }}</h1>
+Subject : <h1>{{ contact.subject }}</h1>
+Body:
+<h1>{{ contact.message }}</h1>
+{% endblock %} 

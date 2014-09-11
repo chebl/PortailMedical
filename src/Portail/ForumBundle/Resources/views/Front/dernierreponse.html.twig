@@ -1,0 +1,6 @@
+{%for dernrep in dernierreponse %}
+<dt><a href="" class="username">{{dernrep.membre}}</a></dt>
+<dd class="muted"><a class="dateTime">
+				
+				<span class="DateTime" title="{{dernrep.datepublication|localizeddate('medium', 'medium')}}">{{dernrep.datepublication|localizeddate('medium', 'medium')}}</span></a></dd>
+				{%endfor%}

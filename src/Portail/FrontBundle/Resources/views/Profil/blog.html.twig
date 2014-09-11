@@ -1,0 +1,145 @@
+<script>
+   $(document).ready(function(){
+    
+	$("#tabs li").click(function() {
+            
+		//	First remove class "active" from currently active tab
+     //$("#tab3").empty();
+    
+      
+	$("#tabs li").removeClass('active');
+              
+		//	Now add class "active" to the selected/clicked tab
+		$(this).addClass("active");
+             
+		//	Hide all tab content
+		$(".tab_content").hide();
+
+		//	Here we get the href value of the selected tab
+		var selected_tab = $(this).find("a").attr("href");
+
+		//	Show the selected tab content
+		$(selected_tab).fadeIn();
+
+		//	At the end, we add return false so that the click on the link is not executed
+		return false;
+	});
+     });
+     function remplirsouscategorie1(categ,souscateg)
+     {
+  
+    var input2 = "categ="+categ ;
+  
+    //$('#loadingmsg').lightbox_me({centered: true,overlayCSS :{background: 'light',
+//opacity: .3}});
+     $.post("{{path('souscategories')}}", input2 , function(theResponse){
+         
+    souscateg.html(theResponse);
+  //   $('#loadingmsg').trigger('close');
+});
+
+     return false;
+    }
+     
+     </script>
+
+     <style>
+     
+          #hamdi_blogbundle_blogtype_blog
+  { height: 240px;
+    width: 680px;
+  
+  }
+         </style>
+<div class="form_group_element">
+              <div id="tabs_wrapper">
+               <div id="tabs_container">
+		<ul id="tabs">
+                    <li class="active"><a href="#tab5" onclick=" if($('#form').length >0)
+      {    $('#form').empty(); }">Ajouter un article</a></li>
+                        
+			<li><a class="icon_accept" href="#tab6" onclick="if($('#delete1').length > 0) {$('#delete1').show(); $('#delete2').hide();} else if ($('#delete2').length > 0){ $('#delete2').show(); $('#delete1').hide();}">Mes articles</a></li>
+                    </ul>
+                         <div id="tab5" class="tab_content" style="display: block;">
+              <form  action="{{path('ajoutarticleblog')}}" method="post" {{ form_enctype(formblog) }}>
+               <div class="form_element">
+                   
+     <label class="form_attribute_1">
+      Titre de l'article: 
+    </label>
+    <span class="name">
+      {{form_widget(formblog.title)}}
+    </span>
+               
+               </div>
+  <div class="form_element">
+      <label class="form_attribute_1">
+     Contenu :
+    </label>
+     {{form_widget(formblog.blog)}}
+							
+    </div>
+         <div class="form_element">
+             <label class="form_attribute_1">
+      Choisisez une image :
+             </label>
+     {{form_widget(formblog.file)}}
+							
+    </div>      
+         <div class="form_element">
+             <label class="form_attribute_1">
+     Tags :
+             </label>
+     {{form_widget(formblog.tags)}}
+							
+    </div> 
+                   <div class="form_element">
+             <label class="form_attribute_1">
+     Catégorie :
+             </label>
+                      
+                           
+                           <select name="categorie" id="categorie" onchange="return remplirsouscategorie1(document.getElementById('categorie').value,$('#souscategorie'));">
+                                <option value="0"></option>
+                           {%for cat in categorie %}
+                                   <option value="{{cat.id}}">{{cat.nom}}</option>
+                                {%endfor%}   
+                           
+                           </select>
+                           
+							
+    </div>   
+            <div class="form_element">
+              		<label class="form_attribute_1">
+     SousCatégorie :
+             </label>
+                      
+                           
+                           <select name="souscategorie" id="souscategorie">
+                              
+                           </select>
+                   
+    </div>
+                      <div class="form_element">
+                          <input class="btn btn-primary" type="submit" value="Publier sur le blog" onclick=" alert('Votre article est uploadé avec succés');"> 
+                                     </div>
+                      {{form_widget(formblog)}}
+                  </form>       
+               </div>
+                         
+                       <div id="tab6" class="tab_content">
+ 
+                           <div id="delete2"></div>
+                           <div id="delete1">
+			{%include 'PortailBlogUserBundle::mesarticles.html.twig' with {'blogs':blogs}%} 
+                               </div>
+                           
+                       
+                       </div>                  
+                       
+                   </div>
+                  </div>
+                  
+        
+        
+    </div>

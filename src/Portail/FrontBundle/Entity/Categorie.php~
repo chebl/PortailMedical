@@ -1,0 +1,144 @@
+<?php
+
+namespace Portail\FrontBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Categorie
+ 
+ * @ORM\Entity
+ */
+class Categorie
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="DatePublication", type="datetime")
+     */
+    private $datepublication;
+
+    
+ /**
+* @ORM\OneToMany(targetEntity="News",
+mappedBy="categorie")
+*/
+ private $articles;
+    
+         
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->partenaire_categories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Categorie
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Add articles
+     *
+     * @param \Portail\FrontBundle\Entity\News $articles
+     * @return Categorie
+     */
+    public function addArticle(\Portail\FrontBundle\Entity\News $articles)
+    {
+        $this->articles[] = $articles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove articles
+     *
+     * @param \Portail\FrontBundle\Entity\News $articles
+     */
+    public function removeArticle(\Portail\FrontBundle\Entity\News $articles)
+    {
+        $this->articles->removeElement($articles);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+   
+
+    /**
+     * Set datepublication
+     *
+     * @param \DateTime $datepublication
+     * @return Categorie
+     */
+    public function setDatepublication($datepublication)
+    {
+        $this->datepublication = $datepublication;
+    
+        return $this;
+    }
+
+    /**
+     * Get datepublication
+     *
+     * @return \DateTime 
+     */
+    public function getDatepublication()
+    {
+        return $this->datepublication;
+    }
+}

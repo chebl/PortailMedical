@@ -1,0 +1,152 @@
+<script> 
+$(document).ready(function(){
+    
+	$("#tabs li").click(function() {
+            
+		//	First remove class "active" from currently active tab
+     //$("#tab3").empty();
+    
+      
+	$("#tabs li").removeClass('active');
+              
+		//	Now add class "active" to the selected/clicked tab
+		$(this).addClass("active");
+             
+		//	Hide all tab content
+		$(".tab_content").hide();
+
+		//	Here we get the href value of the selected tab
+		var selected_tab = $(this).find("a").attr("href");
+
+		//	Show the selected tab content
+		$(selected_tab).fadeIn();
+
+		//	At the end, we add return false so that the click on the link is not executed
+		return false;
+	});
+     });
+     {{ tinymce_init(
+	{ relative_urls: false }
+)
+	}}
+
+     </script>
+    
+<div class="form_group_element">
+              <div id="tabs_wrapper">
+               <div id="tabs_container">
+		<ul id="tabs">
+                    <li class="active"><a href="#tab7">Editer une Fiche Maladie</a></li>
+                        
+                        <li><a class="icon_accept" href="#tab8" onclick="if($('#fiche1').length > 0) {$('#fiche1').show(); $('#fiche2').hide();} else if ($('#fiche2').length > 0){ $('#fiche2').show(); $('#fiche1').hide();}">Mes publications</a></li>
+                    </ul>
+                         <div id="tab7" class="tab_content" style="display: block;">
+              <form  action="{{path('fichemaladieadd')}}" method="post" {{ form_enctype(formfiche) }}>
+               <div class="form_element">
+                   
+     <label class="form_attribute_1">
+     Désignation de maladie: 
+    </label>
+    <span class="name">
+      {{form_widget(formfiche.designation)}}
+    </span>
+               
+               </div>
+                      <div class="form_element">
+                   
+     <label class="form_attribute_1">
+     Bref description: 
+    </label>
+    <span class="name">
+      {{form_widget(formfiche.extrait)}}
+    </span>
+               
+               </div>
+                      <div class="form_element">
+      <label class="form_attribute_1">
+     Description :
+    </label>
+      <br>                      
+     <!--{{form_widget(formfiche.description)}}-->
+      <textarea class="tinymce"></textarea> 					
+    </div>
+         <div class="form_element">
+             <label class="form_attribute_1">
+      Symptômes :
+             </label>
+ <br>      
+{{form_widget(formfiche.symptomes)}}
+							
+    </div>      
+         <div class="form_element">
+             <label class="form_attribute_1">
+     Causes :
+             </label>
+ <br> 
+     {{form_widget(formfiche.causes)}}
+							
+    </div> 
+     <div class="form_element">
+             <label class="form_attribute_1">
+     Prevention :
+             </label>
+ <br> 
+     {{form_widget(formfiche.prevention)}}
+							
+    </div> 
+                       <div class="form_element">
+             <label class="form_attribute_1">
+     Choisir une image :
+             </label>
+     {{form_widget(formfiche.file)}}
+							
+    </div>                   
+                   <div class="form_element">
+             <label class="form_attribute_1">
+     Catégorie :
+             </label>
+                      
+                           
+                           <select name="categoriemaladie" id="categoriemaladie" onchange="return remplirsouscategorie(document.getElementById('categoriemaladie').value,$('#souscategoriemaladie'));">
+                                <option value="0"></option>
+                           {%for cat in categorie %}
+                                   <option value="{{cat.id}}">{{cat.nom}}</option>
+                                {%endfor%}   
+                           
+                           </select>
+                           
+							
+    </div>   
+            <div class="form_element">
+              		<label class="form_attribute_1">
+     SousCatégorie :
+             </label>
+                      
+                           
+                           <select name="souscategoriemaladie" id="souscategoriemaladie">
+                              
+                           </select>
+                   
+    </div>
+                      <div class="form_element">
+                          <input class="btn btn-primary" type="submit" value="Publier" onclick=""> 
+                                     </div>
+                      {{form_widget(formfiche)}}
+                  </form>       
+               </div>
+                         
+                       <div id="tab8" class="tab_content">
+ 
+                          <div id="fiche2"></div>
+                           <div id="fiche1">
+			{%include 'PortailFrontBundle:FicheMaladie:mesarticles.html.twig' with {'fichemaladies':fichemaladies}%} 
+                   </div>
+                       
+                       </div>                  
+                       
+                   </div>
+                  </div>
+                  
+        
+        
+    </div>

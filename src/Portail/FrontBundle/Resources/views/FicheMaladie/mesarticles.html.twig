@@ -1,0 +1,75 @@
+
+
+ <!-- This is the target div. id must match the href of this div's tab -->
+	<div class="mws-panel grid_8 mws-collapsible" id="mws-dashboard-chart">				
+    <div style="width: 130; float: left">
+      
+            
+        <img src="{{asset('bundles/portailfront/images/maladies/mal.jpg')}}" height="120" width="120" style="float: top;">
+                                                                    </div>
+    <div style="width: 400; alignment-adjust: central"><h1>
+     Mes Indications pathologiques Publiées
+      
+        </h1>
+        
+     </div>
+        <div class="mws-panel-header">
+                            
+                    	<span><i class="icon-table"></i></span>
+                    </div>
+                <div class="mws-panel-body no-padding">
+                        <div id="supp1"></div>
+        <div id="supp">
+        
+        		
+<table  class="mws-table mws-datatable">
+							
+                                                    <thead>
+                                                        <tr style="background-color: #B8E0F9;">
+                                                                    
+								  
+                                                            <th><strong>Désignation Maladie</strong></th>
+						            <th><strong>Catégorie</strong></th>
+                                                            <th><strong>Publié Le</strong></th>
+                                                            <th><strong>Action</strong></th>
+                                                                   
+                                                                   
+								   	</tr>
+                                                                 
+								
+							</thead>
+                                                       
+							
+                                                      
+                                                        
+							<tbody>
+                                                    
+                                                            {%for fichemaladie in fichemaladies %}
+                                                            <tr>
+                                                                    
+									
+                                                                        <td><a href="{{ path('HamdiBlogBundle_blog_show', { 'id':fichemaladie.id  }) }}" target="_blank" >{{fichemaladie.designation}}</a> </td>
+                                                        
+									<td>{{fichemaladie.souscategorie}}</td>
+                                                                                
+                                                                        <td>{{ fichemaladie.datepublication|date('d-M-y H:i:s')}}</td>
+									
+                                                                        <td><a href="" onclick="return updatefichemaladie({{fichemaladie.id}})"><img src="{{asset('bundles/portailfront/images/edit-icon.png')}}" alt="Editer"></a>&nbsp;
+                                                                        <a href="" onclick="return suppfichemaladie({{fichemaladie.id}})"><img src="{{asset('bundles/portailfront/images/delete-icon.png')}}" alt="Supprimer"></a></td>
+								</tr>
+								{%endfor%}
+                                                                
+                                                                
+								
+							</tbody>
+							
+						</table>
+				
+        
+        
+        </div>
+						
+</div> <!-- End #tab1 -->
+</div> <!-- End .content-box-content -->
+
+					

@@ -1,0 +1,22 @@
+  {%for blog in pager.currentPageResults %}
+		<div class="post">
+			<h2><a href="">{{ blog.title }}</a></h2>
+			<div class="posted">
+				<span class="date"> <time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></span>
+				<span class="author"><a href="{{path('fiche',{'id':blog.auteur.id})}}">{{ blog.auteur }}</a></span>
+				<span class="category"><a href="#">News</a></span>
+				<span class="comments"><a href="#">{{ blog.comments|length }} Comments: </a></span>
+				<div class="clear"></div>
+		  </div>
+			<div class="post_thumb"><a href="{{ path('HamdiBlogBundle_blog_show', { 'id': blog.id }) }}"><img src="{{asset('bundles/hamdiblog/images/blog/')}}{{blog.path}}" alt="" width="602" height="224" border="0" class="pic" /></a></div>
+			<div class="excerpt">
+				<p>{{ blog.blog(500) }}</p>
+			</div>
+			<a href="{{ path('HamdiBlogBundle_blog_show', { 'id': blog.id }) }}" title="read more" class="btn alignleft">read more</a>
+			<div class="clear"></div>
+		</div>
+
+                {% endfor %}
+<div class="wp-pagenavi">{{ pagerfanta(pager, 'default',{'routeName': 'homepage_paginated'}) }}</div>
+		<!-- Start Paging -->
+		

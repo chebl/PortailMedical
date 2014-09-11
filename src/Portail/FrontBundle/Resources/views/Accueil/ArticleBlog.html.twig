@@ -1,0 +1,129 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %}
+
+
+{%block stylesheets%}
+{{parent() }}
+<style>
+input[type="text"] { padding: 8px; font: 13px 'Open Sans', Arial, Helvetica, sans-serif; line-height: 16px; color: #808080; border: none; background-color: #fff; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; box-shadow: 1px 1px 2px #c4c4c4; -moz-box-shadow: 1px 1px 2px #c4c4c4; -webbox-shadow: 1px 1px 2px #c4c4c4; }
+input[type="text"] { height: 16px; }
+
+    </style>
+{%endblock%}
+ {%block javascripts %}
+{{parent() }}
+  
+ <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
+                                <script type="text/javascript">
+                                    getTwitters('twitter_update_list', { 
+                                          id: '960development', 
+                                          count: 1,
+                                          enableLinks: true, 
+                                          ignoreReplies: true, 
+                                          clearContents: true,
+                                          template: '%text%'
+                                    });
+                                </script>
+ {%endblock %}
+  {%block header %}
+
+  
+  	{% include 'PortailProfilBundle:Front:header.html.twig'%}
+ {%endblock%}
+ {%block container %}
+  <hgroup class="page-head">
+                        		   </hgroup>
+                        
+                        <div id="container" class="clearfix" style="background-color: whitesmoke;">
+								
+                                <div id="content">
+										<article id="post-example" class="hentry clearfix">
+										
+											<header>
+												<h1 class="post-title">
+                                                    <a href="#">{{ blog.title }}</a>
+												</h1>
+												
+												<div class="post-meta">
+													<span class="author">Publié par <a href="#" rel="author">{{blog.auteur}}</a></span>
+													<span class="date">{{ blog.created|localizeddate('medium', 'medium') }}</span>
+													<span class="category"><a href="#" title="">{{blog.souscategorie}}</a></span>
+													<span class="tag">{{blog.tags}}</span>
+												</div><!-- end of post meta -->
+                                                
+                                                <div class="post-thumb">													
+                                                    <a href="{{asset('bundles/hamdiblog/images/blog/')}}{{blog.path}}" title="" class="pretty-photo"><img src="{{asset('bundles/hamdiblog/images/blog/')}}{{blog.path}}" alt="{{ blog.title }}"></a>																
+                                                    <div class="comment-count">
+                                                        <span><a href="#" title="">{{ blog.comments|length }} Comments</a></span>
+                                                    </div>													
+												</div><!-- end of post thumb -->
+                                               																
+											</header>			
+                                            																			
+                                            <p>{{ blog.blog }}</p>
+																					                                                                                        
+                                            
+										</article>
+                                        
+                                        <section id="comments">
+
+                                            <h3 id="comments-title">Comments ({{ blog.comments|length }} )</h3>                                    
+                                            <ol class="commentlist">
+                                                    {%for comment in comments%}
+                                                    <li class="comment">                
+                                                        <article> 
+														
+                                                            <a href="#">               
+                                                                <img alt="Image" src="{{asset('bundles/portailbloguser/uploads/avatar.gif')}}" class="avatar avatar-60 photo" height="60" width="60">     
+                                                            </a>           
+                                                            <div class="comment-meta">
+                                                                <h5 class="author">
+                                                                    <cite class="fn">{{comment.user}}</cite>
+                                                                </h5>
+                                            
+                                                                <p class="date">
+                                                                    <a href="#">
+                                                                        <time>{{comment.created|localizeddate('medium', 'medium') }}</time>
+                                                                    </a>
+                                                                </p>
+                                                            </div><!-- end .comment-meta -->
+                                            
+                                                            <div class="comment-body">              
+                                                                <p>{{comment.comment}}</p>                                                                                       
+                                                            </div><!-- end of comment-body -->                                            
+                                                        </article><!-- end of comment -->                                       
+                                                        </li>
+														{%endfor%}
+                                         </ol>
+                                         
+                                         
+                                        <div id="respond">
+                                             <form action="{{path('listcomment')}}" method="post" id="commentform">
+                                                <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							
+                                                <p class="comment-form-author"><label for="author">Nom : <span class="required">*</span></label> <input id="author" name="auteur" type="text" value="" size="30" aria-required="true"></p>
+                                                <p class="comment-form-comment"><label for="comment">Commentaire</label><textarea id="comment" name="message" cols="45" rows="8" aria-required="true"></textarea></p>						
+                                                <p class="form-submit">
+                                                    <input name="submit" type="submit" id="submit" value="Publier cette commentaire">
+                                                    <input type="hidden" name="idblog"  value="{{blog.id}}">
+                                                </p>
+                                            </form>
+                                        </div><!-- #respond -->
+						
+									</section>
+										
+                                </div>
+                                
+                               {%render 'PortailBlogUserBundle:BlogUser:sidebar'%}                      
+                                                                
+                                <!-- twitter update list -->
+                               
+                               
+						<a href="#top" id="scroll-top"></a>		
+                        </div>{%include 'PortailFrontBundle:Front:footer.html.twig'%}
+						{%endblock %}
+ 
+ 
+ 
+ 
+ 
+
+

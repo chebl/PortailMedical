@@ -1,0 +1,145 @@
+/* CSS Document */
+
+#header .main-nav{
+background-color:#46a1b4;
+}
+
+a#scroll-top{
+background-color:#46a1b4;
+}
+
+.appointment .header{
+background-color:#46a1b4;
+}
+
+#header .main-nav ul li a{
+color:#ffffff;
+}
+
+.appointment .header h2, .appointment .header h3.number{
+color:#ffffff;
+}
+
+#header .main-nav ul li a{
+text-shadow:1px 1px 0px #20606D;
+}
+
+.appointment .header h2, .appointment .header h3.number{
+text-shadow:1px 1px 0px #20606D;
+}
+
+#wrapper #header .main-nav ul li,  #header .main-nav #topsearch #tsearch{
+border-color:#54AEC2;
+}
+
+#header .main-nav > ul > li ul, #header .main-nav > ul > li:hover, #header .main-nav #topsearch #tsearch{
+background:#377F8F;
+}
+
+#header .main-nav ul li ul li:hover{
+background:#2C6774;
+}
+
+#slider-wrap .slide-nav{
+background-color:#f15a23;
+}
+
+#slider-wrap .slide-nav li.flex-active, #slider-wrap .slide-nav li:hover{
+background-color:#ec490d;
+}
+
+#slider-wrap .slide-nav li{
+border-right-color:#FD7B4D;
+}
+
+#slider-wrap .slide-nav li h4{
+color:#ffffff;
+}
+
+#slider-wrap .slide-nav li h4{
+text-shadow:1px 1px 0px #BE4214;
+}
+
+#slider-wrap .slide-nav li p{
+color:#FAD7CB;
+}
+
+.smart-head, #sidebar .widget h3.title{
+color:#56adc0;
+}
+
+body{
+color:#808080;
+}
+
+h1, h2, h3, h4, h5, h6, #content #filter-by li a, .gallery-item .item-title a{
+color:#6a6a75;
+}
+
+.page-head h2 span, .tabs-nav li.active a, #container #content .tabs-nav li a:hover, #header .social-nav li.phone:hover span, .services .service:hover h4 a, #comments .comment .date a:hover time, #commentform span.required, .gallery-item .item-type-link a:hover, .colored{
+color:#F56734;
+}
+
+#content #filter-by li a.active, #content #filter-by li a:hover, a#scroll-top:hover{
+background-color:#F56734;
+}
+
+#container #content .tabs-nav li.active a{
+border-top-color:#F56734;
+}
+
+::-moz-selection{
+background:#3E96A9;
+}
+
+::selection{
+background:#3E96A9;
+}
+
+a{
+color:#4c595c;
+}
+
+a:hover, a:focus, #header .social-nav li.phone:hover span, .services .service:hover h4 a, #content .faq-unit:hover h4.faq-question, #content .faq-unit.active h4.faq-question, #comments .comment .date a:hover time, .gallery-item .item-title a:hover, .gallery-item .item-type-link a:hover, .post-meta span a:hover{
+color:#f56734;
+}
+
+.readmore, .widget #searchform input[type="submit"], .widget #mc_signup #mc_signup_submit, #commentform input[type="submit"]{
+background-color:#f56734;
+}
+
+.readmore, .widget #searchform input[type="submit"], .widget #mc_signup #mc_signup_submit, #commentform input[type="submit"], footer .footer-widget a.readmore, footer .footer-widget a.readmore:hover, .readmore:hover, .widget #searchform input[type="submit"]:hover, .widget #mc_signup #mc_signup_submit:hover, #commentform input[type="submit"]:hover{
+color:#ffffff;
+}
+
+.readmore, .widget #searchform input[type="submit"], .widget #mc_signup #mc_signup_submit, #commentform input[type="submit"], footer .footer-widget a.readmore, footer .footer-widget a.readmore:hover, .readmore:hover, .widget #searchform input[type="submit"]:hover, .widget #mc_signup #mc_signup_submit:hover, #commentform input[type="submit"]:hover{
+text-shadow:1px 1px 0px #AE421B;
+}
+
+.slogan h2{
+color:#3e96a9;
+}
+
+.slogan h3{
+color:#819093;
+}
+
+#twitter_update_list{
+background-color:#4099ac;
+}
+
+#footer-wrap{
+background-color:#2B2E2F;
+}
+
+#footer-wrap, #footer-wrap p{
+color:#808080;
+}
+
+footer .footer-widget a, footer .footer-widget span, .footer-widget .widget .sidebar-post .sidebar-post-text a{
+color:#CDCDCD;
+}
+
+footer .footer-widget a:hover, footer .footer-widget a:focus, footer .footer-widget a:active, .footer-widget .widget .sidebar-post .sidebar-post-text a:hover, .footer-widget .widget .sidebar-post .sidebar-post-text a:focus, .footer-widget .widget .sidebar-post .sidebar-post-text a:active{
+color:#48A2B6;
+}

@@ -1,0 +1,79 @@
+<?php
+
+namespace Portail\BlogUserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SousCategorieBlog
+ 
+ * @ORM\Entity
+ */
+class SousCategorieBlog
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="DatePublication", type="datetime")
+     */
+    private $datepublication;
+/**
+     * @var CategorieBlog $categorie
+     *
+     * @ORM\ManyToOne(targetEntity="Portail\BlogUserBundle\Entity\CategorieBlog")
+     */
+    private $categorie;
+    
+     /**
+* @ORM\OneToMany(targetEntity="Portail\FrontBundle\Entity\FicheMaladie",
+mappedBy="souscategorie")
+*/
+    private $sousfiches;
+/**
+* @ORM\OneToMany(targetEntity="Portail\FicheMedicamentBundle\Entity\FicheMedicament",
+mappedBy="souscategorie")
+*/
+    private $medicaments;
+
+
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return SousCategorie
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    
+        return $this;
+    }
+
+  
+}

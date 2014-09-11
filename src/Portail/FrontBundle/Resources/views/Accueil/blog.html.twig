@@ -1,0 +1,99 @@
+ {% extends 'PortailFrontBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+{{parent() }}
+{%endblock%}
+ {%block javascripts %}
+{{parent() }}
+  
+ <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
+                                <script type="text/javascript">
+                                    getTwitters('twitter_update_list', { 
+                                          id: '960development', 
+                                          count: 1,
+                                          enableLinks: true, 
+                                          ignoreReplies: true, 
+                                          clearContents: true,
+                                          template: '%text%'
+                                    });
+     </script>
+
+<script type='text/javascript' src="{{asset('bundles/portailbloguser/js/jquery.cookie.js')}}"></script>
+<script type='text/javascript' src="{{asset('bundles/portailbloguser/js/jquery.hoverIntent.minified.js')}}"></script>
+<script type='text/javascript' src="{{asset('bundles/portailbloguser/js/jquery.dcjqaccordion.2.7.min.js')}}"></script>
+<script>
+    jQuery(document).ready(function($) {
+    jQuery('#accordion').dcAccordion();
+    $('#accordion').dcAccordion({
+eventType: 'hover',
+autoClose: true,
+saveState: true,
+disableLink: true,
+showCount: false,
+menuClose: true,
+speed: 'fast'
+});
+});
+</script>	 
+	 
+	 
+ {%endblock %}
+  {%block header %}
+
+  
+  	{% include 'PortailProfilBundle:Front:header.html.twig'%}
+ {%endblock%}
+ {%block container %}
+  <hgroup class="page-head">
+                        		<h2><span></span></h2>
+                                 </hgroup>
+ <div id="container" class="clearfix" style="background-color: whitesmoke;">
+								
+                                <div id="content">
+                               
+										 {%for blog in  pager.currentPageResults%}
+                                        
+                                        <article id="post_fourth" class="hentry clearfix">										
+											<header>
+												<h3 class="post-title">
+                                                    <a href="#">{{ blog.title }}</a>
+												</h3>
+												
+												<div class="post-meta">
+													<span class="author">Publié par {{ blog.auteur }}</span>
+													<span class="date">{{ blog.created|localizeddate('medium', 'medium') }}</span>
+													<span class="category">{{ blog.souscategorie}}</span>
+													<span class="tag">{{ blog.tags}}</span>
+												</div><!-- end of post meta -->
+                                              
+														<div class="post-thumb">													
+																<a href="{{ path('HamdiBlogBundle_blog_show', { 'id': blog.id }) }}" title="Post Image"><img src="{{asset('bundles/hamdiblog/images/blog/')}}{{blog.path}}" alt="Post Image"></a>					
+															
+                                                                <div class="comment-count">
+                                                                    <span>{{ blog.nbvue }} Vues</span>
+                                                                    <span>{{ blog.comments|length }} Commentaires</span>
+                                                                </div>																																											
+                                                        </div><!-- end of post thumb -->
+                                               														
+											</header>																						
+                                            <p>{{blog.extrait}} ...</p>                                          
+											<a href="{{ path('HamdiBlogBundle_blog_show', { 'id': blog.id }) }}" class="readmore">Lire la suite</a>																						
+										</article>
+											 {% endfor %}
+											 
+											<div id="pagination">{{ pagerfanta(pager, 'default') }}</div>
+											
+                                </div>
+                                 {%include 'PortailFrontBundle:Accueil:sidebar.html.twig'%}
+                                           
+                             
+                               
+                                
+                               
+						<a href="#top" id="scroll-top"></a>
+                                                  
+                        </div>
+ {%include 'PortailFrontBundle:Front:footer.html.twig'%} 
+					{%endblock%}
+
+					

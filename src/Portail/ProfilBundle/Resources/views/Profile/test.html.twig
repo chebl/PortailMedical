@@ -1,0 +1,93 @@
+{% extends 'AcmeDemoBundle::index.html.twig' %}  
+
+    
+    
+   
+         {% block header %} 
+              {% include 'AcmeDemoBundle:Front:header.html.twig' %}
+         {% endblock %}
+               <!-- Container -->
+         {% block container %}       
+        <div id="container">
+        
+            <!-- Top -->
+			<div class="top"> 
+            	<!-- Logo -->
+            	<div id="logo">
+                	<h2>ANDERSON SMITH</h2>
+                    <h4>GRAPHIC & WEB DESIGNER</h4>
+                </div>
+                <!-- /Logo -->
+                
+                <!-- Social Icons -->
+                <ul class="socialicons">
+                	<li><a href="#" class="social-text">SOCIAL PROFILES</a></li>
+                	<li><a href="#" class="social-facebook"></a></li>
+                    <li><a href="#" class="social-twitter"></a></li>
+                    <li><a href="#" class="social-in"></a></li>
+                    <li><a href="#" class="social-googleplus"></a></li>
+                </ul>
+                <!-- /Social Icons -->
+            </div>
+            <!-- /Top -->
+            
+            <!-- Content -->
+            <div id="content" >
+            
+               
+                
+                     
+                                        
+                    {% include 'AcmeDemoBundle:Profile:personal_info.html.twig' %}
+
+                    {% include 'AcmeDemoBundle:Profile:menu.html.twig' %}
+                
+                    {% include 'AcmeDemoBundle:Profile:sousmenu1.html.twig' %}
+                
+                    {% include 'AcmeDemoBundle:Profile:sousmenu2.html.twig' %}
+                
+                    {% include 'AcmeDemoBundle:Profile:sousmenu3.html.twig' %}
+                                        
+                  
+                
+                
+
+            </div>
+            <!-- /Content -->
+            
+           
+	    
+            
+        </div>
+		<!-- /Container -->
+        {% endblock %}      
+    
+    {% block stylesheets %}
+               
+        <link rel="stylesheet" href="{{asset('bundles/acmedemo/css/media-queries.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('bundles/acmedemo/profile/css/reset.css')}}"/> 
+        <link rel="stylesheet" type="text/css" href="{{asset('bundles/acmedemo/profile/css/style.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('bundles/acmedemo/profile/css/fancybox.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,800,700,400italic|PT+Serif:400,400italic"/>
+       
+    {% endblock %}
+    {% block javascripts %}    
+        
+        <script type="text/javascript" src="{{asset('bundles/acmedemo/profile/js/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('bundles/acmedemo/profile/js/jquery.easytabs.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('bundles/acmedemo/profile/js/respond.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('bundles/acmedemo/profile/js/jquery.easytabs.min.js')}}"></script>   
+        <script type="text/javascript" src="{{asset('bundles/acmedemo/profile/js/jquery.adipoli.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('bundles/acmedemo/profile/js/jquery.fancybox-1.3.4.pack.js')}}"></script>
+        <script type="text/javascript" src="{{asset('bundles/acmedemo/profile/js/jquery.isotope.min.js')}}"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="{{asset('bundles/acmedemo/profile/js/jquery.gmap.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('bundles/acmedemo/profile/js/custom.js')}}"></script>
+    {% endblock %}
+    
+    
+
+   
+        
+
+   

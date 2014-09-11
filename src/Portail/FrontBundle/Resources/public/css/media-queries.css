@@ -1,0 +1,655 @@
+/* Tablet Portrait size 768 to standard 979 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	Header
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper #header { width: 740px; height: 150px; }	
+	#wrapper #header .main-nav ul li a { padding: 0px 10px; font-size: 12px; }	
+	#wrapper #header .main-nav #topsearch { width: 150px; }
+	#wrapper #header .main-nav #topsearch #tsearch { width: 108px;  }
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Slider
+	/*-----------------------------------------------------------------------------------*/	
+	#wrapper #slider-wrap { width:740px; height: 410px; }
+	#wrapper #slider-wrap .slides { height: 336px; }	
+	#wrapper #slider-wrap .slide-nav { width: 740px; height: 74px; }
+	#wrapper #slider-wrap .slide-nav li { width: 137px; height: 74px; padding: 8px 5px 0px 5px; }
+
+    #wrapper #slider-wrap .slide-nav.slides-5 li { width: 137px; }
+    #wrapper #slider-wrap .slide-nav.slides-4 li { width: 174px; }
+    #wrapper #slider-wrap .slide-nav.slides-3 li { width: 235px; }
+    #wrapper #slider-wrap .slide-nav.slides-2 li { width: 359px; }
+    #wrapper #slider-wrap .slide-nav.slides-1 li { width: 729px; }
+
+	#wrapper #slider-wrap .slide-nav li h4 { font-size: 14px; text-align: center; margin: 0px; }
+	#wrapper #slider-wrap .slide-nav li p { font-size:11px; text-align:center;}
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Container and Services
+	/*-----------------------------------------------------------------------------------*/	
+	#wrapper .page-head { width:650px; }
+	#wrapper #container { width: 740px; }	
+	#wrapper #container #content { width: 480px; }	
+	#wrapper #container #content.full-width{ width:740px; }
+	#wrapper #container #sidebar { width: 240px; float: right; margin: 0px 0px 30px; }
+	#wrapper .services { padding: 0px 0px 30px; margin: 0px 0px 30px; }
+	#wrapper .services .service { width: 132px; margin: 0px 8px;}
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Services Page Styles
+	/*-----------------------------------------------------------------------------------*/
+	.service-list.three-col ul li { width: 100%; padding: 0px 0px 35px; margin: 0px 0px 35px 30px; float: none; }
+	.service-list.three-col figure { float:left; margin:0px 30px 30px 0px; }	
+	.service-list.four-col ul li { width: 355px; padding: 0px 0px 35px; margin: 0px 0px 35px 30px; float: left; }
+	.service-list.four-col figure { width: 160px; height:auto; float:left; margin: 0px 15px 15px 0px;  }
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Team
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper .home-left-side { width:480px; }
+	#wrapper .official .team { width: 480px; margin:0 0 10px; }
+	#wrapper .official .team p { margin: 0px 0px 15px; }
+	#wrapper .official .team .doctors li { width: 100%; float: none; margin: 0px 0px 10px; position: relative; overflow: hidden; }
+	#wrapper .official .team .doctors li h4 { border-bottom: 1px solid #e6e6e6; margin: 0px 0px 10px; padding: 0px 0px 5px; }
+	#wrapper .official .team .doctors li .doc-img { width: 126px; height: 100px; margin: 0px 20px 10px 0px; float: left; }	
+	#wrapper .official .team .doctors li .doc-img img { width: 100%; }
+	#wrapper .official .team .doctors li .doc-img .doc-type {  padding: 3px 5px; font-size:10px; line-height:12px; }	
+	#wrapper .official .team .readmore { display:none; }	
+	#wrapper .official .appointment { margin: 10px 0px 50px; }
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Testimonials
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper .testi { width: 400px; padding-right:0px; }
+	#wrapper .testi .author { text-align: right; }
+	#wrapper .newsletter{ width:240px; }
+	#wrapper .newsletter p { margin: 0px 0px 20px; }
+	#wrapper .newsletter #newsletter input[type="submit"] { margin: 10px 0px 0px 0px;  }
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Footer Area
+	/*-----------------------------------------------------------------------------------*/
+	footer { width: 740px; }
+	footer { padding: 60px 0px; }
+	footer .footer-widget { width: 173px; margin: 0px 16px 0px 0px; }
+	footer .footer-widget h3 { font-size: 20px; margin: 0px 0px 20px; }
+	footer .footer-widget p { margin: 0px 0px 15px; }
+
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Footer Bottom Styles
+	/*-----------------------------------------------------------------------------------*/
+	#footer-bottom { width: 740px; }
+
+
+			
+	/*-----------------------------------------------------------------------------------*/
+	/*	Doctors List Styles
+	/*-----------------------------------------------------------------------------------*/
+	.doc_list { margin: 0px 0px 30px; }
+	.doc_list .doctors li { width: 355px; margin: 0px 0px 30px 30px; }
+	.doc_list .doctors li .doc-img { width: 170px; height: 135px; }
+	.doc_list .doctors li .doc-img img { display: block; position: relative; width: 100%; }
+	
+	.doc_list.four_col .doctors li { width: 226px; margin: 0px 0px 30px 30px; }
+	.doc_list.four_col .doctors li .doc-img { width: 214px; height: 148px; float: none; margin: 0px 0px 20px 0px; overflow: hidden; }
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Contact Page Styles
+	/*-----------------------------------------------------------------------------------*/
+	#map_canvas{ width:472px; }
+	#contact-form textarea{ width:460px; }
+	#sidebar .appointment { width:240px; float:none; margin:0px 0px 20px;  }
+	#sidebar .appointment .header { text-align:center; }
+	#sidebar .appointment .header h2{ font-size:18px;  }
+	#sidebar .appointment .header h3{ font-size: 18px; }
+	#sidebar .appointment .select-wrap{ display:block; margin-bottom:15px; }
+	#sidebar .widget #searchform input[type="text"] { margin-bottom:10px; }
+	#sidebar .widget #searchform input[type="submit"] { margin: 0px 0px 0px 0px; }
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Single Blog Page Styles
+	/*-----------------------------------------------------------------------------------*/
+	article .post-thumb { width:472px; }
+	article .post-thumb img{ width:472px; }
+	
+	
+	/* --------------------------------------- */
+	/*	Comments
+	/* --------------------------------------- */
+	#comments .comment .comment-body, 
+	#comments .comment .comment-meta { width: 395px; }
+	#comments .commentlist .children { padding: 0 0 0 85px; }
+	#comments .commentlist .children .children { padding: 0 0 0 0px; }
+	#comments .commentlist .children .depth-2 .comment-body, 
+	#comments .commentlist .children .depth-2 .comment-meta { width: 310px; }
+	#comments .commentlist .children .depth-3 .comment-body, 
+	#comments .commentlist .children .depth-3 .comment-meta { width: 310px; }
+	#comments .commentlist .children .depth-4 .comment-body, 
+	#comments .commentlist .children .depth-4 .comment-meta { width: 310px; }
+	#comments .commentlist .children .depth-5 .comment-body, 
+	#comments .commentlist .children .depth-5 .comment-meta { width: 310px; }	
+	
+	
+	/* --------------------------------------- */
+	/*	Gallery
+	/* --------------------------------------- */
+	#content #filter-by li a{ margin-bottom:10px; }
+	.gallery-4-columns { margin-left:-20px;}
+	.gallery-4-columns .gallery-item img{ width:162px; }
+	.gallery-4-columns .gallery-item{ width:170px; margin-left:20px;}
+	
+	.gallery-3-columns { margin-left:-25px;}
+	.gallery-3-columns .gallery-item img{ width:222px; }
+	.gallery-3-columns .gallery-item{ width:230px; float:left; margin-left:25px;}
+	
+	.gallery-2-columns { margin-left:-30px;}
+	.gallery-2-columns .gallery-item img{ width:347px; }
+	.gallery-2-columns .gallery-item{ width:355px; float:left; margin-left:30px;}
+	
+	
+	/* --------------------------------------- */
+	/*	CPATCHA
+	/* --------------------------------------- */
+	.captcha-container img{ vertical-align:top; margin:0 5px 10px 0; }
+}
+
+
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	Header
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper #header { width: 440px; height: auto; }
+	#wrapper #header .logo { position: static; display: inline; top: auto; left: auto; text-align: center; }
+	#wrapper #header .logo img { display: block; margin: 0px auto 10px; }
+	#wrapper #header .logo .tagline { display:block; margin: 0px 0px 10px; }
+	
+		/* Social Nav Styles ----------------------------------------------------------*/
+		#wrapper #header .social-nav {  position: relative; display:block; top: auto; right: auto; margin: 0px 0px 15px; text-align: center; }
+		#wrapper #header .social-nav li { display: inline-block; margin-bottom:10px; }
+		#wrapper #header .social-nav li.phone { display:block; clear:both; margin:0 auto;  }
+		
+		/* Main Nav Styles ----------------------------------------------------------*/
+		#wrapper #header .main-nav { border-radius: none; position: relative; width: auto; height: auto; margin: 0px 0px 0px; padding: 0px 0px 40px; }
+		#wrapper #header .main-nav ul li { width: 50%; height: 28px; border: none; border-bottom: 1px solid; }
+		#wrapper #header .main-nav ul li:first-child { border-radius: 0px; }		
+		#wrapper #header .main-nav ul li a { display: block; width: 160px; line-height: 28px; text-align: left; }	
+		#wrapper #header .main-nav ul li ul { display: none; width: 200px; padding: 0px; position: absolute; top: 28px; left: 0px; z-index: 8899; border-bottom-left-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; }
+		#wrapper #header .main-nav ul li ul li { width: 176px; height: auto; padding: 0px 12px; position: relative; }
+		#wrapper #header .main-nav ul li ul li a { display: inline-block; height: 27px; line-height: 27px; padding: 0px 9px; border: none; }
+		#wrapper #header .main-nav ul li ul li:hover > a { background: none; border: none; }
+		#wrapper #header .main-nav ul li ul li ul { position: static; margin-left: -12px; }
+		#wrapper #header .main-nav ul li ul li ul li ul {  }
+
+		/* Search Form Styles ----------------------------------------------------------*/
+		#wrapper #header .main-nav #topsearch { position:absolute; width: 410px; bottom:-20px; left:10px; top:auto; right:auto; }
+		#wrapper #header .main-nav #topsearch #tsearch { width: 370px;  }
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Slider
+	/*-----------------------------------------------------------------------------------*/	
+	#wrapper #slider-wrap { width:440px; height: 259px; margin-bottom:20px; }
+	#wrapper #slider-wrap .slides { height: 199px; }	
+	#wrapper #slider-wrap .slide-nav { width: 440px; height: 60px; }
+	#wrapper #slider-wrap .slide-nav li { width: 77px; height: 55px; padding: 5px 5px 0px 5px; }
+
+    #wrapper #slider-wrap .slide-nav.slides-5 li { width: 77px; }
+    #wrapper #slider-wrap .slide-nav.slides-4 li { width: 99px; }
+    #wrapper #slider-wrap .slide-nav.slides-3 li { width: 135px; }
+    #wrapper #slider-wrap .slide-nav.slides-2 li { width: 209px; }
+    #wrapper #slider-wrap .slide-nav.slides-1 li { width: 429px; }
+
+	#wrapper #slider-wrap .slide-nav li h4 { font-size: 12px; font-weight:normal; text-align: center; margin: 0px; }
+	#wrapper #slider-wrap .slide-nav li p { display:none;}
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Container
+	/*-----------------------------------------------------------------------------------*/	
+	#wrapper .page-head { width:390px; padding: 25px 25px 20px; }
+	#wrapper #container { width: 440px; }	
+	#wrapper #container #content { width: 440px; margin: 0px auto 20px; }	
+	#wrapper #container #sidebar { width: 440px; float: none; clear:both; margin: 0px auto 20px; }
+	#wrapper #container #content.full-width{ width:440px; }
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Columns Style
+	/*-----------------------------------------------------------------------------------*/
+	#container .columns .one-third,
+	#container .columns .one-fourth,	
+	#container .columns .one-half,
+	#container .columns .three-fourth,
+	#container .columns .two-third,
+	#container .columns .single-col { width: 98%; margin: 0px 0px 0px 2%; }
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Slogans
+	/*-----------------------------------------------------------------------------------*/
+	.slogan { margin: 0px 0px 35px; }
+	.slogan h2 { font-size: 24px; }
+	.slogan h3 { font-size: 12px; }		
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Services
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper .services { padding: 0px 0px 20px; margin: 0px 0px 20px; }
+	#wrapper .services .service { width:100%; float:none; overflow:hidden; text-align:left; margin-bottom:10px; }
+	#wrapper .services .service h4{ padding-top:10px;}
+	#wrapper .services .service .service-thumb { float:left; margin:0px 20px 10px 0px; }
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Services Page Styles
+	/*-----------------------------------------------------------------------------------*/
+	.service-list.three-col ul li { width: 100%; padding: 0px 0px 35px; margin: 0px 0px 25px 30px; float: none; }
+	.service-list.three-col figure { width:200px; height:auto; float:left; margin:0px 20px 20px 0px; }
+	.service-list.four-col ul li { width: 100%; padding: 0px 0px 35px; margin: 0px 0px 35px 30px; float: left; }
+	.service-list.four-col figure { width: 214px; height:auto; float:left; margin: 0px 20px 20px 0px;  }	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Team
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper .home-left-side { width:440px; float:none; }
+	#wrapper .official { border-bottom: 1px solid #e6e6e6; }
+	#wrapper .official .team { width: auto; float:none; padding-bottom:20px; border-bottom: 1px solid #e6e6e6; margin-bottom:20px; }
+	#wrapper .official .team p { margin: 0px 0px 15px; }
+	#wrapper .official .team .doctors li { width: 100%; float: none; margin: 0px 0px 10px; position: relative; overflow: hidden; }
+	#wrapper .official .team .doctors li h4 { border-bottom: 1px solid #e6e6e6; margin: 0px 0px 10px; padding: 0px 0px 5px; }
+	#wrapper .official .team .doctors li .doc-img { width: 126px; height: 100px; margin: 0px 20px 10px 0px; float: left; }	
+	#wrapper .official .team .doctors li .doc-img img { width: 100%; }
+	#wrapper .official .team .doctors li .doc-img .doc-type {  padding: 3px 5px; font-size:10px; line-height:12px; }	
+	#wrapper .official .team .readmore { float: right; }	
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Apppointment Form
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper .official .appointment { float:none; margin:0px auto 20px;  }
+	#wrapper .appointment .header .number { font-size:18px;}
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Testimonials
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper .testi { width: 440px; padding:0px 0px 20px; float:none; margin:20px 0px; border-bottom: 1px solid #e6e6e6; margin-bottom:20px; }
+	#wrapper .testi .author { text-align: right; }
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Newsletter
+	/*-----------------------------------------------------------------------------------*/
+	.newsletter { float: none; margin:0 auto; }
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Footer Area
+	/*-----------------------------------------------------------------------------------*/
+	footer {  width: 440px; padding: 40px 0px 20px; }
+	footer .footer-widget { float:none; width: 400px; margin: 0px 20px 20px 20px; }
+	footer .footer-widget h3 { font-size: 20px; margin: 0px 0px 20px; }
+	footer .footer-widget p { margin: 0px 0px 15px; }
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Footer Bottom Styles
+	/*-----------------------------------------------------------------------------------*/
+	#footer-bottom { width: 440px; height: auto; padding: 7px 0px 5px; }
+	#footer-bottom p { font-size: 11px; line-height: 20px; text-align:center; }
+	#footer-bottom .copyrights { float: none; }
+	#footer-bottom .author { float: none; }
+
+
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Doctors List Styles
+	/*-----------------------------------------------------------------------------------*/	
+	.doc_list { margin: 0px 0px 30px; }
+	.doc_list .doctors li { width: 440px; margin: 0px 0px 30px 30px; }
+	.doc_list .doctors li .doc-img { width: 214px; height: 170px; }
+	.doc_list .doctors li .doc-img img { display: block; position: relative; width: 100%; }
+
+	.doc_list.four_col .doctors li { width: 205px; margin: 0px 0px 30px 30px; }
+	.doc_list.four_col .doctors li .doc-img { width: 197px; height: auto; float: none; margin: 0px 0px 20px 0px; overflow: hidden; }	
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Contact Page Styles
+	/*-----------------------------------------------------------------------------------*/
+	#map_canvas{ width:432px; }
+	#contact-form textarea{ width:420px; }
+	#sidebar .appointment { float:none; margin:0px auto 20px;  }
+	#sidebar .widget #searchform input[type="text"] { width:70%; }
+	#sidebar .widget #searchform input[type="submit"] { margin: 0px 0px 0px 10px; }
+	
+		
+	/*-----------------------------------------------------------------------------------*/
+	/*	Single Blog Page Styles
+	/*-----------------------------------------------------------------------------------*/
+	article .post-thumb { width:432px; }
+	article .post-thumb img{ width:432px; }
+	
+	
+	/* --------------------------------------- */
+	/*	Comments
+	/* --------------------------------------- */
+	#comments .comment .comment-body, 
+	#comments .comment .comment-meta { width: 355px; }
+	#comments .commentlist .children { padding: 0 0 0 85px; }
+	#comments .commentlist .children .children { padding: 0 0 0 0px; }
+	#comments .commentlist .children .depth-2 .comment-body, 
+	#comments .commentlist .children .depth-2 .comment-meta { width: 280px; }
+	#comments .commentlist .children .depth-3 .comment-body, 
+	#comments .commentlist .children .depth-3 .comment-meta { width: 280px; }
+	#comments .commentlist .children .depth-4 .comment-body, 
+	#comments .commentlist .children .depth-4 .comment-meta { width: 280px; }
+	#comments .commentlist .children .depth-5 .comment-body, 
+	#comments .commentlist .children .depth-5 .comment-meta { width: 280px; }
+	#commentform input[type=text]{ width:80%;}
+	#commentform textarea { width:90%; }
+	
+	
+	
+	/* --------------------------------------- */
+	/*	Gallery
+	/* --------------------------------------- */
+	#content #filter-by li a{ margin-bottom:10px; }
+	.gallery-4-columns { margin-left:-24px;}
+	.gallery-4-columns .gallery-item img{ width:200px; }
+	.gallery-4-columns .gallery-item{ width:208px; margin-left:24px;}
+	
+	.gallery-3-columns { margin-left:-24px;}
+	.gallery-3-columns .gallery-item img{ width:200px; }
+	.gallery-3-columns .gallery-item{ width:208px; float:left; margin-left:24px;}
+	
+	.gallery-2-columns { margin-left:-24px;}
+	.gallery-2-columns .gallery-item img{ width:200px; }
+	.gallery-2-columns .gallery-item{ width:208px; float:left; margin-left:24px;}
+	
+	
+	/* --------------------------------------- */
+	/*	CPATCHA
+	/* --------------------------------------- */
+	.captcha-container img{ vertical-align:top; margin:0 5px 10px 0; }
+}
+
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px){
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	Header
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper #header { width: 290px; height: auto; }
+	#wrapper #header .logo { position: static; display: inline; top: auto; left: auto; text-align: center; }
+	#wrapper #header .logo img { display: block; margin: 0px auto 10px; }
+	#wrapper #header .logo .tagline { display:block; margin: 0px 0px 10px; }
+	
+		/* Social Nav Styles ----------------------------------------------------------*/
+		#wrapper #header .social-nav { display:block; position: relative; top: auto; right: auto; margin:0px; text-align: center; }
+		#wrapper #header .social-nav li { display: inline-block; float: none; border:none;  }
+		#wrapper #header .social-nav li.phone { display:block; clear:both; margin:0 auto;  }
+		
+		/* Main Nav Styles ----------------------------------------------------------*/
+		#wrapper #header .main-nav .responsive-nav { display: block; }
+        #wrapper #header .main-nav > div { float: none; }
+		#wrapper #header .main-nav { border-radius: none; position: relative; width: auto; height: auto; margin: 0px 0px 0px; padding: 0px 0px 40px;  }
+		#wrapper #header .main-nav ul { display:none;}
+		#wrapper #header .main-nav ul li { width: 50%; height: 28px; border-right:none; border-bottom-style:solid; border-bottom-width:1px; }
+		#wrapper #header .main-nav ul li:first-child { border-radius: 0px; }
+		#wrapper #header .main-nav ul li a { display: block; width: 250px; line-height: 28px; text-align: left; }	
+		#wrapper #header .main-nav ul li ul { display: none; width: 140px; padding: 0px; position: absolute; top: 28px; left: 0px; z-index: 8899; border-bottom-left-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; }
+		#wrapper #header .main-nav ul li ul li { width: 120px; height: auto; padding: 0px 10px; position: relative; }
+		#wrapper #header .main-nav ul li ul li a { display: inline-block; height: 27px; line-height: 27px; padding: 0px 9px; border: none; }
+		#wrapper #header .main-nav ul li ul li:hover > a { background: none; border: none; }
+		#wrapper #header .main-nav ul li ul li ul { position: static; margin-left: -12px; }
+		#wrapper #header .main-nav ul li ul li ul li ul {  }	
+		
+		/* Search Form Styles ----------------------------------------------------------*/
+		#wrapper #header .main-nav #topsearch { position:absolute; width: 260px; bottom:-20px; left:12px; top:auto; right:auto; overflow:hidden; }
+		#wrapper #header .main-nav #topsearch #tsearch { width: 220px;  }
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Slider
+	/*-----------------------------------------------------------------------------------*/	
+	#wrapper #slider-wrap { width:290px; height: auto; margin-bottom:20px; }
+	#wrapper #slider-wrap .slides { height: 131px; border-top: none; border-bottom: none; }		
+	#wrapper #slider-wrap .slide-nav { width: 100%; height: auto; background: none; text-align: center; }	
+	#wrapper #slider-wrap .slide-nav li { background-color:#e6e6e6; width: 20px; height: 10px; margin: 0px 3px; float: none; padding: 0px; display: inline-block; font-size: 0px; border: none; }
+	#wrapper #slider-wrap .slide-nav li:hover,
+	#wrapper #slider-wrap .slide-nav li.flex-active { background-color:#d6d6d6; }
+	#wrapper #slider-wrap .slide-nav li h4 { display:none; }
+	#wrapper #slider-wrap .slide-nav li p { display:none;}
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Container
+	/*-----------------------------------------------------------------------------------*/	
+	#wrapper .page-head { width:270px; padding: 15px 10px 10px; }
+	#wrapper #container { width: 290px; }	
+	#wrapper #container #content { width: 290px; margin: 0px auto 20px; }	
+	#wrapper #container #sidebar { width: 290px; float: none; clear:both; margin: 0px auto 20px; }
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Columns Style
+	/*-----------------------------------------------------------------------------------*/
+	#container .columns .one-third,
+	#container .columns .one-fourth,	
+	#container .columns .one-half,
+	#container .columns .three-fourth,
+	#container .columns .two-third,
+	#container .columns .single-col { width: 98%; margin: 0px 0px 0px 2%; }
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Slogans
+	/*-----------------------------------------------------------------------------------*/
+	.slogan { margin: 0px 0px 35px; }
+	.slogan h2 { font-size: 24px; }
+	.slogan h3 { font-size: 12px; }		
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Services
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper .services { padding: 0px 0px 20px; margin: 0px 0px 20px; }
+	#wrapper .services .service { width:100%; float:none; overflow:hidden; text-align:left; margin-bottom:10px; }
+	#wrapper .services .service h4{ padding-top:0px;}
+	#wrapper .services .service .service-thumb { float:left; margin:0px 20px 20px 0px; }		
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Services Page Styles
+	/*-----------------------------------------------------------------------------------*/
+	.service-list.single-col ul li { padding: 0px 0px 35px; margin: 0px 0px 35px; }
+	.service-list.single-col figure { width: 282px; height: auto; float: none; margin: 0px 0px 20px 0px;  }
+	.service-list.single-col figure img { width: 100%; height: auto; }
+	.service-list.three-col ul li { width: 100%; padding: 0px 0px 35px; margin: 0px 0px 35px 30px; float: none; }
+	.service-list.three-col figure {  width: 282px; height: auto; margin: 0px 0px 20px 0px; }
+	.service-list.four-col ul{ margin:0px;}
+	.service-list.four-col ul li { width: 222px; padding: 0px 0px 20px; margin: 0px auto 20px; float: none; text-align:center; }
+	.service-list.four-col figure { width: 214px; height:auto; float:left; margin: 0px 20px 20px 0px;  }		
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Team
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper .home-left-side { width:290px; float:none;  }
+	#wrapper .official { border-bottom: 1px solid #e6e6e6; }
+	#wrapper .official .team { width: auto; float:none; padding-bottom:20px; border-bottom: 1px solid #e6e6e6; margin-bottom:20px; }
+	#wrapper .official .team p { margin: 0px 0px 15px; }
+	#wrapper .official .team .doctors li { width: 100%; float: none; margin: 0px 0px 10px; position: relative; overflow: hidden; }
+	#wrapper .official .team .doctors li h4 { border-bottom: 1px solid #e6e6e6; margin: 0px 0px 10px; padding: 0px 0px 5px; }
+	#wrapper .official .team .doctors li .doc-img { width: 126px; height: 100px; margin: 0px 20px 10px 0px; float: left; }	
+	#wrapper .official .team .doctors li .doc-img img { width: 100%; }
+	#wrapper .official .team .doctors li .doc-img .doc-type {  padding: 3px 5px; font-size:10px; line-height:12px; }	
+	#wrapper .official .team .readmore { float: right; }	
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Apppointment Form
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper .official .appointment { width:290px; float:none; margin:0px 0px 20px;  }
+	#wrapper .official .appointment .header { text-align:center; }
+	#wrapper .official .appointment .header h2{ font-size:20px;  }
+	#wrapper .official .appointment .header h3{ font-size: 18px; width:140px; margin:0 auto; }
+	#wrapper .official .appointment .select-wrap{ display:block; margin-bottom:15px; }
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Testimonials
+	/*-----------------------------------------------------------------------------------*/
+	#wrapper .testi { width: 290px; padding:0px 0px 20px; float:none; margin:20px 0px; border-bottom: 1px solid #e6e6e6; margin-bottom:20px; }
+	#wrapper .testi h2.smart-head{ font-size:24px;}
+	#wrapper .testi .author { text-align: right; }
+	#wrapper .testi .patient-nav { margin-left:0px; }
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Newsletter
+	/*-----------------------------------------------------------------------------------*/
+	.newsletter { width:290px; float: none; margin:0 auto; }
+	.newsletter p{ margin:0px 0px 15px;}
+	.newsletter #nl_email{ width:150px;}
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Footer Area
+	/*-----------------------------------------------------------------------------------*/
+	footer {  width: 290px; padding: 40px 0px 20px; }
+	footer .footer-widget { float:none; width: 280px; margin: 0px 5px 20px 5px; }
+	footer .footer-widget h3 { font-size: 20px; margin: 0px 0px 10px; }
+	footer .footer-widget p { margin: 0px 0px 15px; }
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Footer Bottom Styles
+	/*-----------------------------------------------------------------------------------*/
+	#footer-bottom { width: 290px; height: auto; padding: 7px 0px 5px; }
+	#footer-bottom p { font-size: 11px; line-height: 20px; text-align:center; }
+	#footer-bottom .copyrights { float: none; }
+	#footer-bottom .author { float: none; }
+
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	Doctors List Styles
+	/*-----------------------------------------------------------------------------------*/	
+	.doc_list { margin: 0px 0px 30px; }
+	.doc_list .doctors li { width: 290px; margin: 0px 0px 30px 30px; }
+	.doc_list .doctors li .doc-img { width: 214px; height: 170px; float:none; margin:0 0 20px; }
+	.doc_list .doctors li .doc-img img { display: block; position: relative; width: 100%; }
+
+	.doc_list.four_col .doctors li { width: 290px; margin:0 0 20px 30px; }
+	.doc_list.four_col .doctors li .doc-img { width: 214px; height: auto; float: none; margin: 0px 0px 20px 0px; overflow: hidden; }	
+			
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Contact Page Styles
+	/*-----------------------------------------------------------------------------------*/
+	#map_canvas{ width:282px; }
+	#contact-form input[type=text]{ width:250px; }
+	#contact-form textarea{ width:255px; }
+	#sidebar .appointment { width:290px; float:none; margin:0px 0px 20px;  }
+	#sidebar .appointment .header { text-align:center; }
+	#sidebar .appointment .header h2{ font-size:20px;  }
+	#sidebar .appointment .header h3.number { font-size:18px; width:150px; margin:0 auto; }
+	#sidebar .appointment .select-wrap{ display:block; margin-bottom:15px; }
+	#sidebar .widget #searchform input[type="text"] { margin-bottom:10px; width:90%; }
+	#sidebar .widget #searchform input[type="submit"] { margin: 0px 0px 0px 0px; }
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Single Blog Page Styles
+	/*-----------------------------------------------------------------------------------*/
+	article .post-thumb .comment-count{ display:none; }
+	article .post-meta span{ display:inline-block; margin-bottom:10px; }
+	article .post-thumb { width:282px; }
+	article .post-thumb img{ width:282px; }
+	
+	
+	
+	/*-----------------------------------------------------------------------------------*/
+	/*	Doctor Page
+	/*-----------------------------------------------------------------------------------*/
+	.doctor-img{ float:none; margin:0 auto; }
+	
+	
+	/* --------------------------------------- */
+	/*	Comments
+	/* --------------------------------------- */
+	#comments .comment .avatar { float:none; }
+	#comments .comment .comment-body, 
+	#comments .comment .comment-meta { width: 290px; }
+	#comments .commentlist .children { padding: 0 0 0 0px; }
+	#comments .commentlist .children .depth-2 .comment-body, 
+	#comments .commentlist .children .depth-2 .comment-meta { width: 290px; }
+	#comments .commentlist .children .depth-3 .comment-body, 
+	#comments .commentlist .children .depth-3 .comment-meta { width: 290px; }
+	#comments .commentlist .children .depth-4 .comment-body, 
+	#comments .commentlist .children .depth-4 .comment-meta { width: 290px; }
+	#comments .commentlist .children .depth-5 .comment-body, 
+	#comments .commentlist .children .depth-5 .comment-meta { width: 290px; }
+	#commentform input[type=text]{ width:90%;}
+	#commentform textarea { width:90%; }
+	
+	
+	/* --------------------------------------- */
+	/*	Gallery
+	/* --------------------------------------- */
+	#content #filter-by { text-align:center; }
+	#content #filter-by li a{ margin-bottom:10px; }
+	.gallery-4-columns { margin-left:0;}
+	.gallery-4-columns .gallery-item img{ width:auto; }
+	.gallery-4-columns .gallery-item{ float:none; margin-left:0; }
+	
+	.gallery-3-columns { margin-left:0;}
+	.gallery-3-columns .gallery-item img{ width:282px; }
+	.gallery-3-columns .gallery-item{ width:auto; float:none; margin-left:0; }
+	
+	.gallery-2-columns { margin-left:0;}
+	.gallery-2-columns .gallery-item img{ width:282px; }
+	.gallery-2-columns .gallery-item{ width:auto; float:none; margin-left:0; }
+	
+	
+	/* --------------------------------------- */
+	/*	CPATCHA
+	/* --------------------------------------- */
+	.captcha-container img{ vertical-align:top; margin:0 5px 10px 0; }
+}

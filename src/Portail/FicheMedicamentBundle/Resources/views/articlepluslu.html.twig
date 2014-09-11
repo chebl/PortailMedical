@@ -1,0 +1,10 @@
+<h3 class="title">Article Plus Lus</h3>
+                                       {%for art in medicament%} 
+                                        <div class="sidebar-post clearfix">						
+                                            <a href="#"><img src="{{asset('bundles/portailfront/images/medicaments/')}}{{art.path}}" height="40" weight="30" alt="Post Image"></a>
+                                            <div class="sidebar-post-text">
+                                            <a href="{{path('detailmedicament',{'id':art.id}) }}">{{art.nom}}</a>
+                                            <span class="date">Vu:{{art.nbvue}} fois </span>
+                                            </div>
+                                        </div>			
+										{%endfor%}

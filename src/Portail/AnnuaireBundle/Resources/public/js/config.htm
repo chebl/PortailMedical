@@ -1,0 +1,73 @@
+var setting = new Array();
+setting.siteRootUrl = "http://www.carthage-annuaire.com";
+setting.siteDescriptionMaxLength = 700;
+setting.siteDescriptionMinLength = 0;
+setting.maxKeywordsCountPerSite = 5;
+setting.itemGalleryImagesMaxCount = 1;
+setting.metaDataUrl = "/webmaster/getMetaData";
+setting.urlMandatory = 0;
+setting.backLinkMandatory = 0;
+setting.urlRewriting = 1;
+setting.lang = new Array();                    
+setting.lang['You have already added this keyword. Select another one.'] = "Vous avez déjà choisi ce mot clé. Sélectionnez-en un autre."; 
+setting.lang['loading...'] = "Chargement..."; 
+setting.lang['Please, fill in the fields URL of site, Title and Description.'] = "Merci de remplir les champs Url du site, Titre et Description"; 
+setting.lang['The URL must start with http://'] = "L'Url doit commencer par http://"; 
+setting.lang['Please, enter a valid e-mail address.'] = "Veuillez indiquer une adresse email valide"; 
+setting.lang['You modify the webmaster of this site. Do you want the fields Webmaster Email and Webmaster Name to be refreshed, or you want to modify them manually?'] = "En changeant le gestionnaire du société, le mail sera changé également"; 
+setting.lang['The comment was saved.'] = "Commentaire sauvegardé";
+setting.lang['The comment was deleted.'] = "Commentaire supprimé";
+setting.lang['The IP was banned.'] = "IP bannie";
+setting.lang['Please, select a package.'] = "Merci de sélectionner une offre";
+setting.lang['Please, select a payment processor.'] = "Merci de sélectionner un moyen de paiement";
+setting.lang['Please, enter a name or nickname.'] = "Veuillez entrer votre nom";
+setting.lang['Please, enter a comment.'] = "Please, enter a comment.";
+setting.lang['Please, enter the protection code.'] = "Merci d'entrer le code de sécurité";
+setting.lang['The tag was saved.'] = "Tag sauvegardé";
+setting.lang['You can`t select this payment method for selected package.'] = "VOus ne pouvez pas sélectionner ce moyen de paiement pour cette offre";
+setting.lang["Delete"] = "Supprimer";
+setting.lang["Edit"] = "Modifier";
+setting.lang["File"] = "Fichier";
+setting.lang["was uploaded sucessfully"] = "a été uploadé avec succès";
+setting.lang["of"] = "de";
+setting.lang["available photos uploaded"] = "photos disponibles";
+setting.lang["Loading"] = "Chargement";
+setting.lang["Loading..."] = "Chargement...";
+setting.lang["Your email must be in format - name@domain.com"] = "Votre email doit avoir le format suivant : a@a.com";
+setting.lang["Email was used earlier"] = "Email déjà utilisé";
+setting.lang["Please enter password"] = "Merci d'entrer votre mot de passe";
+setting.lang["Please confirm your password"] = "Merci de confirmer votre mot de passe";
+setting.lang["Please enter captcha code"] = "Merci d'entrer le code de sécurité";
+setting.lang["Passwords aren't equal"] = "Mot de passe non identique";
+setting.lang["This field is required"] = "Ce champ est obligatoire";  
+setting.lang["Please enter your email"] = "Merci d'entrer votre email";
+setting.lang["Validation message"] = "Validation message";
+setting.lang["Your message was saved"] = "Votre message a été sauvegardé";
+setting.lang["Your message was sent"] = "Votre message a été envoyé";
+setting.lang["New file has been uploaded sucessfully"] = "Image uploadée avec succès";
+setting.lang["Uploading..."] = "En cours d'upload...";
+setting.lang["You have entered an invalid code"] = "javascript_config_you_have_entered_an_invalid_code";
+function _t($phrase)
+{
+return setting.lang[$phrase] || $phrase;
+}
+var AppRouter =
+{
+rewrites: new Array(),
+addRewriteRule: function(pattern, replacement)
+{
+AppRouter.rewrites.push({"pattern": new RegExp(pattern), replacement: replacement});
+},
+getRewrittedUrl: function(url)
+{
+var rewrittedUrl = setting.siteRootUrl;
+if(!setting.urlRewriting)rewrittedUrl += "/index.php";
+for(var i = 0; i < AppRouter.rewrites.length; i++)
+{
+var rewrite = AppRouter.rewrites[i];
+url = url.replace(rewrite.pattern, rewrite.replacement); 
+}
+rewrittedUrl += url;
+return rewrittedUrl;
+}
+}

@@ -1,0 +1,64 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %}
+{% block body%}
+
+
+  <div class="mws-panel grid_8 mws-collapsible" id="mws-dashboard-chart">
+                <div style="width: 400; alignment-adjust: central"> <br><h1>
+                       
+Etablissement sanitaires
+      
+        </h1>
+                    </div>
+                              <div class="mws-panel-header">
+                            
+                    	<span><i class="icon-table"></i></span>
+                    </div>
+                                <div class="mws-panel-body no-padding">
+                 <table class="mws-table mws-datatable">
+                      <tbody>
+                        
+                             {% if pager.currentPageResults is empty %} 
+                                                   <br>
+                                                 <h2>Aucun Etablissement Enregistré</h2>                      
+                       
+                                                 {%else%}
+                             {%for entity in  pager.currentPageResults%}
+                                                 
+                    <tr>
+                                <td class="menus" style="padding-left:15px;"><li >{{entity.nom}}</li>
+                 <br>
+                    {{entity.adresse}}     
+                       
+                 </td>
+                              
+                             
+                                    </tr>
+                     
+                              <tr>
+                                  <td align="right" style="padding-right:30px;" class="lien12"><a href="{{path('infosetablissement',{'id':entity.id})}}" style="background: #9adf8f;border: 1px solid #FEB721;border-bottom:1px solid #ddd;">Consulter la fiche</a></td>
+                              </tr>
+                      
+                            
+                                                              <tr>
+       							  <td style="padding-left:15px;"><HR  style="color:#abcd9e; background-color:#abcd9e; height:1px; border:0;" width="95%" align="left"  /> </td>
+        					 </tr>                      
+                      
+                                           {%endfor%}                                  
+                                              
+        
+                         
+                         </tbody>
+   
+                           
+                           
+                  </table>
+                   <div class="wp-pagenavi">{{ pagerfanta(pager, 'default') }}</div>
+                    {%endif%}
+                      </div>
+                      </div>
+
+
+
+<div class="wp-pagenavi">{{ pagerfanta(pager, 'default') }}</div>
+
+{%endblock %}

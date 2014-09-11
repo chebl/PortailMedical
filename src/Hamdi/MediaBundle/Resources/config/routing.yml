@@ -1,0 +1,13 @@
+hamdi_media_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: HamdiMediaBundle:Default:index }
+upload_img:
+    pattern:  /admin/upload
+    defaults: { _controller: HamdiMediaBundle:Images:uploadImg }
+    requirements: { _method: post|get }  
+creer_dossier:    
+    pattern:  /admin/creer
+    defaults: { _controller: HamdiMediaBundle:GalleryImage:creeGalerie }
+    requirements: { _method: post }
+
+       

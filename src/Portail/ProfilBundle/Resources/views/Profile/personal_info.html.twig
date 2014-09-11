@@ -1,0 +1,25 @@
+<div id="profile"> 
+                 	<!-- About section -->
+                	<div class="about">
+					{%if user.logo %}
+                    	<div class="photo-inner"><img src="{{asset('bundles/portailbloguser/uploads/')}}{{user.logo}}" height="186" width="153" /></div>
+						{%else %}
+                        <div class="photo-inner"><img src="{{asset('bundles/portailbloguser/uploads/avatar.gif')}}" height="186" width="153" /></div>
+                        {%endif%}
+						<h1>{{user.nom}} {{user.prenom}}</h1>
+                        <h3>{{user.profession}} </h3>
+						 <h3>{{user.specialite}} </h3>
+                        <p></p>
+                    </div>
+                    <!-- /About section -->
+<!-- Personal info section -->
+                	<ul class="personal-info">
+						<li><label>Nom</label><span>{{user.nom}} {{user.prenom}}</span></li>
+                        <li><label>Date de naissance</label><span>{{user.datenaissance|localizeddate('medium', 'none')}}</span></li>
+                        <li><label>Addresse</label><span>{{user.adresse}}</span></li>
+                        <li><label>Email</label><span>{{user.email}}</span></li>
+                        <li><label>Téléphone</label><span>{{user.telephone}}</span></li>
+                        <li><label>Dernier connexion</label><span>{{user.lastLogin|localizeddate('medium', 'none')}}</span></li>
+                    </ul>
+                    <!-- /Personal info section -->
+</div>             

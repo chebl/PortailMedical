@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+@import url(../prettyPhoto.css);	/*link to the CSS file for Pretty Photo Plugin */
+/* ========== Gallery Page ========== */
+
+.gallery		{
+				width:956px;
+				margin-left:-12px;
+				margin-bottom:20px;
+				position:relative;
+				}
+
+.gallery ul		{
+				margin:0;
+				padding:0;
+				list-style:none;
+				}
+
+.gallery li		{
+				width:214px;
+				height:194px;
+				overflow:hidden;
+				margin:0 0 14px 14px;
+				padding:0;
+				float:left;
+				border:4px solid #fff;
+				border-radius:5px;
+				-moz-border-radius:5px;
+				-khtml-border-radius:5px;
+				-webkit-border-radius:5px;
+				box-shadow:0 0 4px rgba(0, 0, 0, 0.5);
+				-moz-box-shadow:0 0 4px rgba(0, 0, 0, 0.5);
+				-webkit-box-shadow:0 0 4px rgba(0, 0, 0, 0.5);
+				behavior: url(js/PIE.html);
+				}
+
+.gallery li:hover	{border:4px solid #8c8b8b;}
+
+.gallery li .gallery_item	{
+				width:174px;
+				height:164px;
+				padding:15px;
+				overflow:hidden;
+				position:relative;
+				z-index:20;
+				background:url(../../images/gallery_item_bg.jpg) 0 0 no-repeat;
+				}
+
+.gallery li .gallery_item .cover	{
+				position:absolute;
+				top:0;
+				left:0;
+				z-index:100;
+				}
+
+.gallery li .gallery_item .zoom	{
+				display:block;
+				outline:none;
+				width:39px;
+				height:33px;
+				line-height:999px;
+				text-indent:-9999px;
+				position:absolute;
+				bottom:15px;
+				right:15px;
+				z-index:30;
+				background:url(../../images/zoom.png) 0 0 no-repeat;
+				}
+
+.gallery li .gallery_item .btn	{
+				position:absolute;
+				bottom:15px;
+				left:15px;
+				}
+
+.gallery li .gallery_item h4	{
+				color:#DBDBDB;
+				height:1.1em;
+				line-height:1.4em;
+				overflow:hidden;
+				margin-bottom:10px;
+				padding-bottom:6px;
+				position:relative;
+				border-bottom:1px solid #4D4D4D;
+				}
+
+				.gallery li .gallery_item h4:after	{
+				width:100%;
+				content:'';
+				position:absolute;
+				bottom:0;
+				left:0;
+				border-bottom:1px solid #000;
+				}
+
+.gallery li .gallery_item p	{
+				height:7.2em;
+				overflow:hidden;
+				}
+				
+
+/* ---- Styles for Buttons ---- */
+				
+.btn			{
+				width:auto;
+				display:block;
+				margin-top:1.5em;
+				padding:7px 12px;
+				cursor:pointer;
+				outline:none;
+				border-radius:5px;
+				-moz-border-radius:5px;
+				-khtml-border-radius:5px;
+				-webkit-border-radius:5px;
+				behavior: url(js/PIE.html);
+				text-decoration:none;
+				font-size:12px;
+				line-height:11px;
+				text-align:center;
+				color:#fff;
+				background:url(../../images/btn_px.gif) top repeat-x #3c3c3c;
+				}
+
+a:hover.btn,
+a:focus.btn		{
+				color:#000;
+				text-decoration:none;
+				padding:6px 11px;
+				border:1px solid #000;
+				background:#DEDEDE;
+				}
+				
+.big_btn		{
+				width:auto;
+				display:block;
+				padding:15px 25px;
+				cursor:pointer;
+				outline:none;
+				border-radius:5px;
+				-moz-border-radius:5px;
+				-khtml-border-radius:5px;
+				-webkit-border-radius:5px;
+				box-shadow:1px 1px 1px rgba(0, 0, 0, 0.8);
+				-moz-box-shadow:1px 1px 1px rgba(0, 0, 0, 0.8);
+				-webkit-box-shadow:1px 1px 1px rgba(0, 0, 0, 0.8);
+				behavior: url(js/PIE.html);
+				text-decoration:none;
+				font-size:18px;
+				line-height:18px;
+				text-align:center;
+				color:#fff;
+				background:url(../../images/bigbtn_overlay.gif) top repeat-x #fd8900;
+				}
+				
+a:hover.big_btn	{
+				color:#fff;
+				text-decoration:none;
+				background:#fd8900;
+				}
+				
+a:focus.big_btn	{
+				color:#fff;
+				text-decoration:none;
+				margin-top:1px;
+				box-shadow:-1px -1px 1px rgba(0, 0, 0, 0.8);
+				-moz-box-shadow:-1px -1px 1px rgba(0, 0, 0, 0.8);
+				-webkit-box-shadow:-1px -1px 1px rgba(0, 0, 0, 0.8);
+				background:url(../../images/bigbtn_overlay.gif) top repeat-x #fd8900;
+				}
+				
+a.back			{
+				padding-left:31px;
+				background:url(../../images/back.png) 8px center no-repeat #474747;
+				}
+				
+a:hover.back	{
+				padding-left:31px;
+				padding-right:10px;
+				background:url(../../images/back.png) 8px center no-repeat #DEDEDE;
+				}
+				
+
+
+				

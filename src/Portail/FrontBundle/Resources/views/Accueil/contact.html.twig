@@ -1,0 +1,160 @@
+ {% extends 'PortailFrontBundle::layout.html.twig' %}
+
+{%block stylesheets%}
+{{parent() }}
+<style>
+input[type="text"] { padding: 8px; font: 13px 'Open Sans', Arial, Helvetica, sans-serif; line-height: 16px; color: #808080; border: none; background-color: #fff; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; box-shadow: 1px 1px 2px #c4c4c4; -moz-box-shadow: 1px 1px 2px #c4c4c4; -webbox-shadow: 1px 1px 2px #c4c4c4; }
+input[type="text"] { height: 16px; }
+
+    </style>
+{%endblock%}
+ {%block javascripts %}
+{{parent() }}
+<script src="{{asset('bundles/portailforum/js/jquery.bpopup.min.js')}}"></script>
+<script>
+function sendContact() {
+
+               
+   $('#loadingmessage').bPopup();
+               alert("Message Envoyé");
+               
+            
+return false;
+
+
+}
+    
+</script>
+   {%endblock %}
+  {%block header %}
+
+  
+  	{% include 'PortailProfilBundle:Front:header.html.twig'%}
+ {%endblock%}
+ {%block container %}
+ <hgroup class="page-head">    		
+                                <h2>Contact <span>Us</span></h2>
+                                 </hgroup>
+  <div id="container" class="clearfix">
+								
+                                <div id="content">
+                                <div id="loadingmessage" style='display:none'>
+          <img src="{{asset('bundles/portailfront/images/wait.gif')}}"/></div>                                                  
+                                    <div class="map-container clearfix">
+                                    
+                                        <div id="map_canvas"></div>							
+    
+                                        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+                                        <script type="text/javascript">
+                                                                                
+                                            function initialize() 
+                                            {
+                                                var geocoder  = new google.maps.Geocoder();
+                                                var map;
+                                                var latlng = new google.maps.LatLng(36.8625, 10.1955556);
+                                                var infowindow = new google.maps.InfoWindow();
+                                                var myOptions = { 
+                                                  zoom: 17,
+                                                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                                                };
+                                                
+                                                map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+                                                
+                                                geocoder.geocode( { 'location': latlng }, 
+                                                    function(results, status) {
+                                                              if (status == google.maps.GeocoderStatus.OK) 
+                                                              {
+                                                                map.setCenter(results[0].geometry.location);
+                                                                var marker = new google.maps.Marker({
+                                                                    map: map, 
+                                                                    position: results[0].geometry.location
+                                                                });                                                                                                
+                                                              } 
+                                                              else 
+                                                              {
+                                                                alert("Geocode was not successful for the following reason: " + status);
+                                                              }
+                                                    });
+                                              }
+                                                                                     
+                                              initialize();
+                                              
+                                        </script>     	
+                                    </div>	    																                                                        
+                                    
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                                                                                                                                                    
+                                    <address>
+                                        Contact Details will be appear <br>Contact Address will be appear here,<br>City, State, Country<br>
+                                    </address>
+                                                                                    
+                                        <div class="contact-form-container">
+                                            <h3 class="smart-head">Contact Us</h3>
+                                            <p>Remplissez le formulaire ci-dessous pour vous envoyer un message à l'administrateur.</p>
+											
+                                            <form action="{{path('envoicontact')}}" method="post"  id="contact-form" class="clearfix" {{ form_enctype(form) }}>
+                                                <div class="form-cell">
+                                                    <label class="display-ie8" >Nom & Prénom</label>
+                                                	{{form_widget(form.name,{attr:{'class':'name required','placeholder':'Nom','title':'* Svp entrez votre nom & prénom !'}})}}<span>*</span>
+												</div>
+                                                
+                                               
+                                                
+                                                <div class="form-cell">
+                                                     <label class="display-ie8" >Email:</label>
+                                                	
+													{{form_widget(form.email,{attr:{'class':'email required','placeholder':'Email','title':'* Svp entrez votre Email !'}})}}<span>*</span>
+												</div>
+                                               
+                                                
+												
+                                                <div class="form-cell">
+                                                     <label class="display-ie8" >Sujet:</label>
+                                                	{{form_widget(form.sujet,{attr:{'class':'subject','placeholder':'Subject'}})}}
+                                                </div>																								
+                                                
+                                                <div class="form-row">
+                                                     <label class="display-ie8" >Message:</label>
+                                                	{{form_widget(form.message,{attr:{'class':'message required','placeholder':'Message','title':'* SVP entrez votre message','cols':'30','rows':'10'}})}}
+													<div class="captcha-container">
+														{{form_label(form.captcha)}}
+														{{form_widget(form.captcha)}}
+														
+													</div>
+													
+                                                	<input type="submit" value="Envoyer" onsubmit="return sendContact();" class="submit readmore"/>
+                                                    
+                                                   
+
+                                                </div>
+                                                
+                                                <div class="error-container">
+                                                </div>
+												{{form_widget(form)}}
+                                            </form>
+                                        </div>									
+                                </div>
+								 <aside id="sidebar">
+                                    <section class="widget">
+                                        <h3 class="title">Quick Contact</h3>        
+                                        <div class="contact-widget">
+                                            <p>
+                                                <strong>Adresse :</strong> Souassi Mahdia<br>
+                                                <strong>Téléphone :</strong> +216 20-596-212<br>
+                                                <strong>Email :</strong> chebl.mahmoud@gmail.com<br>
+												 <strong>Site web :</strong>www.portailhorus.tn<br>
+                                            </p>
+                                            <hr>
+                                            <p>
+                                                <a href="mailto:info@yoursite.com">info@yoursite.com</a><br>
+                                                <a href="mailto:support@yoursite.com">support@yoursite.com</a>            
+                                            </p>
+                                        </div>        
+                                    </section>
+                                                     
+								
+								
+								
+							</div>
+		{%endblock%}
+ 

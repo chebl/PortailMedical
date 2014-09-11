@@ -1,0 +1,30 @@
+images_index:
+    pattern:  /
+    defaults: { _controller: "HamdiMediaBundle:Images:index" }
+
+_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "HamdiMediaBundle:Images:show" }
+
+_new:
+    pattern:  /new
+    defaults: { _controller: "HamdiMediaBundle:Images:new" }
+
+_create:
+    pattern:  /create
+    defaults: { _controller: "HamdiMediaBundle:Images:create" }
+    requirements: { _method: post }
+
+_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "HamdiMediaBundle:Images:edit" }
+
+_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "HamdiMediaBundle:Images:update" }
+    requirements: { _method: post }
+
+_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "HamdiMediaBundle:Images:delete" }
+    requirements: { _method: post }

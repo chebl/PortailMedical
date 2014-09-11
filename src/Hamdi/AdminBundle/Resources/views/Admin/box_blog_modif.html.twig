@@ -1,0 +1,23 @@
+<div id="up_modif_blog"  style="display: none"> <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
+	<span style="font-size: medium">Modifier Article</span>
+        <div class="clear"></div>			
+                              <form action="{{ path('ajouter_blog') }}" method="post" {{ form_enctype(formblog) }}>
+                                    
+					<fieldset>
+                                            
+                                            {{ form_row(formblog.title, { 'label' : 'Titre'}) }}
+                                            {{ form_row(formblog.blog, { 'label' : 'Contenu' }) }}
+					    {{ form_row(formblog.file, { 'label' : 'Image' }) }}
+                                            {{ form_row(formblog.tags, { 'label' : 'Tags' }) }}
+					
+                                            
+					</fieldset>
+                                        
+					<fieldset>
+						<input class="button" type="submit" value="Modifer" />
+						
+					</fieldset>
+					
+				</form>
+				
+</div> 

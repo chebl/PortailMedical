@@ -1,0 +1,172 @@
+{% extends 'HamdiAdminBundle::index.html.twig' %}
+{% block bienvenu%}                 
+                        <h2>Bienvenue {{ user.username }}</h2>
+			<p id="page-intro">Que voulez-vous faire?</p>
+{% endblock %}
+{% block msg %}
+                       {% include 'HamdiAdminBundle:Admin:messages.html.twig' with {'msgs': msgs} %}
+                       
+{% endblock %}                        
+{% block profile %}
+                              
+           <div id="profile-links">
+	       Bonjour, <a href="#" title="Editer votre profile">{{ user.username }}</a>, Vous avez <a href="#messages" rel="modal" title="3 Messages">{{ n }} Messages</a><br />
+	      <br />
+	   <a href="#" title="View the Site">Voir le Site</a> | <a href="{{path('fos_user_security_logout')}}" title="Sign Out">Déconnexion</a>
+	   </div>
+{% endblock %}	  
+{% block menu %}
+
+     <ul id="main-nav">  <!-- Accordion Menu -->
+				
+				<li>
+					<a href="{{path('hamdi_admin_homepage')}}" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						Tableau de bord
+					</a>       
+				</li>
+				
+				<li> 
+					<a href="#" class="nav-top-item"> <!-- Add the class "current" to current menu item -->
+					Gestion de Profil
+					</a>
+					<ul>
+						<li><a href="{{ path('contact_list')}}">Gérer Mes Contactes</a></li>
+						<li><a href="#">Gérer Articles</a></li> <!-- Add class "current" to sub menu items also -->
+						<li><a href="#">Gérer Comments</a></li>
+						<li><a href="#">Gérer Categories</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Pages
+					</a>
+					<ul>
+						<li><a href="#">Create a new Page</a></li>
+						<li><a href="#">Manage Pages</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Image Gallery
+					</a>
+					<ul>
+						<li><a href="#">Upload Images</a></li>
+						<li><a href="#">Manage Galleries</a></li>
+						<li><a href="#">Manage Albums</a></li>
+						<li><a href="#">Gallery Settings</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Events Calendar
+					</a>
+					<ul>
+						<li><a href="#">Calendar Overview</a></li>
+						<li><a href="#">Add a new Event</a></li>
+						<li><a href="#">Calendar Settings</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item current">
+						Groupes et utilisateurs 
+					</a>
+					<ul>
+						<li><a href="#">Groupes</a></li>
+						<li><a href="{{path('user_list')}}" class="current">Utilisateurs</a></li>
+						<li><a href="#">Mon Profile</a></li>
+						
+					</ul>
+				</li>      
+				
+</ul> <!-- End #main-nav -->{# empty Twig template #}
+
+{% endblock %}
+
+
+{% block tab1 %}
+
+
+<form action="" method="post" {{ form_enctype(user_form) }}>
+    <table>	
+        <tr>
+            <td>
+							<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+                                                            <img src="{{asset('bundles/hamdiadmin/images/icons/')}}{{entity.logo}}" width="100" height="100"/>
+                                                            <button class="btn btn-primary">Modifier Mon Avatar</button>
+                                                            <p>
+									<label>Géneral</label>
+									
+							</p>
+                                                        </fieldset>
+                                                        <div class="clear"></div>
+                                                        <fieldset>
+                                                        
+                                                        <p>
+									
+								{{ form_row(user_form.username, { 'label' : 'Login' }) }}
+								{{ form_row(user_form.nom, { 'label' : 'Nom' }) }}
+                                                                {{ form_row(user_form.prenom, { 'label' : 'Prénom' }) }}
+                                                                {{ form_row(user_form.email, { 'label' : 'Email' }) }}
+                                                                {{ form_row(user_form.adresse, { 'label' : 'Adresse' }) }}
+                                                                {{ form_row(user_form.ville, { 'label' : 'Ville' }) }}
+                                                                {{ form_row(user_form.telephone, { 'label' : 'Téléphone' }) }}
+                                                                {{ form_row(user_form.datenaissance, { 'label' : 'Date de Naissance' }) }}
+                                                                {{ form_row(user_form.sexe, { 'label' : 'Sexe' }) }}
+                                                                {{ form_row(user_form.profession, { 'label' : 'Profession' }) }}
+                                                                {{ form_row(user_form.specialite, { 'label' : 'Spécialité' }) }}
+							</p>
+                                                        </fieldset>
+							
+							<!-- End .clear -->
+          </td>
+          <td>
+							<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+							<p>
+									<label>Rôles</label>
+									
+							</p>
+                                                        </fieldset>
+                                                        <div class="clear"></div>
+                                                        <fieldset>
+                                                        
+                                                       
+									
+								{% for child in user_form.roles %}
+                                                                <p>{{ form_label(child) }} {{ form_widget(child) }}</p>
+                                                                {% endfor %}
+							
+                                                        </fieldset>
+							
+							<!-- End .clear -->
+          </td>
+          <td>
+							<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+							
+							<p>
+									<label>Groupes</label>
+									
+							</p>	
+							
+                                                        </fieldset>
+                                                        <div class="clear"></div>
+                                                        <fieldset>
+                                                        
+                                                        
+							{% for child in user_form.groups %}
+                                                                <p>{{ form_label(child) }} {{ form_widget(child) }}</p>
+                                                                {% endfor %}		
+								
+							
+                                                        </fieldset>
+							
+							<!-- End .clear -->
+          </td>
+      </tr>
+</table>							
+</form>
+        
+{% endblock %}

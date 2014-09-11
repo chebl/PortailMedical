@@ -1,0 +1,12 @@
+
+
+   <a href="#" style="position:absolute; right:-25px; top:-25px; background: #ffffff; border-radius: 180px;" onclick="">
+             <img src="http://icons.iconarchive.com/icons/custom-icon-design/mini/32/Close-icon.png" align=right></a>
+<form id="event-add" method="POST" action="{{path('calendar_event_save')}}"  {{ form_enctype(form) }}>
+    {% include 'PortailCalendarBundle:Event:form.html.twig' %}
+      <input type="hidden" name="expediteur" value="{{idexp}}"/>
+<input type="hidden" name="idrdv" value="{{idrdv}}"/>    
+        <input type="submit" value="{{ 'bladetester_calendar.label.event.add'|trans }}"/>
+           
+    {% include 'PortailCalendarBundle:Event:cancel.html.twig' %}
+</form>

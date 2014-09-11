@@ -1,0 +1,96 @@
+<!-- Portfolio -->
+{%if boitereception %}
+
+<div id="portfolio">
+          <ul class="tabs-nav">
+		  <li><a href="#" onclick="return newmail();">Nouveau Message</a></li>
+                                <li><a href="#" onclick="$('#tab1').show();$('#tab2').hide();">Messages Reçus ({{user.emails|length}})</a></li>
+                                <li><a href="#" onclick="$('#tab2').show();$('#tab1').hide();" >Messages Envoyées ({{user.emailsexpediteur|length}})</a></li>
+                               
+                            </ul>
+                            <div class="tabs-container">
+							<div class="tab-content"></div>
+                                <div class="tab-content" id="tab1">
+                    <table class="footable" data-page-navigation="#pagination" data-page-size="5">
+      <thead>
+        <tr>
+          <th data-class="expand">
+            <span>Expéditeur</span>
+          </th>
+          <th>
+            <span>Objet</span>
+          </th>
+          <th data-hide="phone,tablet">
+          Reçu Le 
+		  
+          </th>
+          <th>
+            Actions
+          </th>
+         
+        </tr>
+		
+      </thead>
+		
+		<tbody>
+		{%for listmsg in boitereception %}
+		     <input type="hidden" value="{{listmsg.message}}" id="contenumsg"/>
+                                
+		   <tr><td><a href="#" id="my-button">{{listmsg.expediteur}}</a></td><td><a href="" onclick="return Loadchamp('{{listmsg.expediteur}}','{{listmsg.sujet}}');">{{listmsg.sujet}}</a></td><td>
+		   {{listmsg.dateenvoi|localizeddate('medium', 'medium')}}</td><td><a href="#" onclick="return ReplayLoad('{{listmsg.expediteur}}')"><img src="{{asset('bundles/portailprofil/profile/images/mail-reply.png')}}" alt="Répondre"></a>
+		   &nbsp; &nbsp; &nbsp;<a href="#" onclick="supprimerMail({{listmsg.id}});"><img src="{{asset('bundles/portailprofil/profile/images/button_cancel.png')}}" alt="Répondre"></a></tr>
+	   {%endfor%}
+                     </tbody>	  
+					 
+    </table>
+ 
+    <ul id="pagination" class="footable-nav"><span>Pages:</span></ul>
+                                
+	                       
+                                </div>
+                                <div class="tab-content" id="tab2">
+                                      {%render 'PortailBoiteBundle:Boitereception:msgenvoi'%}     
+                                </div>
+                                
+                            </div>
+                     </div>
+
+		
+
+ <div class="element_to_pop_up" >
+			<a class="b-close">X</a>
+
+	<form action="" method="" id="compteform">
+	  <table>
+      <tr><td><p><label>Destinataire:</p></label>
+	  </td>
+	  </tr>
+	  <tr>
+<td><input type="text" name="destinataire" id="destinatairemsg" size="30" value="" class="input" /></td>
+	  </tr>         
+		 
+ <tr><td><p><label>Objet:</p></label>
+	  </td>
+	  </tr>
+	  <tr>
+<td><input type="text" name="sujetmsg" id="sujetmsg" value="" class="input" /></td>
+	  </tr>    
+		 
+	  <tr><td><p><label> Votre Message</p></label>
+	  </td>
+	  </tr>
+	  
+	  <tr>
+	  <td><textarea name="msg" class="textarea" cols="70" rows="5" id="messagemsg" value=""></textarea></td>
+       </tr>
+	<tr><td><input type="button" class="submit" value="Repondre" onclick="return EnvoiMail();"></td>
+	</tr>
+	</table>
+	</form>
+	
+	</div>   
+            
+{%else %}
+<h2>Aucun message reçus</h2>
+{%endif%}
+			<!-- /Portfolio --> 

@@ -1,0 +1,9 @@
+envoimail:
+  pattern:  /env
+  defaults: { _controller: PortailBoiteBundle:BoiteReception:envoi }
+supprimerMail:
+  pattern:  /supp
+  defaults: { _controller: PortailBoiteBundle:BoiteReception:delete }
+listenvoyee:
+  pattern:  /msgenvoi
+  defaults: { _controller: PortailBoiteBundle:BoiteReception:msgenvoi }

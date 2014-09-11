@@ -1,0 +1,30 @@
+ <script type="text/javascript">
+      $('#datetimepicker').datetimepicker({
+        format: 'dd-MM-yyyy hh:mm:ss',
+        language: 'FR'
+      });
+    </script>
+<table>
+    <tr>
+        <td>Expéditeur:&nbsp;<input type="text" id="expediteurr" value="{{expediteur}}"/></td>
+        </tr>
+       <tr> <td>Votre Message </td>
+</tr>
+<tr> <td><textarea name="message" id="msgr"  cols="60" rows="15" style="width: 400px;" required></textarea></td>
+    </tr>
+    <tr>
+        <td>Fixer la date SVP :
+        &nbsp; <div id="datetimepicker" class="input-append date">
+      <input type="text" id="daterendezvous"></input>
+      <span class="add-on">
+        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+      </span>
+    </div></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="Valider" class="btn btn-primary" onclick="return validrendezvous({{idrendezvous}},document.getElementById('msgr').value,document.getElementById('daterendezvous').value,document.getElementById('expediteurr').value);"/></td>
+    </tr>
+    
+    
+
+</table>

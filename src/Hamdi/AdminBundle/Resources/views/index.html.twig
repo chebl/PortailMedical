@@ -1,0 +1,112 @@
+{% extends '::admin.html.twig' %}
+{% block stylesheets %}
+                <!-- Reset Stylesheet -->
+                <link href="{{ asset('bundles/hamdiadmin/css/reset.css') }}" type="text/css" rel="stylesheet" />
+          			        
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="{{asset('bundles/hamdiadmin/css/style.css') }}" type="text/css" media="screen" />
+		<link rel="stylesheet" href="{{asset('bundles/hamdiadmin/css/datepicker.css') }}" type="text/css" media="screen" />
+		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+		<link rel="stylesheet" href="{{asset('bundles/hamdiadmin/css/invalid.css') }}" type="text/css" media="screen" />
+                <link rel="stylesheet" href="{{asset('bundles/hamdiadmin/css/messi.css') }}" type="text/css" media="screen" />
+                <link rel="stylesheet" href="{{asset('bundles/hamdiadmin/css/messi.min.css') }}" type="text/css" media="screen" />
+                
+                <link rel="stylesheet" type="text/css" href="{{asset('bundles/hamdiadmin/bootstrap/css/bootstrap.min.css')}}" media="screen">
+                <link rel="stylesheet" type="text/css" href="{{asset('bundles/hamdiadmin/bootstrap/css/bootstrap.css')}}" media="screen">
+                <link rel="stylesheet" type="text/css" href="{{asset('bundles/hamdiadmin/css/fonts/ptsans/stylesheet.css')}}" media="screen">
+                <link rel="stylesheet" type="text/css" href="{{asset('bundles/hamdiadmin/css/fonts/icomoon/style.css')}}" media="screen">
+
+                <link rel="stylesheet" type="text/css" href="{{asset('bundles/hamdiadmin/css/mws-style.css')}}" media="screen">
+                <link rel="stylesheet" type="text/css" href="{{asset('bundles/hamdiadmin/css/icons/icol16.css')}}" media="screen">
+                <link rel="stylesheet" type="text/css" href="{{asset('bundles/hamdiadmin/css/icons/icol32.css')}}" media="screen">
+
+
+
+
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/hamdiadmin/css/mws-theme.css')}}" media="screen">
+{% endblock %}
+{% block javascripts %}
+  <!-- jQuery -->
+		<script type="text/javascript" src="{{ asset('bundles/hamdimedia/js/jquery.min-1.6.2.js') }}"></script>
+	        <script type="text/javascript" src="{{ asset('bundles/hamdimedia/js/bootstrap-datepicker.js') }}"></script>
+		<!-- jQuery Configuration -->
+		<script type="text/javascript" src="{{asset('bundles/hamdiadmin/js/simpla.jquery.configuration.js')}}"></script>
+		
+		<!-- Facebox jQuery Plugin -->
+		<script type="text/javascript" src="{{asset('bundles/hamdiadmin/js/facebox.js') }}"></script>
+		
+		<!-- jQuery WYSIWYG Plugin -->
+		<script type="text/javascript" src="{{asset('bundles/hamdiadmin/js/jquery.wysiwyg.js') }}"></script>
+		<script type="text/javascript" src="{{asset('bundles/hamdiadmin/js/messi.js') }}"></script>
+                <script type="text/javascript" src="{{asset('bundles/hamdiadmin/js/messi.min.js') }}"></script>
+		<!-- Internet Explorer .png-fix -->
+                
+                
+               <!-- Plugin Scripts -->
+               <script src="{{asset('bundles/hamdiadmin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+               <!-- Demo Scripts (remove if not needed) -->
+               <script src="{{asset('bundles/hamdiadmin/js/demo/demo.dashboard.js')}}"></script>
+               <script src="{{asset('bundles/hamdiadmin/bootstrap/js/bootstap.min.js')}}"></script>
+               <script src="{{asset('bundles/hamdiadmin/bootstrap/js/bootstap.js')}}"></script> 
+{% endblock %}
+
+                
+{% block body %}
+       <div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
+		
+		<div id="sidebar"><div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
+			
+			<h1 id="sidebar-title"><a href="#"> Administration </a></h1>
+		  
+			<!-- Logo (221px wide) -->
+			<a href="#"><img id="logo" src="{{asset('bundles/hamdiadmin/images/logo1.png')}}" alt="Simpla Admin logo" /></a>
+		        {% block profile %}{% endblock %}
+			        
+			
+			{% block menu %}{% endblock %}
+			
+			{% block msg %} {% endblock %} 
+		</div></div> <!-- End #sidebar -->
+		
+		<div id="main-content"> <!-- Main Content Section with everything -->
+			
+					
+			<!-- Page Head -->
+                        {% block bienvenu%} {% endblock %}
+			
+			
+			{% block bord %} {% endblock %}
+			
+			<div class="clear"></div> <!-- End .clear -->
+<div class="content-box"><!-- Start Content Box -->
+<div class="content-box-content">
+<div class="tab-content default-tab" id="tab1">	
+    
+					{% block tab1 %}{% endblock %} 
+					        
+					
+				
+				
+</div>
+</div>
+</div>			
+			
+			
+			<div class="clear"></div>
+			
+			
+			
+			
+			<div id="footer">
+				<small>
+						 Copyright 2013 Horus Soft | Powered by <a href="http://www.horus-soft.com/">Horus Soft</a> 
+				</small>
+			</div><!-- End #footer -->
+			
+		</div> <!-- End #main-content -->
+		
+	</div>
+        
+{% endblock %}

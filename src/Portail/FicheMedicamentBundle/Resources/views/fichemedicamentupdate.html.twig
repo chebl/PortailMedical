@@ -1,0 +1,95 @@
+   <a class="b-close">X</a> 
+  <form  action="{{path('updatemedicament')}}" method="post" id="compteform" {{ form_enctype(formmedicament) }}>
+               <p>
+     <label for="name">
+     Nom de médicament: 
+    </label>
+    
+      {{form_widget(formmedicament.nom,{ 'attr': {'class': 'input'}})}}
+    </p>
+               
+         <p>
+     <label for="name">       
+     Dans Quel cas utiliser ce Médicament : 
+    </label>
+    
+      {{form_widget(formmedicament.prescription,{ 'attr': {'class': 'textarea'}})}}
+    </p>
+               
+         <p>
+     <label for="name">       
+     Presentation :
+    </label>
+                            
+     {{form_widget(formmedicament.presentation,{ 'attr': {'class': 'textarea'}})}}
+    	</p>				
+   <p>
+          <label for="name">   
+       Posologie :
+             </label>
+ 
+{{form_widget(formmedicament.posologie,{ 'attr': {'class': 'textarea'}})}}
+							
+     </p>  
+           <input type="hidden" name="id" value="{{fichemedicament.id}}"/>
+<p>       
+	   <label for="name">   
+        
+		
+   Contres indication:
+             </label>
+ 
+     {{form_widget(formmedicament.contreindication,{ 'attr': {'class': 'textarea'}})}}
+</p>							
+    <p>
+	<label for="name">   
+   
+    Effets indesirables :
+             </label>
+  
+     {{form_widget(formmedicament.effetindesirable,{ 'attr': {'class': 'textarea'}})}}
+</p>							
+
+<p>
+	<label for="name">   
+    
+	Choisir une image pour le médicament:
+             </label>
+     {{form_widget(formmedicament.file)}}
+							
+    </p>                   
+       <p>
+	  <label for="name">   
+       
+	   Catégorie :
+             </label>
+                      
+                           
+                           <select name="categoriemedicament" id="categoriemedicamentup" onchange="return remplirsouscategorie1(document.getElementById('categoriemedicamentup').value,$('#souscategoriemedicamentup'));">
+                                <option value="{{categ.id}}">{{categ.nom}}</option> 
+                                 {%for tcat in touscategorie%}
+                                  <option value="{{tcat.id}}">{{tcat.nom}}</option> 
+                                 {%endfor%}
+                           
+                           </select>
+						   </p>
+             <p>              
+			<label for="name">  				
+      SousCatégorie :
+             </label>
+                      
+                           
+                    <select name="souscategoriemedicament" id="souscategoriemedicamentup">
+                               <option value="{{souscateg.id}}">{{souscateg.nom}}</option>
+                           </select>
+                 </p> 
+<p>				 
+    <label for="name">  
+	Classe Thérapeutique :
+             </label>
+ 
+     {{form_widget(formmedicament.classetherapeutique)}}
+	</p>						
+                          <input class="submit" type="submit" value="Valider" onclick=""> 
+                      {{form_rest(formmedicament)}}
+                  </form> 

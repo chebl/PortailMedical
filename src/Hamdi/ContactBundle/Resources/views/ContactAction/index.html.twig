@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('bundles/hamdicontact/css/contact.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+{% if app.session.hasFlash('contact_thanks')  %}
+    <p>{{ app.session.getFlash('contact_thanks') }}</p>
+{% else %}
+<form action="{{path("hamdi_submit_contact")}}" method="post" {{ form_enctype(form) }} class="blogger">
+
+  {{ form_errors(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.subject) }}
+        {{ form_row(form.message) }}
+        {{ form_row(form.captcha) }}
+
+        {{ form_rest(form) }}
+
+  
+
+    <input type="submit" value="Send" />
+
+ 
+
+</form>
+{% endif %}
+{% endblock %}    

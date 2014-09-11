@@ -1,0 +1,19 @@
+listeevenements:
+   pattern:  /list/{page}
+   defaults: { _controller: PortailEvenementBundle:Evenement:list,page: 1 }
+listeevenementparmotcle:
+   pattern:  /words/{page}
+   defaults: { _controller: PortailEvenementBundle:Evenement:listbykeyword,page: 1 }
+listeevenementparcategorie:
+   pattern:  /categorie/{categorie}/{page}
+   defaults: { _controller: PortailEvenementBundle:Evenement:listbycategory,page: 1 }
+listeevenementpardate:
+   pattern:  /date/{page}
+   defaults: { _controller: PortailEvenementBundle:Evenement:listbydate,page: 1 }
+listevenementbytype:
+   pattern: /type/{page}
+   defaults: { _controller: PortailEvenementBundle:Evenement:listbytype,page: 1 }
+evenementdetail:
+   pattern:  /evenement/{id}
+   defaults: { _controller: PortailEvenementBundle:Evenement:descevt }
+  

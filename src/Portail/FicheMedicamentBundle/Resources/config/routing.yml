@@ -1,0 +1,36 @@
+listmedicament:
+    pattern:  /list/{page}
+    defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:list,page: 1 }
+ 
+recherchealpha:
+    pattern:  /listAlpha/{lettre}/{page}
+    defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:listparalphabet,page: 1,lettre: 'A' }
+rechercheparmot:
+    pattern:  /list/{page}
+    defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:listparmotcle,page: 1 }
+  
+listclasstherapeutique:
+    pattern:  /medicamentparclasse/{page}
+    defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:listparclass,page: 1 }
+listparlabo:
+    pattern:  /medicamentparlabo/{page}
+    defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:listparlabo,page: 1 }
+listmedicamentparcategory:
+    pattern:  /medicament_descrip/{souscategorie}/{page}
+    defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:listparcategorie,page: 1,souscategorie: 1 }
+ajoutmedicament:
+    pattern:  /ajouter
+    defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:ajouter }
+  
+editfichemedicament:
+   pattern:  /edit
+   defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:edit } 
+updatemedicament:
+   pattern:  /save
+   defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:update } 
+deletefichemedicament:
+   pattern:  /delete
+   defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:delete } 
+detailmedicament:
+    pattern:  /detailmed/{id}
+    defaults: { _controller: PortailFicheMedicamentBundle:FicheMedicament:detailmedicament } 

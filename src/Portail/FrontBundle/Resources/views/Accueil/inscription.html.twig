@@ -1,0 +1,221 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %}
+{%block stylesheets%}
+<style>
+input[type="text"] { padding: 8px; font: 13px 'Open Sans', Arial, Helvetica, sans-serif; line-height: 16px; color: #808080; border: none; background-color: #fff; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; box-shadow: 1px 1px 2px #c4c4c4; -moz-box-shadow: 1px 1px 2px #c4c4c4; -webbox-shadow: 1px 1px 2px #c4c4c4; }
+input[type="text"] { height: 16px; }
+
+    </style>
+{{parent() }}
+
+{%endblock%}
+
+{%block javascript%}
+<script>
+function rempliretablissement() {
+    var m=document.getElementById('fos_user_registration_form_profession').value;
+    var input1="idpro="+m;
+    
+    $("#trlabo").hide();
+    if($("#laboratoire").length>0) {
+    $("#laboratoire").empty();
+    }
+    if(m==3) {
+    $.post("{{path('listlabo')}}",input1,function(theResponse) {
+         
+        
+        $("#trlabo").show();
+        $("#laboratoire").html(theResponse);
+        });
+   }
+    return false;
+    }
+</script>
+{%endblock %}
+
+{%block header %}
+
+  
+  	{% include 'PortailProfilBundle:Front:header.html.twig'%}
+ {%endblock%}
+ {%block container %}
+<div id="container">
+<div id="content" class="full-width" style="background-color:#F7FAE6;">	
+<form  name="formulaire"  autocomplete="off"   method="post" 
+action="{{ path('fos_register') }}"  {{ form_enctype(form) }}>
+
+    
+<h2><img src="{{asset('bundles/portailfront/images/inscription.jpg')}}" width="396" height="71"></h2>
+
+<table>
+
+<tr>
+<td>
+    
+{{ form_label(form.nom)}}</td>
+
+<td height="5">
+{{ form_widget(form.nom)}}</td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+
+<tr>
+
+<td>{{ form_label(form.prenom) }}</td>
+<td>{{ form_widget(form.prenom) }}
+</td> </tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr> <td>
+<label for="pays"> {{ form_label(form.sexe) }} </label>
+</td>
+    <td>
+ {{ form_widget(form.sexe) }}
+    </td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr> <td>
+<label for="pays"> {{ form_label(form.profession) }} </label>
+</td>
+    <td>
+ {{ form_widget(form.profession) }}
+    </td>
+</tr>
+<tr> <td>
+<label for="pays"> {{ form_label(form.specialite) }} </label>
+</td>
+    <td>
+ {{ form_widget(form.specialite) }}
+    </td>
+</tr>
+<tr id="trlabo" style="display:none;"> 
+    <td>
+<label for="pays"> Laboratoire </label>
+</td>
+    <td>
+        <select id="laboratoire" name="listlabo">
+        
+        </select>  
+ </td>
+</tr>
+
+
+<tr>
+<td>{{ form_label(form.adresse) }}  </td>
+<td>
+{{ form_widget(form.adresse) }}
+</td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td>{{ form_label(form.datenaissance) }} </td>
+<td>
+{{ form_widget(form.datenaissance) }}
+</td></tr>
+
+<tr> <td>
+<label for="pays"> {{ form_label(form.ville) }} </label>
+</td>
+    <td>
+ {{ form_widget(form.ville) }}
+    </td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+
+<tr> <td>
+  <label class="desc" id="title9" for="login">{{ form_label(form.username) }}<img src="{{asset('bundles/portailfront/images/login.png')}}" width="16" height="16"></label>
+  </td> <td>{{ form_widget(form.username) }}
+      <div id="validation" style="color: #EB540A;"></div>		
+  </td>
+  </tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+
+  <tr>
+  <td>
+
+<li id="foli4" class="">
+  <label class="desc" id="title9" for="mp">{{ form_label (form.plainPassword.first) }}<img src="{{asset('bundles/portailfront/images/mp.png')}}" width="16" height="16"></label>
+  </li>
+  </td>
+  <td>
+{{ form_widget (form.plainPassword.first) }}
+  </td>
+  </tr>
+  
+  <tr>
+  <td>
+
+<li id="foli4" class="">
+  <label class="desc" id="title9" for="mp">{{ form_label (form.plainPassword.second) }}<img src="{{asset('bundles/portailfront/images/mp.png')}}" width="16" height="16"></label>
+  </li>
+  </td>
+  <td>
+{{ form_widget (form.plainPassword.second) }}
+          <div id="validpassword"  style="color: #EB540A;"></div>
+  </td>
+  </tr>
+  
+<tr><td></td></tr>
+<tr><td></td></tr>
+  
+<tr>
+<td>
+<li id="foli9" class="     ">
+<label class="desc" id="title9" for="mail">
+{{ form_label (form.email) }}
+  <img src="{{asset('bundles/portailfront/images/mail.jpg')}}" width="16" height="16"></label>
+</li>
+</td>
+<td>
+{{ form_widget (form.email) }}
+ <div id="validemail" style="color: #EB540A;"></div>
+    
+</td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+
+<tr> <td>
+<li id="foli10" class="phone      ">
+<label class="desc" id="title10" for="Field10">
+ {{ form_label (form.telephone) }} </label>
+</li></td> 
+<td>
+  <label for="tel"></label>
+ {{ form_widget (form.telephone) }}
+</td>
+</tr>
+<tr>
+    <td>Inscrire à la newsletter </td>
+    <td><input type="checkbox" name="newsletter" value="1" checked="checked"/></td>
+</tr>
+<tr>
+    <td>Tapez le code de sécurité SVP :</td>
+    <td>
+    {{form_widget(form.captcha)}}
+    </td>
+
+</tr>
+  </table>
+ 
+<div>
+ 
+  <div align="center">
+      <input type="submit" value="Valider"    width="67" height="17">
+  </div>
+</div>
+{{form_widget(form)}}
+</form>
+            
+ 
+
+
+                         </div>
+        </div>
+      
+    </div>
+          
+            {%endblock%}

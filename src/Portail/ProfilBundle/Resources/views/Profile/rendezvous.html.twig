@@ -1,0 +1,76 @@
+<div id="rendezvous">
+          <ul class="tabs-nav">
+		   <li class="active"><a href="#" onclick="$('#tabcal').hide();$('#tabrdv1').show();$('#tabrdv2').hide();">Demande Rendezvous en attente</a></li>
+                              
+		  <li><a href="#" onclick="$('#tabcal').show();$('#tabrdv1').hide();$('#tabrdv2').hide();">Calendrier rendezvous</a></li>
+                                 <li><a href="#" onclick="$('#tabcal').hide();$('#tabrdv1').hide();$('#tabrdv2').show();" >Rendezvous validés </a></li>
+                               
+                            </ul>
+                            <div class="tabs-container">
+							<div class="tab-content" style="height:600px;" id="tabcal">
+							
+				<iframe width="100%" height="100%" src="{{path('calendar_by_user',{'year':2013,'month':04,'user':user.id})}}"></iframe>
+                 
+							
+							</div>
+                                <div class="tab-content" id="tabrdv1">
+                    <table class="footable" data-page-navigation="#pagination" data-page-size="5">
+      <thead>
+        <tr>
+          <th data-class="expand">
+            <span>Expéditeur</span>
+          </th>
+          <th>
+            <span>Objet</span>
+          </th>
+          <th data-hide="phone,tablet">
+          Reçu Le 
+		  
+          </th>
+          <th>
+            Actions
+          </th>
+         
+        </tr>
+		
+      </thead>
+		
+		<tbody>
+		 {%for listmessages in rendezvous %}
+                                        <input type="hidden" value="{{listmessages.messageexpediteur}}" id="contenumsg"/>
+                                  <tr>
+                                    <td>{{listmessages.expediteur}}</td>
+                                    <td></td>
+                                    <td>{{listmessages.dateenvoi|localizeddate('medium', 'medium')}}</td>
+                                    
+                                  
+                                   
+                                    <td>
+                                        
+                                           <a href="" onclick="return acceptRendezvous({{listmessages.id}},'{{listmessages.expediteur}}');"  ><img src="{{asset('bundles/portailprofil/profile/images/Accept.png')}}" alt="Accepter" ></a>
+                                         
+
+                                        
+                                           
+                                           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                                            <a href="" ><img src="{{asset('bundles/portailfront/images/cross.png')}}" alt="Ignorer"></a>
+                                           
+                                    </td>
+                                </tr>
+                                {%endfor %}
+                                        </tbody>	  
+					 
+    </table>
+ 
+    <ul id="pagination" class="footable-nav"><span>Pages:</span></ul>
+                <div id="calendarrdv"></div>                
+	                       
+                                </div>
+        <div class="tab-content" id="tabrdv2">
+		
+		{% render 'PortailRendezvousBundle:Rendezvous:listvalide'%}
+		
+		</div>                         
+                            </div>
+                 </div>
+

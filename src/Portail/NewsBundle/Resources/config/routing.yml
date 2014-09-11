@@ -1,0 +1,3 @@
+lire_suite_news:
+  pattern: /suite/{idnews}
+  defaults: { _controller: PortailNewsBundle:News:LireSuite }

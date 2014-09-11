@@ -1,0 +1,32 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %}
+
+{%block stylesheets%}
+
+{{parent() }}
+
+{%endblock%}
+
+{%block header %}
+
+  
+  	{% include 'PortailProfilBundle:Front:header.html.twig'%}
+ {%endblock%}
+ {%block container %}
+<div id="container" class="clearfix" width="100%"> 
+        
+         <div id="content">                      
+	<div class="PageTitle">
+		<h1>Confirmation d'inscription</h1>
+	</div>
+	<div id="breadcrumbs">
+		<a href="index.html" title="Home">Home</a> &raquo; Confirmation
+	</div>
+	<!-- Content Area -->
+	
+
+<p>{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}</p>
+                  </div>
+        
+         
+    </div>
+{%endblock%}

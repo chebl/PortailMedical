@@ -1,0 +1,114 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %}
+{% block body %}
+{%block stylesheets%}
+
+{{parent()}}
+<style>
+        #map {
+   border: 1px solid #DDDDDD;
+   clear: both;
+   float: left;
+   height: 250px;
+   margin: 7px 0;
+   padding: 0;
+   width: 698px;
+}
+      </style>  
+{%endblock %}
+{%block javascripts %}
+{{parent() }}
+
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script type="text/javascript">
+window.onload=function()  {
+        function updateMarkerPosition(latLng) {
+             var b=Math.pow(10,8);
+                 document.getElementById('portail_etablissement_latitude').value =Math.round(latLng.lat()*b)/b;
+                 document.getElementById('portail_etablissement_longitude').value =Math.round(latLng.lng()*b)/b;
+                
+             }
+         showGoogleMap();
+   
+         function showGoogleMap()
+        {
+        //<![CDATA[
+
+        var myOptions = {
+            zoom: 10,
+            center: new google.maps.LatLng(36.81881,10.16596),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"), myOptions);
+        
+            var point1 = new google.maps.LatLng(36.81881, 10.16596);
+            var marker1 = new google.maps.Marker({position: point1,draggable: true, map: map,title:""});
+            //marker1.setMap(map);
+           
+    
+    
+     google.maps.event.addListener(marker1,"dragend",function(){
+        
+          updateMarkerPosition(marker1.getPosition());
+         
+       
+   });
+       }
+
+
+    }
+     
+      </script>  
+
+{%endblock %}
+<form  action="{{path('ajoutEtablissement')}}" method="post" {{ form_enctype(formetab) }}>
+    <table>          
+   <tr><td>Nom Etablissement:</td> 
+       <td>{{form_widget(formetab.nom)}}</td>
+   </tr>    
+   <tr><td>Adresse:</td> 
+       <td>{{form_widget(formetab.adresse)}}</td>
+   </tr>    
+   <tr><td>  Ville:</td> 
+       <td>{{form_widget(formetab.ville)}}</td>
+   </tr>    
+   <tr><td>Telephone:</td> 
+       <td>{{form_widget(formetab.telephone)}}</td>
+   </tr>    
+   <tr><td>Site Web:</td> 
+       <td>{{form_widget(formetab.siteweb)}}</td>
+   </tr>    
+   <tr><td>Logo:</td> 
+       <td>{{form_widget(formetab.file)}}</td>
+   </tr>  
+   
+   <tr><td>Categorie:</td> 
+       <td>{{form_widget(formetab.categorie)}}</td>
+   </tr>  
+   
+   <tr><td>  Longitude</td> 
+       <td>{{form_widget(formetab.longitude)}}</td>
+   </tr>    
+   <tr><td>Latitude:</td> 
+       <td>{{form_widget(formetab.latitude)}}</td>
+   </tr>    
+   <tr><td>Indiquer sa position sur la carte:</td> 
+   </tr>
+   <tr><td colspan="4">
+           <div id="map">
+                   
+        </div> 
+                 </td>
+             </tr>
+    
+     <tr> 
+         <td><input type="submit" value="Ajouter"></td>
+   </tr>   
+   
+   
+       </table>
+         {{form_widget(formetab)}}
+       
+                  </form> 
+      
+      
+      {%endblock%}

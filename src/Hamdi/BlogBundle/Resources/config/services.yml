@@ -1,0 +1,7 @@
+parameters:
+#    hamdi_blog.example.class: Hamdi\BlogBundle\Example
+
+services:
+#    hamdi_blog.example:
+#        class: %hamdi_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

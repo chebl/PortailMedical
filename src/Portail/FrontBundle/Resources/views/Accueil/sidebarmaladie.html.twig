@@ -1,0 +1,28 @@
+ <aside id="sidebar">
+                                    <section class="widget">
+                                       {%render 'PortailFrontBundle:Fichemaladie:articlepluslu' %}	                         						
+                                    </section>
+                                                
+                                   
+                                            
+                                    <section class="widget">
+                                      <h3 class="title">Categories</h3>		
+                                      <ul id="accordion">
+                                        {%for categ in categorie %}
+                                 <li><a href="" title="{{categ.nom}}">{{categ.nom}}</a>
+     <ul>                           
+{%for souscateg in souscategorie %} 
+                                
+                                   {% if(souscateg.categorie.id==categ.id) %}     
+         <li><a href="{{path('listmaladiebycategory',{'souscategorie':souscateg.id})}}">{{souscateg.nom}}</a></li>
+         {%endif%}
+                                {%endfor%}
+         </ul>
+                  </li>                   
+         {%endfor%}
+                                      </ul>
+                                    </section>
+                                    
+                                    									
+                                </aside>                                
+                                                    

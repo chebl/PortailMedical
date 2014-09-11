@@ -1,0 +1,15 @@
+{% for blog in blogs %} 
+<li style="position: absolute; top: 0px; z-index: 3; opacity: 0; display: none;">
+                                                                        <div class="imgbox" >
+                                                                            <img width="100%" height="100%"  src="{{asset('bundles/portailbloguser/uploads/')}}{{blog.auteur.logo}}" alt="Image" style="display: none;">
+                                                                        </div>  
+                                                                        <div class="detail">
+                                                                                <blockquote>
+                                                                                        <p>
+                                                                                        {{blog.extrait }}
+                                                                                        </p>
+                                                                                </blockquote>
+                                                                                <p class="author"><a href="#brian" class="author">{{blog.auteur}},</a>ENT Department</p>
+                                                                        </div>                                                                                                             
+                                                                    </li>    
+                                                                    {%endfor %}

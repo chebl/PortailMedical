@@ -1,0 +1,6 @@
+group_list:
+    pattern:  /group/list
+    defaults: { _controller: "PortailFrontBundle:Group:list" }
+group_create:
+    pattern:  /group/create
+    defaults: { _controller: "PortailFrontBundle:Group:create" }

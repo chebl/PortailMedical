@@ -1,0 +1,280 @@
+
+	{% extends 'PortailFrontBundle::layout.html.twig' %}
+
+{%block stylesheets%}
+{{parent() }}
+	
+	<link rel="stylesheet" href="{{asset('bundles/portailforum/css/css_1.css')}}">
+	<link rel="stylesheet" href="{{asset('bundles/portailforum/css/reponses.css')}}">
+	<style>
+ #element_to_pop_up
+ {
+ background-color:#fff;
+    border-radius:15px;
+    color:#000;
+    display:none; 
+    padding:20px;
+    min-width:200px;
+    min-height: 100px;
+ }
+ .b-close {
+   cursor:pointer;
+    position:absolute;
+    right:10px;
+    top:5px;
+ 
+ }
+ 
+ </style>   
+{%endblock%}
+ {%block javascripts %}
+{{parent() }}
+  
+ <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
+                                <script type="text/javascript">
+                                    getTwitters('twitter_update_list', { 
+                                          id: '960development', 
+                                          count: 1,
+                                          enableLinks: true, 
+                                          ignoreReplies: true, 
+                                          clearContents: true,
+                                          template: '%text%'
+                                    });
+    
+
+	</script>	
+	
+	
+	
+
+<script src="{{asset('bundles/portailforum/js/jquery.bpopup.min.js')}}"></script>
+
+
+  <script>
+ // Semicolon (;) to ensure closing of earlier scripting
+    // Encapsulation
+    // $ is assigned to jQuery
+    ;(function($) {
+
+         // DOM Ready
+        $(function() {
+
+            // Binding a click event
+            // From jQuery v.1.7.0 use .on() instead of .bind()
+            $('#my-button').bind('click', function(e) {
+
+                // Prevents the default action to be triggered. 
+                e.preventDefault();
+
+                // Triggering bPopup when click event is fired
+                $('#element_to_pop_up').bPopup();
+
+            });
+
+        });
+
+    })(jQuery);
+ </script>      
+      
+{%endblock%} 
+ {%block header %}
+
+  
+  	{% include 'PortailFrontBundle:Front:header.html.twig'%}
+ {%endblock%}
+ {%block container %}
+ 
+<div id="container" class="clearfix" width="100%">   
+   <div class="mainContainer"   style="position: relative;width:100%;">
+					<div class="mainContent" style="width:100%;background-color: rgb(252, 252, 255);">
+					<div id="headerMover" width="100%">
+					<div id="content1">
+					<div class="pageContent">
+							<!-- h1 title, description -->
+							<div class="titleBar">
+								
+								<h1>{{souscategorie.designation}}</h1>
+								
+								
+							</div>
+			
+
+<div class="pageNavLinkGroup">
+
+	<div class="linkGroup SelectionCountContainer">
+		
+	</div>
+
+</div>
+
+
+
+<div class="discussionList section sectionMain">
+	
+
+
+	<dl class="sectionHeaders"  style="background-color: #e6e6e6;">
+		<dt class="posterAvatar"><a><span>Sort by:</span></a></dt>
+		<dd class="main">
+			<a href="" class="title"><span>Titre</span></a>
+				</dd>
+		<dd class="stats">
+			<a href="" class="major"><span>Réponses</span></a>
+			<a href="" class="minor"><span>Vus</span></a>
+		</dd>
+		<dd class="lastPost"><a href=""><span>Dernier Réponse ↓</span></a></dd>
+	</dl>
+
+	<ol class="discussionListItems">
+	
+	
+{% for question in pager.currentPageResults %}
+<li id="thread-20458" class="discussionListItem visible">
+
+	<div class="listBlock posterAvatar">
+		<span class="avatarContainer">
+                    {%if question.membre.logo %}
+			<a href="" class="avatar Av1s" data-avatarhtml="true"><img src="{{asset('bundles/portailbloguser/uploads/')}}{{question.membre.logo}}" alt="{{question.membre}}" height="48" width="48"></a>
+			{%else %}
+                <a href="" class="avatar Av1s" data-avatarhtml="true"><img src="{{asset('bundles/portailbloguser/uploads/avatar.gif')}}" alt="{{question.membre}}" height="48" width="48"></a>
+		        {%endif%}    
+                            
+		</span>
+	</div>
+
+	<div class="listBlock main">
+
+		<div class="titleText">
+			<h3 class="title">
+				
+				
+				
+				<a href="{{path('listdiscussion',{'question':question.id})}}" title="" class="PreviewTooltip"> {{question.message(10)}}</a>
+				
+			</h3>
+
+			
+
+			<div class="secondRow">
+				<div class="posterDate muted">
+					<a href="" class="username" title="Thread starter">{{question.membre}}</a>,
+					<a class="faint"><span class="DateTime" title="">{{question.datepublication|localizeddate('medium', 'medium')}}</span></a>
+
+					
+				</div>
+
+				<div class="controls faint">
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="listBlock stats pairsJustified" title="Members who liked the first message: 0">
+		<dl class="major"><dt>Réponses:</dt> <dd>{{question.reponses|length}}</dd></dl>
+		<dl class="minor"><dt>Vus:</dt> <dd>{{question.nbvue}}</dd></dl>
+	</div>
+
+	<div class="listBlock lastPost">
+		
+			<dl class="lastPostInfo">
+				
+				{% render "PortailForumBundle:Forum:dernierreponse" with {'idquestion':question.id} %}
+				
+				
+			</dl>
+		
+	</div>
+
+</li>
+<div id="PreviewTooltip">
+
+	<span class="arrow"><span></span></span>
+	
+	<div class="section">
+		<div class="primaryContent previewContent">
+			<span class="PreviewContents">{{question.message}}</span>
+		      
+		</div>
+	</div>
+</div>
+	{%endfor%}
+	
+	</ol>
+   <div id="pagination">{{ pagerfanta(pager, 'default') }}</div>
+
+</div>
+	
+<div class="pageNavLinkGroup">
+	<div class="linkGroup">
+		
+			<label for="LoginControl"><a href="" id="my-button">Poster une question</a></label>
+		 <div id="element_to_pop_up" >
+			<a class="b-close">X</a>
+
+	<form action="{{path('insertquestion')}}" method="post">
+	  <table>	
+	  <tr><td>Taper Votre Question 
+	  </td>
+	  <td><textarea name="msg" cols="50" rows="3"></textarea></td>
+          <input type="hidden" value="{{souscategorie.id}}" name="souscategorie"/>
+	</tr>
+	<tr><td><input type="submit" value="Postuler"></td>
+	</tr>
+	</table>
+	
+   
+	</form>
+	
+	</div>
+	</div>
+	<div class="linkGroup" style="display: none"><a style="" href="javascript:" class="muted jsOnly DisplayIgnoredContent Tooltip">Show Ignored Content</a></div>
+	
+	
+
+
+<div class="PageNav">
+	
+	
+	</div>
+	
+</div>
+
+</div>
+	</div>
+</div>	
+						
+						
+						
+							<!-- login form, to be moved to the upper drop-down -->
+							
+
+
+
+
+
+
+						
+						
+					
+			
+						
+			<div class="breadBoxBottom">
+
+<nav>
+	
+
+	
+</nav></div>
+			
+						
+		</div>	
+						
+		</div>
+	
+</div>
+
+</div>
+{%include 'PortailFrontBundle:Front:footer.html.twig'%}
+{%endblock%}

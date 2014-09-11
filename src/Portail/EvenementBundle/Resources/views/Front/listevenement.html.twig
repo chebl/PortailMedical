@@ -1,0 +1,179 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %}
+
+{%block stylesheets%}
+{{parent() }}
+       
+{%endblock%}
+ {%block javascripts %}
+{{parent() }}
+  {{parent()}}
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+    $(function() {
+$( "#tabs" ).tabs();
+});
+</script>
+ <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
+                                <script type="text/javascript">
+                                    getTwitters('twitter_update_list', { 
+                                          id: '960development', 
+                                          count: 1,
+                                          enableLinks: true, 
+                                          ignoreReplies: true, 
+                                          clearContents: true,
+                                          template: '%text%'
+                                    });
+     </script>
+
+<script type='text/javascript' src="{{asset('bundles/portailbloguser/js/jquery.cookie.js')}}"></script>
+<script type='text/javascript' src="{{asset('bundles/portailbloguser/js/jquery.hoverIntent.minified.js')}}"></script>
+<script type='text/javascript' src="{{asset('bundles/portailbloguser/js/jquery.dcjqaccordion.2.7.min.js')}}"></script>
+<script>
+    jQuery(document).ready(function($) {
+    jQuery('#accordion').dcAccordion();
+    $('#accordion').dcAccordion({
+eventType: 'hover',
+autoClose: true,
+saveState: true,
+disableLink: true,
+showCount: false,
+menuClose: true,
+speed: 'fast'
+});
+});
+</script>	 
+	 
+	<script>
+     $(function () {
+        var fm={
+         dateFormat:"dd-mm-yy",
+         timeFormat: "hh:ii:ss" 
+        };
+        $("#datepic").datepicker(fm);
+            $("#datepic1").datepicker(fm);
+        
+    });
+
+</script> 
+ {%endblock %}
+  {%block header %}
+
+  
+  	{% include 'PortailProfilBundle:Front:header.html.twig'%}
+ {%endblock%}
+ {%block container %}
+ 
+   <hgroup class="page-head">     		
+                                <h2><span>Evénements</span></h2>
+                                    </hgroup>
+                        
+                        <div id="container" class="clearfix" style="background-color: whitesmoke;">
+						  		<div id="content" class="full-width">								
+                                         <ul class="tabs-nav">
+
+
+                     <li><a href="#">Recherche par Titre</a></li>
+                    <li><a href="#">Recherche par Date</a></li>
+                    <li><a href="#">Recherche par Type</a></li>
+                </ul>
+                
+                     <div class="tabs-container">
+		
+<div class="tab-content">
+  <section class="widget">
+    <form action="{{path('listeevenementparmotcle')}}"  method="post" id="searchform" style="width:30%;">
+     <div>
+                           
+				<label for="s" class="screen-reader-text">Search for:</label>
+                                <input type="text" id="s" name="search" value="" />
+				<input type="submit" value="Rechercher" id="searchsubmit" />
+	</div>
+		</form>
+	</section>
+            
+</div>
+         
+                    
+<div  class="tab-content">
+<section class="widget">
+    <form action="{{path('listeevenementpardate')}}" id="searchform" style="width:30%;" method="post">   
+        <p>Date Debut <input id="datepic" type="text" name="datedebut" style="width:175px" /></p>
+		<br>
+        <p>Date Fin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="datepic1" type="text" name="datefin" style="width:175px" /></p>
+        <input type="submit" id="searchsubmit"  value="rechercher" name="rechercher"/>
+        
+    </form>
+	</section>
+</div>
+
+  <div class="tab-content">
+  <section class="widget">
+     <form action="{{path('listevenementbytype')}}" id="searchform" style="width:30%;"  method="post">   
+   Type : <select name="type">
+       {%for tp in type %}
+           <option value="{{tp.id}}">{{tp.nom}}</option>
+       {%endfor%}
+       </select>
+       <input type="submit" value="rechercher" id="searchsubmit" name="rechercher">
+    </form>
+	</section>
+  </div>  
+                   
+    <table class="footable" data-page-navigation="#pagination" data-page-size="3">
+				   <thead>
+                                                        <tr style="background-color: #B8E0F9;">
+                                                                    
+								  
+                                                            <th><strong>Titre</strong></th>
+						            <th><strong>Date-Debut</strong></th>
+                                                            <th><strong>Date-Fin</strong></th>
+                                                            <th><strong>Organisateur</strong></th>
+                                                            <th><strong>Lieu</strong></th>
+                                                            <th><strong>Catégorie</strong></th>
+                                                            <th><strong>Type</strong></th>
+                                                            
+                                                                    
+                                                                   
+								   	</tr>
+                                                                 
+								
+							</thead>
+                                                       
+							
+                                                      
+                                                        
+							<tbody>
+                                                    
+                                                            {%for evenement in pager.currentPageResults %}
+                                                            <tr>
+                                                                    
+									
+                                                                        <td><a href="{{path('evenementdetail',{'id':evenement.id})}}" target="_blank" >{{evenement.titre}}</a> </td>
+                                                        
+									<td>{{evenement.datedebut|localizeddate('medium', 'medium')}}</td>
+                                                                            <td>{{evenement.datefin|localizeddate('medium', 'medium')}}</td>
+                                                                            <td>{{evenement.organisateur}}</td>
+                                                                            <td>{{evenement.lieu}}</td>
+                                                                        <td>{{evenement.categorie}}</td>
+									 <td>{{evenement.type}}</td>
+                                                                        	</tr>
+								{%endfor%}
+                                                                
+				</tbody>
+				
+				
+			  </table>
+			
+			
+			 </div>
+     <div id="pagination">{{ pagerfanta(pager, 'default') }}</div>
+       
+ 
+</div>
+                            </div>
+  {%include 'PortailFrontBundle:Front:footer.html.twig'%}
+       
+	
+{%endblock%}

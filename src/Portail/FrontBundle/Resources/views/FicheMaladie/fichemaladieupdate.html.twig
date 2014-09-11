@@ -1,0 +1,83 @@
+       <a class="b-close">X</a>    
+	<form  action="{{path('updatefichmaladie')}}" method="post" id="compteform" {{ form_enctype(formfiche) }}>
+                 <p>
+                            	<label for="name">               
+     
+     Désignation de maladie: 
+    
+   
+      {{form_widget(formfiche.designation,{ 'attr': {'class': 'input'}})}}
+   
+             </label>
+		  </p>
+		  
+     <p>	 
+    
+   <label for="name">             
+     Bref description: 
+     </label>
+      {{form_widget(formfiche.extrait,{ 'attr': {'class': 'textarea'}})}}
+    
+		  </p>
+               
+          <p>	 
+    
+   <label for="name">       
+     Description :
+    </label>                      
+ {{form_widget(formfiche.description,{ 'attr': {'class': 'textarea'}})}}
+    </p>
+	<p>
+	<label for="name">   
+	<input type="hidden" name="id" value="{{fichemaladie.id}}"/>
+      Symptômes :
+        </label>     
+{{form_widget(formfiche.symptomes,{ 'attr': {'class': 'textarea'}})}}
+	</p>
+	<p>
+	<label for="name">  
+     Causes :
+      </label>      
+     {{form_widget(formfiche.causes,{ 'attr': {'class': 'textarea'}})}}
+		</p>					
+   <p>
+	<label for="name">  
+     Prevention :
+    </label>      
+     {{form_widget(formfiche.prevention,{ 'attr': {'class': 'textarea'}})}}
+</p>							
+    <p>
+	<label for="name">  
+     Choisir une image :
+       </label>     
+     {{form_widget(formfiche.file)}}
+		</p>					
+    <p>
+	<label for="name">  
+     Catégorie :
+     </label>        
+                      
+                           
+                           <select name="categoriemaladie" id="categoriemaladieup" onchange="return remplirsouscategorie1(document.getElementById('categoriemaladieup').value,$('#souscategoriemaladieup'));">
+                                <option value="{{categ.id}}">{{categ.nom}}</option>
+                           {%for cat in touscategorie %}
+                                   <option value="{{cat.id}}">{{cat.nom}}</option>
+                                {%endfor%}   
+                           
+                           </select>
+         </p>                  
+							
+     <p>
+	<label for="name">  
+     SousCatégorie :
+        </label>   
+                           
+                           <select name="souscategoriemaladie" id="souscategoriemaladieup">
+                         <option value="{{souscateg.id}}">{{souscateg.nom}}</option>
+                              
+                           </select>
+                   </p>
+                          <input class="submit" type="submit" value="Publier" > 
+    
+                      {{form_rest(formfiche)}}
+                  </form>  

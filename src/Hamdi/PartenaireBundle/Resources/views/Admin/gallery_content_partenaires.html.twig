@@ -1,0 +1,21 @@
+
+		<div class="gallery">
+                        		            
+			<ul>
+                            {% for p in partners %}
+				<li>
+					<div class="gallery_item">
+						<img src="{{asset('bundles/hamdimedia/gallery/partenaires/')}}{{p.path}}" width="214" height="194" class="cover" alt="" />
+						<h4>{{ p.nom }}</h4>
+                                                <p><a href="{{ p.site }}" target="_blank">{{ p.site }}</a></p>
+						<a href="{{ path('supprimer_partner',{'id': p.id}) }}" class="btn alignleft" title="read more">Supprimer</a>
+						<a href="{{asset('bundles/hamdimedia/gallery/partenaires/')}}{{ p.path }}" class="zoom" data-rel="prettyPhoto[gallery]">Enlarge</a>
+					</div>
+				</li>
+		           {% endfor %}
+			</ul>
+			<div class="clear"></div>
+		</div>
+		
+		
+   

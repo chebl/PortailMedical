@@ -1,0 +1,41 @@
+<!-- Start Notifications -->
+			{% if id_notif == 1 %}
+			<div class="notification attention png_bg">
+				<a href="#" class="close"><img src="{{asset('bundles/hamdiadmin/images/icons/cross_grey_small.png')}}" title="Close this notification" alt="close" /></a>
+				<div>
+					
+				</div>
+			</div>
+			{% elseif id_notif == 2 %}
+			<div class="notification information png_bg">
+				<a href="#" class="close"><img src="{{asset('bundles/hamdiadmin/images/icons/cross_grey_small.png')}}" title="Close this notification" alt="close" /></a>
+				<div>
+					
+				</div>
+			</div>
+			{% elseif id_notif == 3 %}
+			<div class="notification success png_bg">
+				<a href="#" class="close"><img src="{{asset('bundles/hamdiadmin/images/icons/cross_grey_small.png')}}" title="Close this notification" alt="close" /></a>
+				<div>
+                                    
+					Opération d'ajout effectué avec succés.  
+				</div>
+			</div>
+                        {% elseif id_notif == 3 %}
+			<div class="notification success png_bg">
+				<a href="#" class="close"><img src="{{asset('bundles/hamdiadmin/images/icons/cross_grey_small.png')}}" title="Close this notification" alt="close" /></a>
+				<div>
+                                    
+					Opération de suppression effectué avec succés.  
+				</div>
+			</div>
+			{% elseif id_notif == 5 %}
+			<div class="notification error png_bg">
+				<a href="#" class="close"><img src="{{asset('bundles/hamdiadmin/images/icons/cross_grey_small.png')}}" title="Close this notification" alt="close" /></a>
+				<div>
+					Error survenu lors d'execution de requête
+				</div>
+			</div>
+                        {% endif %}
+			
+<!-- End Notifications -->

@@ -1,0 +1,250 @@
+{% block body %}
+{% block stylesheets %}
+{{  parent() }}
+{% endblock %}
+ {%block javascripts %}
+{{  parent() }}
+ <script type="text/javascript">var switchTo5x=false;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "8a559a23-282a-4f1c-b8a7-ad0e3d7f20f9", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+</script>
+
+<script>
+    function listcommentaire() 
+    {
+        var input="name="+document.getElementById('namec').value+"&message="+document.getElementById('messagec').value+"&blogid="+{{blog.id}};
+        $.post("{{path('listcomment')}}",input,function(theReponse){
+            if($("#commentlist").length > 0)
+                {$("#commentlist").empty();}
+        $("#commentlist").html(theReponse);
+      $('#nbc').val( $('#nbc').val()+1);
+        });
+    return false;
+    }
+    
+    </script>
+  
+{%endblock%}
+<div class="content_wrapper_sbr">
+	<div class="PageTitle">
+		<h1>{{ blog.title }}</h1>
+	</div>
+	<div id="breadcrumbs">
+		<a href="" title="Home">Home</a> &raquo; <a href="" title="Blog">Blog</a> &raquo; Blog Single Page
+	</div>
+	<!-- Content Area -->
+	<div id="content">
+		<!-- Start Post -->
+		<div class="post">
+			<h2><a href="#">{{ blog.title }}</a></h2>
+			<div class="posted">
+				<span class="date"><time datetime="{{ blog.created|localizeddate('medium', 'medium') }}">{{ blog.created|localizeddate('medium', 'medium') }}</time></span>
+				<span class="author"><a href="#">{{blog.auteur}}</a></span>
+				<span class="category"><a href="#">News</a></span>
+                                <span class="comments"><a href="#"><span id="nbc">{{ blog.comments|length }}</span> Comments</a></span>
+				<div class="clear"></div>
+		  </div>
+			<div class="post_thumb"><a href="#"><img src="{{ asset(['bundles/hamdiblog/images/blog', blog.path]|join) }}" width="602" height="224" alt="" class="pic" /></a></div>
+			<div class="excerpt">
+				<p>{{ blog.blog }}</p>
+			</div>
+		</div>
+		<!-- End Post -->
+		<!-- Post bio -->
+        </div>
+		<!-- // Post bio -->
+		<div class="hr bottom"></div>
+		<div>
+Partager avec vous amis sur :<br>
+<div class="post-header-line-1"></div>
+<div style="float:left;padding:5px;">
+<span class='st_sharethis_large' displayText='Publier sur'></span>
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+<span class='st_pinterest_large' displayText='Pinterest'></span>
+<span class='st_email_large' displayText='Email'></span>        
+        
+      
+</div>
+    </div>        
+               
+     
+      
+		<!-- Start Commentlist -->
+		<h3>Discussion -{{ blog.comments|length }} commentaires</h3>
+		<!-- Start Commentlist Navigation -->
+		
+		<ul id="commentlist">
+                    {%for comment in comments%}
+			<li>
+				<div class="comment">
+					<div class="vcard">
+						<img src="{{asset('bundles/portailfront/images/avatar.gif')}}" width="80" height="80" alt="" class="avatar" />
+						<span class="comment_author">{{comment.user}}</span>
+						<span class="when_posted"><time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('l, j F, Y H:i:s') }}</time></span>
+						<div class="clear"></div>
+					</div>
+					<div class="posted_content"><div class="pointer_pc"></div>
+						<div class="comment-body">{{comment.comment}}</div>
+						<a href="#" class="comment-reply-link">Reply</a>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</li>
+                        {%endfor %}
+		</ul>
+		<!-- Start Commentlist Navigation -->
+		
+		<div class="hr bottom"></div>
+		<!-- Start Commentform -->
+		<h2>leave a comment</h2>
+                
+		<form action="" id="commentform">
+                    <table>
+                        <tr><td><img src="" width="16" height="16" alt="" class="icon" /><label for="name">Your Name: <small>(required)</small></label>    
+                        </td><td><input type="text" id="namec" /> </td></tr>
+			
+                        <tr><td><label for="your_message">Your Message:</label></td>
+                               <td> <textarea id="messagec" cols="15" rows="7"></textarea>
+                               </td></tr>
+                        <tr><td>
+                                <input type="button" value="Commenter" onclick="return listcommentaire();" /></td></tr>
+                    </table>
+		</form>
+	</div>
+	<!-- Sidebar Area -->
+	<div id="sidebar">
+		<div class="widget-container widget_search">
+		<form action="" id="searchform">
+			<div>
+				<label for="s" class="screen-reader-text">Search for:</label>
+				<input type="text" id="s" name="s" value="" />
+				<input type="submit" value="Search" id="searchsubmit" />
+			</div>
+		</form>
+		</div>
+		<div class="widget-container widget_categories">
+			<h3>Categories</h3>
+			<ul>
+				<li><a href="" title="Web Design">Web Design</a></li>
+				<li><a href="" title="News">News</a></li>
+				<li><a href="" title="Photography">Photography</a></li>
+				<li><a href="" title="Technology">Technology</a></li>
+			</ul>
+		</div>
+		<div class="widget-container widget_tabbed">
+			<!-- Start Tabbed Box Container -->
+			<!-- Tabs Menu -->
+			<ul class="tab-items">
+				<li><a href="#tabs-1" title="Popular">Popular</a></li>
+				<li><a href="#tabs-2" title="Recent">Recent</a></li>
+				<li><a href="#tabs-3" title="Comments">Comments</a></li>
+			</ul>
+			<!-- Tab Container for menu with ID tabs-1 -->
+			<div class="tabs-inner" id="tabs-1">
+				<ul>
+					<li>
+						<a href=""><img src="" width="60" height="55" alt="" class="pic alignleft" /></a>
+						<b><a href="">Accumsan malesuada sitmet eros lorem</a></b>
+						<span class="date">September 15, 2010</span>
+						<div class="clear"></div>
+					</li>
+					<li>
+						<a href=""><img src="" width="60" height="55" alt="" class="pic alignleft" /></a>
+						<b><a href="">Malesuada orcdonec umet lorem doloronsec tetuer malesuada</a></b>
+						<span class="date">August 30, 2010</span>
+						<div class="clear"></div>
+					</li>
+					<li>
+						<a href=""><img src="" width="60" height="55" alt="" class="pic alignleft" /></a>
+						<b><a href="">Udipiscing elit mauris sifermen tum tellus dapibus</a></b>
+						<span class="date">August 25, 2010</span>
+						<div class="clear"></div>
+					</li>
+					<li>
+						<a href=""><img src="" width="60" height="55" alt="" class="pic alignleft" /></a>
+						<b><a href="">Udipiscing elit mauris sifermen tum tellus dapibus</a></b>
+						<span class="date">August 20, 2010</span>
+						<div class="clear"></div>
+					</li>
+				</ul>
+			</div>
+			<!-- Tab Container for menu with ID tabs-2 -->
+			<div class="tabs-inner" id="tabs-2">
+				<ul>
+					<li>
+						<a href=""><img src="" width="60" height="55" alt="" class="pic alignleft" /></a>
+						<b><a href="">Malesuada orcdonec</a></b>
+						<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
+						<div class="clear"></div>
+					</li>
+					<li>
+						<a href=""><img src="" width="60" height="55" alt="" class="pic alignleft" /></a>
+						<b><a href="">Udipiscing elit</a></b>
+						<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
+						<div class="clear"></div>
+					</li>
+					<li>
+						<a href=""><img src="" width="60" height="55" alt="" class="pic alignleft" /></a>
+						<b><a href="">Ullam corporis suscipit</a></b>
+						<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
+						<div class="clear"></div>
+					</li>
+					<li>
+						<a href=""><img src="" width="60" height="55" alt="" class="pic alignleft" /></a>
+						<b><a href="">Malesuada orcdonec</a></b>
+						<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
+						<div class="clear"></div>
+					</li>
+				</ul>
+			</div>
+			<!-- Tab Container for menu with ID tabs-3 -->
+			<div class="tabs-inner" id="tabs-3">
+				<ul>
+					<li>
+						<b><a href="">Accumsan malesuada sitmet eros lorem</a></b>
+						<span class="date">September 15, 2010</span>
+					</li>
+					<li>
+						<b><a href="">Malesuada orcdonec umet lorem doloronsec tetuer malesuada</a></b>
+						<span class="date">August 30, 2010</span>
+					</li>
+					<li>
+						<b><a href="">Udipiscing elit mauris sifermen tum tellus dapibus</a></b>
+						<span class="date">August 25, 2010</span>
+					</li>
+					<li>
+						<b><a href="">Udipiscing elit mauris sifermen tum tellus dapibus</a></b>
+						<span class="date">August 20, 2010</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- End Tabbed Box Container -->
+		<!-- Text Widget -->
+		<div class="widget-container widget_text">
+			<h3>Text Widget</h3>
+			<div class="textwidget">
+				<p>Donec accumsan malesuada orcidonec sitmet eros lorem isum dolor amet incon. Adipiscing elit maurise pharetra magna accumsan. Malesuada orcdonec umet lorem doloronsec malesuada. Udipiscing elit mauris sifermentum. Tellus dolor, dapibus eget, elementum. Unean auctor wisi et urna. Aliquam erat volutpat.</p>
+			</div>
+		</div>
+		<!-- Archive Widget -->
+		<div class="widget-container widget_archive">
+			<h3>Archives</h3>
+			<ul>
+				<li><a href="" title="August 2011">August 2011</a> (15)</li>
+				<li><a href="" title="July 2011">July 2011</a> (10)</li>
+				<li><a href="" title="June 2011">June 2011</a> (8)</li>
+				<li><a href="" title="May 2011">May 2011</a> (25)</li>
+				<li><a href="" title="April 2011">April 2011</a> (153)</li>
+				<li><a href="" title="March 2011">March 2011</a> (5)</li>
+				<li><a href="" title="February 2011">February 2011</a> (9)</li>
+				<li><a href="" title="January 2011">January 2011</a> (5)</li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+{%endblock%}

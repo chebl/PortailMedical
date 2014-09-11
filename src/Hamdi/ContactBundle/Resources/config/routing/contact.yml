@@ -1,0 +1,30 @@
+contact_list:
+    pattern:  /contactes
+    defaults: { _controller: "HamdiContactBundle:Contact:index" }
+
+contact_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "HamdiContactBundle:Contact:show" }
+
+contact_new:
+    pattern:  /new
+    defaults: { _controller: "HamdiContactBundle:Contact:new" }
+
+contact_create:
+    pattern:  /create
+    defaults: { _controller: "HamdiContactBundle:Contact:create" }
+    requirements: { _method: post }
+
+contact_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "HamdiContactBundle:Contact:edit" }
+
+contact_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "HamdiContactBundle:Contact:update" }
+    requirements: { _method: post }
+
+contact_delete:
+    pattern:  /admin/delete/{id}
+    defaults: { _controller: "HamdiContactBundle:Contact:delete" }
+    requirements: { _method: get }

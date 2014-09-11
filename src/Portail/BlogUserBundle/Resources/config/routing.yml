@@ -1,0 +1,33 @@
+listblogsfront:
+  pattern:  /
+  defaults: { _controller: PortailBlogUserBundle:BlogUser:listblog } 
+souscategories:
+    pattern:  /souscategorie
+    defaults: { _controller: PortailBlogUserBundle:BlogUser:sousCategorie } 
+ajoutarticleblog:
+    pattern:  /ajoutarticleblog
+    defaults: { _controller: PortailBlogUserBundle:BlogUser:ajouter } 
+deletebloguser:
+    pattern:  /deletebloguser
+    defaults: { _controller: PortailBlogUserBundle:BlogUser:delete } 
+editbloguser:
+    pattern:  /editbloguser
+    defaults: { _controller: PortailBlogUserBundle:BlogUser:edit }  
+updatebloguser:
+    pattern:  /updatebloguser
+    defaults: { _controller: PortailBlogUserBundle:BlogUser:update }  
+    
+listarticlessouscategorie:
+    pattern:  /listarticle/{souscategorie}/{page}
+    defaults: { _controller: PortailBlogUserBundle:BlogUser:listarticle,page: 1}  
+showblogtag:
+    pattern:  /listbytag/{tag}/{page}
+    defaults: { _controller: PortailBlogUserBundle:BlogUser:listbytag,page: 1}  
+showblogkey:
+    pattern:  /listbykey/{page}
+    defaults: { _controller: PortailBlogUserBundle:BlogUser:listbykey,page: 1}  
+
+datatable:
+    pattern:  /datatable
+    defaults: { _controller: PortailBlogUserBundle:BlogUser:datatable }
+  

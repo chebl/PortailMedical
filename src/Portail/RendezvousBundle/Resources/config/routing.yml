@@ -1,0 +1,18 @@
+accepterrendezvous:
+    pattern:  /accept
+    defaults: { _controller: PortailRendezvousBundle:Rendezvous:accept }
+validrendezvous:
+    pattern:  /validrdv
+    defaults: { _controller: PortailRendezvousBundle:Rendezvous:valid }
+listrendezvousvalide:
+    pattern:  /listrdvvalide
+    defaults: { _controller: PortailRendezvousBundle:Rendezvous:listvalide }
+demanderdv:
+    pattern:  /demanderdv
+    defaults: { _controller: PortailRendezvousBundle:Rendezvous:demanderendezvous }
+popuprdvframe:
+    pattern:  /valdiderrdv
+    defaults: { _controller: PortailRendezvousBundle:Rendezvous:validerdv }  
+supprdv:
+    pattern: /delrdv
+    defaults: { _controller: PortailRendezvousBundle:Rendezvous:delete } 

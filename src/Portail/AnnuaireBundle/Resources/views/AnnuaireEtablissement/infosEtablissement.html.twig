@@ -1,0 +1,215 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %}
+{% block body %}
+{% block stylesheets %}
+{{  parent() }}
+{% endblock %}
+ {%block javascripts %}
+{{  parent() }}
+<script type="text/javascript">var switchTo5x=false;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "8a559a23-282a-4f1c-b8a7-ad0e3d7f20f9", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+{%endblock%}
+<div id="sp">
+    
+    
+<div class="header_full sample_01">
+	<div class="head_top_shadow"></div>
+	<div class="head_bot_shadow"></div>
+	<div id="header"></div>
+</div>
+<!-- End Header -->
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script type="text/javascript">
+    window.onload=function()  {
+               showGoogleMap();
+   
+         function showGoogleMap()
+        {
+        //<![CDATA[
+
+        var myOptions = {
+            zoom: 10,
+            center: new google.maps.LatLng({{Etablissement.latitude}}, {{Etablissement.longitude}}),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"), myOptions);
+        
+            var point1 = new google.maps.LatLng({{Etablissement.latitude}}, {{Etablissement.longitude}});
+            var marker1 = new google.maps.Marker({position: point1,draggable: false, map: map,title:""});
+            //marker1.setMap(map);
+           var html_text1    = '<b>Adresse :</b>{{Etablissement.adresse}},<br>' ;
+                              //'<b>{{Etablissement.ville}}<br>';
+    var infowindow1 = new google.maps.InfoWindow({
+       content: html_text1
+    });
+    //google.maps.event.addListener(marker1, 'mouseover', function() {
+       infowindow1.open(map, marker1);
+        
+       }
+
+
+    }
+     
+      </script> 
+      <script type="text/javascript" charset="utf-8">
+             $(function() {
+          $('#commentPopupLink').click(function(e) {
+                $("#contactmedecin").lightbox_me({centered: true, onLoad: function() {
+					$("#contactmedecin").find("input:first").focus();
+				}});
+				
+                e.preventDefault();
+            
+            });
+        
+           
+           
+            
+            
+            
+            $('table tr:nth-child(even)').addClass('stripe');
+        });
+        
+        
+          </script>
+          <script>
+            function EnvoiContact()
+            {
+              
+               var sujet=document.getElementById('sujetcontact').value;
+                var message=document.getElementById('messagecontact').value;
+              
+                var input1="sujet="+sujet+"&message="+message+"&idmedecin="+{{Etablissement.id}}
+              //alert(input1);
+               $('#loadingpage').lightbox_me({centered: true,overlayCSS :{background: 'light',
+opacity: .6}});;
+                $.post("{{path('contactmedecin')}}", input1 , function(theResponse){
+                $('#loadingpage').trigger('close');
+               alert(theResponse);
+               
+                 $("#contactmedecin").trigger('close');
+                   
+        });
+                    
+                return false;
+                
+            }
+              
+              </script>
+         
+<!-- Start Content Wrapper -->
+<div class="content_wrapper_sbr">
+	<div class="PageTitle">
+		<h1> {{Etablissement.nom}}</h1>
+	</div>
+        <input type="hidden" id="username" value="">
+	<div id="breadcrumbs">
+		<a href="index.html" title="Home">Home</a> &raquo;Infos Etablissement
+	</div>
+       
+	<!-- Content Area -->
+        <div id="content">
+            
+            <div style="
+    background: url('../../images/test.png') repeat-x scroll 0 0 #00adee;
+    border: 1px solid #FEB721;border-bottom:1px solid #ddd;
+    color: #FFFFFF;
+    /*float: left;*/
+    height: 22px;
+    line-height: 20px;
+    margin: 7px 0 0;
+    padding: 4px 7px;
+    width: 500px;">
+<h2>Coordonnées :</h2>
+</div>
+            <div class="column_in">
+<div id="column_in_details">
+<!-----------------------!-->
+ {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+<ul class="interaction">                               
+<li id="warn">
+     
+    <a href="" id="demanderendez" class="link_black_grey_underline dialog" rel="nofollow" title="Demande Rendez-vous"> <div>reporter</div></a></li>
+<li id="contact"><a href="" class="link_black_grey_underline dialog" rel="nofollow" title="Contacter Ce pharmacien" id="commentPopupLink"> <div>commenter</div></a></li>
+<div class="clear"></div>
+</ul>
+{%endif%}
+
+<!---------------------------->
+<div class="form_details">
+<label class="title_details">Adresse</label>
+<div class="infos_details">{{Etablissement.adresse}}</div>
+</div>
+<div class="form_details">
+<label class="title_details">Téléphone :</label>
+<div class="infos_details">{{Etablissement.telephone}}</div>
+</div>
+<div class="form_details">
+<label class="title_details">Site Web :</label>
+<div class="infos_details"><a href="{{Etablissement.siteweb}}">{{Etablissement.siteweb}}</a></div>
+</div>
+</div>
+<!--div id="column_in_right_details">
+<!-- Supprimer les commentaire pour activer la gallerie de photo -->
+<!--<a href="/uploads/images_thumbs/0f/0fe4ebea.png" rel="galleryPhotos" style="display:none;" id="mediumImageLink1064">-->
+<img src="{{asset('bundles/portailfront/images/maladies/')}}{{Etablissement.logo}}" alt="" class="mediumImage"><!--</a>-->
+<div class="clear"></div>
+<div class="reseau">
+Partager avec vous amis sur :<br>
+<ul><li><div class="post-header-line-1"></div>
+<div style="float:left;padding:5px;">
+<span class='st_sharethis_large' displayText='Publier sur'></span>
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+<span class='st_pinterest_large' displayText='Pinterest'></span>
+<span class='st_email_large' displayText='Email'></span>        </li>
+        
+        <li>
+        
+            </li>
+        </ul>
+
+    </div>
+
+<!-- Fin des commentaires  // Fin du gallerie de photo-->
+<!--/div>
+<div class="clear"></div>
+<div class="reseau">
+Partager avec vous amis sur :<br>
+<ul><li><div class="post-header-line-1"></div>
+<div style="float:left;padding:5px;">
+<div fb-xfbml-state="rendered" data-type="button_count" class="fb-share-button fb_iframe_widget">
+    <span style="width: 88px; height: 18px;">
+        <iframe class="" src="{{asset('bundles/portaitfront/stylesheets/share_button.htm')}}" style="border: medium none; width: 88px; height: 18px;" allowtransparency="true" name="f37fca04f451906" frameborder="0" height="1000px" width="1000px" scrolling="no"></iframe></span></div>  
+</div>
+</li>
+<li>
+<!-- Placez cette balise dans la section <head> ou juste avant la balise de fermeture </body> -->
+
+<!-- Placez cette balise à l'endroit où vous souhaitez que le bouton +1 s'affiche -->
+<div class="clear"></div>
+</ul>
+<div id="map" style="height: 300px">
+</div>
+<div class="clear"></div>
+<div class="clear"></div>
+ 
+
+
+</div>
+            
+             </div>
+
+
+
+         <div class="clear"></div>
+       
+    </div>
+    </div>
+   {%include 'PortailAnnuaireBundle:AnnuaireMedecin:contactMedecin.html.twig'%}       
+          <div id="loadingpage" style='display:none'>
+          <img src="{{asset('bundles/portailfront/images/wait.gif')}}"/>
+    </div>         
+{%endblock%}

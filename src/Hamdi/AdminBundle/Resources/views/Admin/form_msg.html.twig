@@ -1,0 +1,22 @@
+<form action="{{ path('user_delete', { 'id': msg.id }) }}" method="post">
+				
+					<h4>New Message</h4>
+					
+					<fieldset>
+						<textarea class="textarea" name="textfield" cols="79" rows="5"></textarea>
+					</fieldset>
+					
+					<fieldset>
+					
+						<select name="dropdown" class="small-input">
+							<option value="option1">Send to...</option>
+							<option value="option2">Everyone</option>
+							<option value="option3">Admin</option>
+							<option value="option4">Jane Doe</option>
+						</select>
+						
+						<input class="button" type="submit" value="Send" />
+						
+					</fieldset>
+					
+</form>

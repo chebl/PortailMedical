@@ -1,0 +1,10 @@
+<h3 class="title">A la Une</h3>
+                                       {%for new in news%} 
+                                        <div class="sidebar-post clearfix">						
+                                            <a href="#"><img src="{{asset('bundles/portailfront/images/')}}{{new.logo}}" height="40" weight="30" alt="Post Image"></a>
+                                            <div class="sidebar-post-text">
+                                            <a href="{{path('lire_suite_news',{'idnews':new.id})}}">{{new.titre}}</a>
+                                            <span class="date">{{ new.datepublication|localizeddate('medium', 'medium') }}</span>
+                                            </div>
+                                        </div>			
+										{%endfor%}

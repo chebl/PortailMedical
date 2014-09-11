@@ -1,0 +1,15 @@
+hamdi_partenaire_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: HamdiPartenaireBundle:Default:index }
+upload_partners:    
+    pattern:  /admin/partners
+    defaults: { _controller: HamdiPartenaireBundle:Partenaire:createPartner }
+    requirements: { _method: post|get }
+list_partners:    
+    pattern:  /admin/partners/list
+    defaults: { _controller: HamdiPartenaireBundle:Partenaire:listPartners }
+    requirements: { _method: post|get }  
+supprimer_partner:    
+    pattern:  /admin/partners/supp/{id}
+    defaults: { _controller: HamdiPartenaireBundle:Partenaire:supprimer }
+         

@@ -1,0 +1,10 @@
+<h3 class="title">Nos derniers articles</h3>
+                                       {%for blog in lastblogs%} 
+                                        <div class="sidebar-post clearfix">						
+                                            <a href="#"><img src="{{asset('bundles/hamdiblog/images/blog/')}}{{blog.path}}" height="40" weight="30" alt="Post Image"></a>
+                                            <div class="sidebar-post-text">
+                                            <a href="{{ path('HamdiBlogBundle_blog_show', { 'id': blog.id }) }}">{{ blog.title }}</a>
+                                            <span class="date">{{ blog.created|localizeddate('medium', 'medium') }}</span>
+                                            </div>
+                                        </div>			
+										{%endfor%}

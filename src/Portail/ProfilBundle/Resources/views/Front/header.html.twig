@@ -1,0 +1,98 @@
+ <!-- Starting Header of the website -->
+ 
+
+ 
+ 
+                        <header id="header" style="background-color: #fff">
+
+                                <!-- Website Logo Place -->
+                                <div id="logo-container">
+                                    <a href="" class="logo"  title="Site Logo">
+                                        <img src="{{asset('bundles/portailfront/images/logo.png')}}" alt="Health Press">
+                                        <span class="tagline"></span>
+                                    </a>
+                                </div>
+                                                             
+                                <ul class="social-nav">                                        
+                                    <li class="facebook"><a target="_blank" href="#"></a></li>
+                                    <li class="twitter"><a target="_blank" href="#"></a></li>
+                                    <li class="skype"><a target="_blank" href="#"></a></li>																	
+                                    <li class="flickr"><a target="_blank" href="#"></a></li>																	
+                                    <li class="google"><a target="_blank" href="#"></a></li>																
+                                    <li class="linkedin"><a target="_blank" href="#"></a></li>															
+                                    <li class="rss"><a target="_blank" href="#"></a></li>
+                                      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li class="phone"><span><a href="{{path('security_logout')}}">
+                         
+         
+                 
+        Déconnexion</span></li>
+                
+                                {%else %}
+                                    <li class="phone"><span><a href="" data-width="312" data-height="310" data-rel="popup1" class="poplight">connexion</span></li>
+                                
+				{%endif %}				
+                                </ul>
+                                <nav class="main-nav clearfix">
+
+                                		<!-- MAIN NAVIGATION -->
+                                        <div class="menu-div">
+                                        	<ul>
+                                                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                                    <li>
+                                                	<a href="{{path('portail_profil')}}">Profil</a>
+                                                    </li> 
+{%endif%}
+                                            	<li>
+                                                	<a href="{{path('portail_front_homepage')}}">Actualité</a>
+                                                    </li>
+													<li><a href="{{path('listeevenements')}}">Evénements</a></li>
+													 <li>
+                                                	<a href="#">Annuaire</a>
+                                                    <ul>
+                                                        <li><a href="{{path('AnnuaireMedecin')}}">Médecins</a></li>
+                                                        <li><a href="{{path('AnnuairePharmacie')}}">Pharmacies</a></li>
+                                                        <li><a href="#">Autres etablissements</a></li>
+                                                       </ul>
+                                               </li>
+											   <li>
+                                                	<a href="{{path('listmaladies')}}">Maladies</a>
+                                                    
+                                                </li>
+                                                <li>
+                                                	<a href="{{path('listmedicament')}}">Médicaments</a>
+                                                   
+                                                </li>
+                                                <li>
+                                                	<a href="{{path('HamdiBlogBundle_blog_index')}}">Blog</a>
+                                                </li>
+                                                
+                                                <li>
+                                                	<a href="{{path('listcategorie')}}">Forum</a>
+                                                   
+                                                </li>
+                                                <li>
+                                                	<a href="{{path('contact')}}">Contact</a>
+                                                   
+                                                </li>
+                                               
+                                               
+                                            </ul>
+                                        </div>
+                                        
+                                        <!-- GLOBAL SEARCH -->
+                                        <form method="get" action="#" id="topsearch">
+                                            <p>
+                                                            <input type="text" placeholder="Search" name="s" id="tsearch">
+                                                    <input type="submit" id="topsubmit" value="">
+                                                </p>
+                                        </form>
+                                </nav>
+                              
+     
+	
+     
+     
+     
+
+                        </header><!-- ending of header of the website -->

@@ -1,0 +1,15 @@
+hamdi_admin_homepage:
+    pattern:  /dashboard
+    defaults: { _controller: PortailFrontBundle:User:accueil }
+hamdi_admin_login:
+    pattern:  /
+    defaults: { _controller: HamdiAdminBundle:Admin:login }    
+
+admin_check_login:
+    pattern:  /logincheck
+    defaults: { _controller: HamdiAdminBundle:Admin:check }
+	
+admin_logout:
+    pattern:  /logout
+    defaults: { _controller: HamdiAdminBundle:Admin:logout }
+

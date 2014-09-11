@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('bundles/hamdiblog/css/blog.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('bundles/hamdicontact/css/contact.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block title %}{{ blog.title }}{% endblock %}
+
+{% block body %}
+    <article class="blog">
+        <header>
+            <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>
+            <h2>{{ blog.title }}</h2>
+        </header>
+        <img src="{{ asset(['bundles/hamdiblog/images/', blog.path]|join) }}" alt="{{ blog.title }} image not found" class="large" />
+        <div>
+            <p>{{ blog.blog }}</p>
+        </div>
+    </article>
+    <section class="comments" id="comments">
+        <section class="previous-comments">
+            <h3>Comments</h3>
+            {% include 'HamdiBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+            <h3>Add Comment</h3>
+            {% render 'HamdiBlogBundle:Comment:new' with { 'blog_id': blog.id } %}
+        </section>
+    </section>
+{% endblock %}

@@ -1,0 +1,71 @@
+<script>
+   $(document).ready(function(){
+    
+	$("#tabs li").click(function() {
+            
+		//	First remove class "active" from currently active tab
+     //$("#tab3").empty();
+    
+      
+	$("#tabs li").removeClass('active');
+              
+		//	Now add class "active" to the selected/clicked tab
+		$(this).addClass("active");
+             
+		//	Hide all tab content
+		$(".tab_content").hide();
+
+		//	Here we get the href value of the selected tab
+		var selected_tab = $(this).find("a").attr("href");
+
+		//	Show the selected tab content
+		$(selected_tab).fadeIn();
+
+		//	At the end, we add return false so that the click on the link is not executed
+		return false;
+	});
+     });
+       function listEnvoi()
+    {
+        var ms=1;
+        var input1="var1="+ms;
+         $.post("{{path('listenvoyee')}}", input1 , function(theResponse){
+                $("#tab2").html(theResponse);
+               
+               
+                     
+        });
+                    
+                return false;
+        
+        
+      }
+      </script>
+
+
+<div class="form_group_element">
+             
+           <div id="tabs_wrapper">
+               <div id="tabs_container">
+		<ul id="tabs">
+			<li class="active"><a href="#tab1">Messages reçus ({{user.emails|length}})</a></li>
+			<li><a class="icon_accept" href="#tab2" onclick="return listEnvoi();">Messages Envoyés ({{user.emailsexpediteur|length}})</a></li>
+			
+		</ul>
+	</div>
+                   <div id="tabs_content_container">
+		<div id="tab1" class="tab_content" style="display: block;">
+                    
+			{%include 'PortailBoiteBundle:BoiteReception:boite.html.twig' with {'boitereception':boitereception}%} 
+                </div>
+		<div id="tab2" class="tab_content">
+                 
+		</div>
+		
+	</div>
+    <!-- End .content-box -->
+   
+    
+     	
+           </div>
+         </div>

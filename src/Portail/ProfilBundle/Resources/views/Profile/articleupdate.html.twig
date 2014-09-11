@@ -1,0 +1,45 @@
+  <a class="b-close">X</a>
+  <form  action="{{path('updatebloguser')}}" method="post" id="compteform" {{ form_enctype(formblog) }}>
+           
+			<p>
+                            	<label for="name">Titre:</label>
+                            	  {{form_widget(formblog.title,{ 'attr': {'class': 'input'}})}}
+                            </p>
+							<input type="hidden" name="id" value="{{blog.id}}"/>
+                             <p>
+                            	<label for="name">Contenu :</label>
+                            	{{form_widget(formblog.blog,{ 'attr': {'class': 'textarea'}})}}
+                            </p>
+                             <p>
+                            	<label for="name">Choisisez une image :</label>
+                            	{{form_widget(formblog.file)}}
+                            </p>
+                             <p>
+                            	<label for="name">Tags :</label>
+                            	{{form_widget(formblog.tags,{ 'attr': {'class': 'input'}})}}
+                            </p>
+                           
+                          
+                             <p>
+                            	<label for="name">Catégorie :</label>
+                            	 <select name="categorie" id="categorieup" onchange="return remplirsouscategorie1(document.getElementById('categorieup').value,$('#souscategorieup'));">
+                                <option value="0"></option>
+                           
+                                   <option value="{{categ.id}}">{{categ.nom}}</option>
+                           
+                           </select>
+                           
+                            </p>
+                     <p>
+					 <select name="souscategorie" id="souscategorieup">
+                              
+                           </select>
+					 
+					 </p>
+                                                      
+                            <input type="submit" class="submit" value="Valider" onclick=" alert('Votre article est mis à jour');">
+                             
+                        
+                            {{form_rest(formblog)}}
+                          </form>  
+                

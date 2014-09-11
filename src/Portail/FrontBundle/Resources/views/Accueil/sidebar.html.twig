@@ -1,0 +1,52 @@
+ <aside id="sidebar">
+                                    <section class="widget">
+                                        <form  method="post" id="searchform" action="{{path('showblogkey')}}">
+                                            <div><label class="screen-reader-text" for="s">Search for:</label>
+                                                <input type="text" value="" name="key" id="s" style="
+ padding: 8px; font: 13px 'Open Sans', Arial, Helvetica, sans-serif; line-height: 16px; color: #808080; border: none; background-color: #fff; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; box-shadow: 1px 1px 2px #c4c4c4; -moz-box-shadow: 1px 1px 2px #c4c4c4; -webbox-shadow: 1px 1px 2px #c4c4c4; }
+ height: 16px;">
+                                            <input type="submit" id="searchsubmit" value="Search">
+                                            </div>
+                                         </form>
+                                     </section>
+                                     
+                                    <section class="widget">
+                                       {%render 'PortailBlogUserBundle:BlogUser:getLatestBlog' %}	                         						
+                                    </section>
+                                                
+                                    
+                                            
+                                    <section class="widget">
+                                      <h3 class="title">Categories</h3>		
+                                      <ul id="accordion">
+                                        {%for categ in categorie %}
+                                 <li><a href="" title="{{categ.nom}}">{{categ.nom}}</a>
+     <ul>                           
+{%for souscateg in souscategorie %} 
+                                
+                                   {% if(souscateg.categorie.id==categ.id) %}     
+         <li><a href="{{path('listarticlessouscategorie',{'souscategorie':souscateg.id})}}">{{souscateg.nom}}</a></li>
+         {%endif%}
+                                {%endfor%}
+         </ul>
+                  </li>                   
+         {%endfor%}
+                                      </ul>
+                                    </section>
+                                    <section class="widget">
+									<h3 class="title">Newsletter</h3>       
+                                        <div class="newsletter">                  
+                                          <form action="{{path('inscriptionnewsletter')}}" id="newsletter" method="post" novalidate>
+                                              <p>Inscrivez vous à la Newsletter</p>
+                                              <p>
+                                                  <label class="display-ie8" for="nl_email">Email Address</label>
+                                                  <input type="email" name="email" id="nl_email" class="email required" placeholder="Email Address" title="* Please enter valid Email Address">
+                                                  <input type="submit" id="nl_submit" value="Inscrire" class="readmore">
+                                              </p>
+                                              <div class="error-container"></div>
+                                          </form>
+                                        </div>               
+                                    </section>
+                                   									
+                                </aside>                                
+                                                    

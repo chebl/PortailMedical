@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<table>
+            <tbody>
+            <tr>
+                <td>
+                    <p>Bonjour {{ contact.subject }} {{ contact.name }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Votre Message a été envoyé avec succès <img src="http://blog.savvycreativeuk.com/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>A Bientôt</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Horus Soft - Portail Medical</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+{% endblock %}    

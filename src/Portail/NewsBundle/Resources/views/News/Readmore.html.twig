@@ -1,0 +1,72 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %} 
+
+{% block stylesheets %}
+{{  parent() }}
+{% endblock %}
+ {%block javascripts %}
+{{  parent() }}
+ <script type="text/javascript">var switchTo5x=false;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "8a559a23-282a-4f1c-b8a7-ad0e3d7f20f9", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+</script>
+
+  
+{%endblock%}
+{% block header %}{% include 'PortailFrontBundle:Front:header.html.twig'%} {% endblock %}
+{%block container %}     
+<div id="container" style="background-color: whitesmoke; margin-top:-2%">
+         <div id="content" class="full-width"></div>
+<div class="official clearfix">	
+     <div class="home-left-side">   
+                                             
+                                            <section class="team clearfix" >
+    
+                                                
+             <h2 class="smart-head">{{entities.titre}}</h2>
+                                                  
+                                                    
+             <ul class="doctors">
+                                                         
+                                                       
+													                                                          
+													   <li style="width: 96%">
+                                                           
+                                                           <h4><a href=""></a></h4>
+                                                           <figure class="doc-img">													
+                                                               <img src="{{asset('bundles/portailfront/images/')}}{{entities.logo}}" height="100%" width="100%"></a>
+                                                               <span class="doc-type">{{entities.titre}}</span>																																
+                                                           </figure>
+                                                           <p style="width: 100%;">{{entities.contenu}}</p>
+                                                            
+                                                        </li> 
+                                                        
+                                                                                                                                                               		
+                                                    </ul>                                   
+                                            </section>                                     
+         <div>
+Partager avec vous amis sur :<br>
+<div class="post-header-line-1"></div>
+<div style="float:left;padding:5px;">
+<span class='st_sharethis_large' displayText='Publier sur'></span>
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+<span class='st_pinterest_large' displayText='Pinterest'></span>
+<span class='st_email_large' displayText='Email'></span>        
+        
+      
+</div>                                        
+                                                
+	
+    </div>        
+               
+     
+   </div>
+        
+	<!-- Sidebar Area -->
+	 {%include 'PortailNewsBundle:News:sidebar.html.twig'%}       
+	</div>
+   {%include 'PortailFrontBundle:Front:footer.html.twig'%}
+</div>
+{%endblock%}
+

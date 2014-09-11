@@ -1,0 +1,166 @@
+<!-- Portfolio -->
+
+<div id="fichemedicament">
+          <ul class="tabs-nav">
+		  <li class="active"><a href="#"  onclick="$('#tabmed1').show();$('#tabmed2').hide();">Editer une Fiche Médicament</a></li>
+                                <li><a href="#"  onclick="$('#tabmed2').show();$('#tabmed1').hide();">Mes publications </a></li>
+                                  
+                            </ul>
+                            <div class="tabs-container">
+							<div class="tab-content" id="tabmed1" style="background-color:#fff" >
+							<form  action="{{path('ajoutmedicament')}}" method="post" id="compteform" {{ form_enctype(formmedicament) }}>
+               <p>
+     <label for="name">
+     Nom de médicament: 
+    </label>
+    
+      {{form_widget(formmedicament.nom,{ 'attr': {'class': 'input'}})}}
+    </p>
+               
+         <p>
+     <label for="name">       
+     Dans Quel cas utiliser ce Médicament : 
+    </label>
+    
+      {{form_widget(formmedicament.prescription,{ 'attr': {'class': 'textarea'}})}}
+    </p>
+               
+         <p>
+     <label for="name">       
+     Presentation :
+    </label>
+                            
+     {{form_widget(formmedicament.presentation,{ 'attr': {'class': 'textarea'}})}}
+    	</p>				
+   <p>
+          <label for="name">   
+       Posologie :
+             </label>
+ 
+{{form_widget(formmedicament.posologie,{ 'attr': {'class': 'textarea'}})}}
+							
+     </p>  
+          
+<p>       
+	   <label for="name">   
+        
+		
+   Contres indication:
+             </label>
+ 
+     {{form_widget(formmedicament.contreindication,{ 'attr': {'class': 'textarea'}})}}
+</p>							
+    <p>
+	<label for="name">   
+   
+    Effets indesirables :
+             </label>
+  
+     {{form_widget(formmedicament.effetindesirable,{ 'attr': {'class': 'textarea'}})}}
+</p>							
+
+<p>
+	<label for="name">   
+    
+	Choisir une image pour le médicament:
+             </label>
+     {{form_widget(formmedicament.file)}}
+							
+    </p>                   
+       <p>
+	  <label for="name">   
+       
+	   Catégorie :
+             </label>
+                      
+                           
+                           <select name="categoriemedicament" id="categoriemedicament" onchange="return remplirsouscategorie1(document.getElementById('categoriemedicament').value,$('#souscategoriemedicament'));">
+                                
+                                 {%for tcat in categorie%}
+                                  <option value="{{tcat.id}}">{{tcat.nom}}</option> 
+                                 {%endfor%}
+                           
+                           </select>
+						   </p>
+             <p>              
+			<label for="name">  				
+      SousCatégorie :
+             </label>
+                      
+                           
+                    <select name="souscategoriemedicament" id="souscategoriemedicament">
+                               
+                           </select>
+                 </p> 
+<p>				 
+    <label for="name">  
+	Classe Thérapeutique :
+             </label>
+ 
+     {{form_widget(formmedicament.classetherapeutique)}}
+	</p>						
+                          <input class="submit" type="submit" value="Valider" onclick=""> 
+                      {{form_widget(formmedicament)}}
+                  </form>   
+							
+							
+							
+							</div>
+                                <div class="tab-content" id="tabmed2">
+								{%if fichemedicaments %}
+
+                    <table class="footable" data-page-navigation="#pagination" data-page-size="5">
+      <thead>
+        <tr>
+          <th data-class="expand">
+            <span>Désignation Médicament</span>
+          </th>
+          <th>
+            <span>Catégorie</span>
+          </th>
+          <th data-hide="phone,tablet">
+          Publié Le 
+		  
+          </th>
+          <th>
+            Actions
+          </th>
+         
+        </tr>
+		
+      </thead>
+		
+		<tbody>
+		{%for fichemed in fichemedicaments %}
+		         <tr>
+   
+		  <td><a href="{{ path('HamdiBlogBundle_blog_show', { 'id':fichemed.id  }) }}" target="_blank" >{{fichemed.prescription}}</a> </td>
+                                                        
+		<td>{{fichemed.souscategorie}}</td>
+        <td>{{ fichemed.datepublication|localizeddate('medium', 'medium')}}</td>
+	
+           <td><a href="" onclick="return updatefichemedicament({{fichemed.id}})"><img src="{{asset('bundles/portailfront/images/edit-icon.png')}}" alt="Editer"></a>&nbsp;&nbsp;
+           <a href="" onclick="return suppfichemedicament({{fichemed.id}})"><img src="{{asset('bundles/portailfront/images/delete-icon.png')}}" alt="Supprimer"></a></td>
+								</tr>
+								{%endfor%}
+                                     
+                     </tbody>	  
+					 
+    </table>
+ 
+    <ul id="pagination" class="footable-nav"><span>Pages:</span></ul>
+        {%else %}
+<h2>Aucun Article publié</h2>
+{%endif%}     
+<div id="articlemedec"></div>                   
+	                       
+                                </div>
+                                
+                                
+                            </div>
+                     </div>
+
+	
+            
+
+			<!-- /Portfolio --> 

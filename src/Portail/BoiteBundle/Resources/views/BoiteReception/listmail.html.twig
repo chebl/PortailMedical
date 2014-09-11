@@ -1,0 +1,65 @@
+ 	
+<table>			
+                                                    <thead>
+                                                        <tr style="background-color: #B8E0F9;">
+                                                                    
+								   <th><input class="check-all" type="checkbox" /></th>
+								   <th>Envoyé par</th>
+								   <th>Sujet</th>
+								   <th rowspan="2">Reçu le</th>
+                                                                   <th rowspan="2">Action</th>
+                                                                   
+                                                                   
+								   	</tr>
+                                                                 
+								
+							</thead>
+                                                       
+							<tfoot>
+								<!--tr>
+									<td colspan="6">
+										
+										<div class="pagination">
+											<a href="#" title="First Page">&laquo; First</a><a href="#" title="Previous Page">&laquo; Previous</a>
+											<a href="#" class="number" title="1">1</a>
+											<a href="#" class="number" title="2">2</a>
+											<a href="#" class="number current" title="3">3</a>
+											<a href="#" class="number" title="4">4</a>
+											<a href="#" title="Next Page">Next &raquo;</a><a href="#" title="Last Page">Last &raquo;</a>
+										</div> <!-- End .pagination -->
+										<div class="clear"></div>
+									
+								<!--/tr!-->
+                                                                <div class="clear"></div>
+                                                                <td>
+                                                                    <a href="" onclick="return NouveauMessage();">Nouveau message</a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="#">Supprimer</a>
+                                                                </td>
+                                                                
+                                                                
+							</tfoot>
+                                                      
+                                                        
+							<tbody>
+                                                    
+                                                            {%for listmessages in boitereception %}
+                                                            <tr bgcolor="#FFFFFF"  >
+                                                                    
+									<td><input type="checkbox" /></td>
+									<td>{{listmessages.expediteur}}</td>
+                                                                        <td><a href="" title="Sujet"  onclick="return loadChamp('{{listmessages.expediteur}}','{{listmessages.sujet}}','{{listmessages.message}}')">{{listmessages.sujet}}</a></td>
+                                                                        <td>{{listmessages.dateenvoi|localizeddate('medium', 'medium')}}</td>
+									
+                                                                        <td><a href="" onclick="return ReplayLoad('{{listmessages.expediteur}}')"><img src="{{asset('bundles/portailfront/images/reply.png')}}" alt="Répondre"></a></td>
+                                                                        <td><a href="" onclick="return supprimerMail({{listmessages.id}});"><img src="{{asset('bundles/portailfront/images/cross.png')}}" alt="Supprimer"></a></td>
+								</tr>
+								{%endfor%}
+                                                                
+                                                                
+								
+							</tbody>
+							
+						</table>
+				

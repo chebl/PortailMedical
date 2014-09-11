@@ -1,0 +1,96 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %}
+{% block body%}
+
+<div class="container_12">
+        	<div class="grid_8 alpha">
+                <div class="breadcrumb">
+                    <a href="./index.html">Home</a> » <span>BLOG</span>
+                </div>
+            </div>
+            <div class="grid_4 omega">
+                <span id="current-date"></span>
+            </div>
+            
+            <div class="clear"></div>
+            <div class="separator"></div>
+            
+            <div class="main-content">
+            
+            	<div class="grid_9 alpha">
+                	<div class="post_block">
+                        <h2 class="post-title left-outline"><a href="blog-page.php">Pellentesque habitant morbi tristique senectus et netus</a></h2>
+                        <ul class="post_data">
+                            <li class="post-date">May 2, 2011</li>
+                            <li class="post-comments"><a href="blog-page.php#comments">2 comments</a></li>
+                            <li class="post-author">By <a href="#">Marius</a></li>
+                            <li class="post-category">In <a href="#">Non feugiat risus</a></li>
+                        </ul>
+                        <div class="clear"></div>
+						<div class="introtext">
+                        	<p><img src="http://placehold.it/200x100" class="alignleft shadow" alt="" />Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                        </div>
+                        <div class="clear"></div>
+                        <p><a class="readmore" href="blog-page.php">Continue reading: Pellentesque habitant morbi tristique senectus et netus</a></p>
+                        
+                        <div class="socshare">
+                        	<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="hogash" data-url="http://www.hogash.com/ammon_html/" data-text="Check this out">Tweet</a>
+							<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                            
+                            <div class="facebookdiv">
+                                <div id="fb-root"></div>
+                                <script src="http://connect.facebook.net/en_US/all.js#appId=186052041443843&amp;xfbml=1"></script>
+                                <fb:like href="http://www.hogash.com/ammon_html/" send="true" width="450" show_faces="false" font="arial"></fb:like>
+                            </div>
+
+                            <div class="clear"></div>
+                       </div><!-- Social share end -->
+                       
+					</div><!-- Post Block end -->
+                    
+                   <!-- Post Block end -->
+                    
+                   <!-- Post Block end -->
+                    
+                    <div class="pagination">
+                    	<span class="disabled"> &lt; </span><span class="current">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a>...<a href="#">199</a><a href="#">200</a><a href="#"> &gt; </a>
+                    </div>
+
+                </div><!-- Grid 9 end -->
+                
+                <div class="grid_3 omega">
+                    <div id="sidebar">
+                        <div class="sideblock">
+                	<h3 class="title">BLOG CATEGORIES</h3>
+                    <ul class="menu">
+                    	<li><a href="#">Fusce mollis tincidunt</a></li>
+                        <li><a href="#">Non feugiat risus</a></li>
+                        <li><a href="#">Vulputate vitae</a></li>
+                    </ul>
+                </div>
+				<div class="sideblock">
+                	<h3 class="title">RECENT ENTRIES</h3>
+                    <ul class="menu">
+                    	<li><a href="#">Fusce mollis tincidunt</a></li>
+                        <li><a href="#">Non feugiat risus</a></li>
+                        <li><a href="#">Vulputate vitae</a></li>
+                    </ul>
+                </div>
+                <div class="sideblock last">
+                	<h3 class="title">ARCHIVE</h3>
+                    <ul class="menu">
+                    	<li><a href="#">May 2011</a></li>
+                        <li><a href="#">April 2011</a></li>
+                        <li><a href="#">March 2011</a></li>
+                        <li><a href="#">February 2011</a></li>
+                        <li><a href="#">January 2011</a></li>
+                    </ul>
+                </div>
+                       
+                    </div><!-- Sidebar End -->
+                </div><!-- Grid 3 End -->
+                <div class="clear"></div>
+            </div>
+            
+        </div>
+
+{%endblock%}

@@ -1,0 +1,4 @@
+hamdi_user_user:
+    resource: "@HamdiUserBundle/Resources/config/routing/user.yml"
+    prefix:   /admin
+

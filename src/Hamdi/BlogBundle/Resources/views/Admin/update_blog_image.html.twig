@@ -1,0 +1,140 @@
+{% extends 'HamdiAdminBundle::index.html.twig' %}
+{% block bienvenu%}                 
+                        <h2>Bienvenue {{ user.username }}</h2>
+			<p id="page-intro">Que voulez-vous faire?</p>
+{% endblock %}
+{% block msg %}
+                       {% include 'HamdiAdminBundle:Admin:messages.html.twig' with {'msgs': msgs} %}
+                       {% include 'HamdiAdminBundle:Admin:box_image.html.twig' with {'galerie_img': galerie_img,'form1': form1 } %}
+                       {% include 'HamdiAdminBundle:Admin:box_video.html.twig' %}
+                       {% include 'HamdiAdminBundle:Admin:box_gallery.html.twig' with {'form': form } %}
+                       {% include 'HamdiAdminBundle:Admin:box_partners.html.twig' with {'formpart': formpart } %} 
+                       {% include 'HamdiAdminBundle:Admin:box_blog.html.twig' with {'formblog': formblog } %}
+                        
+{% endblock %}                        
+{% block profile %}
+                              
+           <div id="profile-links">
+	       Bonjour, <a href="#" title="Editer votre profile">{{ user.username }}</a>, Vous avez <a href="#messages" rel="modal" title="3 Messages">{{ n }} Messages</a><br />
+	      <br />
+	   <a href="#" title="View the Site">Voir le Site</a> | <a href="{{path('fos_user_security_logout')}}" title="Sign Out">Déconnexion</a>
+	   </div>
+{% endblock %}	  
+{% block menu %}
+
+     <ul id="main-nav">  <!-- Accordion Menu -->
+				
+				<li>
+					<a href="{{path('hamdi_admin_homepage')}}" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						Tableau de bord
+					</a>       
+				</li>
+				
+				<li> 
+					<a href="#" class="nav-top-item"> <!-- Add the class "current" to current menu item -->
+					Gestion de Profil  
+					</a>
+					<ul>
+						<li><a href="{{ path('contact_list')}}">Gérer Contactes</a></li>
+						<li><a href="#">Gérer Articles</a></li> <!-- Add class "current" to sub menu items also -->
+						<li><a href="#">Gérer Comments</a></li>
+						<li><a href="#">Gérer Categories</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item current">
+						Mon Blog
+					</a>
+					<ul>
+						<li><a href="{{ path('list_blog') }}">Liste des articles</a></li>
+                                                <li><a href="" class="current">Editer Image Blog</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Ma Galerie
+					</a>
+					<ul>
+						
+                                                <li><a href="#">Gérer Mes images</a></li>
+						<li><a href="#">Gérer Mes videos</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Mes partenaires
+					</a>
+					<ul>
+						
+						<li><a href="{{ path('list_partners')}}">Liste de partenaires</a></li>
+						
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Groupes et utilisateurs
+					</a>
+					<ul>
+						<li><a href="#">Groupes</a></li>
+						<li><a href="{{path('user_list')}}">Utilisateurs</a></li>
+						<li><a href="#">Mon Profile</a></li>
+						
+					</ul>
+				</li>      
+				
+</ul> <!-- End #main-nav -->{# empty Twig template #}
+
+{% endblock %}
+
+{% block tab %} 
+
+			   	
+	<div class="content-box-header">
+					
+					<h3>Mon Blog</h3>
+					
+					<ul class="content-box-tabs">
+                                            <li>   
+                                                <a href="#tab1" class="default-tab">Edit article</a>
+                                            </li>        
+						<!-- End <li><a href="#tab1" class="default-tab">Table</a></li>  -->
+						<!-- End <li><a href="#tab2">Forms</a></li> -->
+					</ul>
+					
+					<div class="clear"></div>
+					
+	</div> <!-- End .content-box-header -->    
+{% endblock %}
+        
+{% block tab1 %}
+{% include 'HamdiAdminBundle:Admin:notifications.html.twig' with {'id_notif': id_notif} %}	
+                                        <a href="{{path('list_blog')}}"><button type="button" class="btn btn-small"><img src="{{asset('bundles/hamdiadmin/images/icons/return.png')}}"/></button></a><br><br>
+                                        <img src="{{asset('bundles/hamdiblog/images/blog/') }}{{blog.path}}"  height="200" width="200"/>
+						<form action="{{path('update_blog_image',{'id':blog.id})}}" method="post" {{ form_enctype(formblo) }}>
+							
+                                                       
+                                                   <p>
+                                                                {{ form_row(formblo.file, { 'label' : 'Image' }) }}
+                                                   </p>
+                                                   							
+								
+								
+                                                                
+                                                                
+								
+								<p>
+									<input class="button" type="submit" value="Modifier" />
+								</p>
+								
+							
+							
+							<div class="clear"></div><!-- End .clear -->
+							
+						</form>
+						
+
+{% endblock %}

@@ -1,0 +1,10 @@
+parameters:
+#    hamdi_contact.example.class: Hamdi\ContactBundle\Example
+    #Set up the email template defaults
+    contact.notification_template:      HamdiContactBundle:Contact:email.html.twig
+    contact.confirmation_template:      HamdiContactBundle:Contact:confirmation.html.twig
+
+services:
+#    hamdi_contact.example:
+#        class: %hamdi_contact.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

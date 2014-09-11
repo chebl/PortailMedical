@@ -1,0 +1,157 @@
+            <script> 
+$(document).ready(function(){
+    
+	$("#tabs li").click(function() {
+            
+		//	First remove class "active" from currently active tab
+     //$("#tab3").empty();
+    
+      
+	$("#tabs li").removeClass('active');
+              
+		//	Now add class "active" to the selected/clicked tab
+		$(this).addClass("active");
+             
+		//	Hide all tab content
+		$(".tab_content").hide();
+
+		//	Here we get the href value of the selected tab
+		var selected_tab = $(this).find("a").attr("href");
+
+		//	Show the selected tab content
+		$(selected_tab).fadeIn();
+
+		//	At the end, we add return false so that the click on the link is not executed
+		return false;
+	});
+     });
+     </script>                   
+                           <div class="form_group_element">
+              <div id="tabs_wrapper">
+               <div id="tabs_container">
+		<ul id="tabs">
+                    <li class="active"><a href="#tab9">Ajouter une nouveau médicament</a></li>
+                        
+                        <li><a class="icon_accept" href="#tab10" onclick="if($('#fiche3').length > 0) {$('#fiche3').show(); $('#fiche4').hide();} else if ($('#fiche4').length > 0){ $('#fiche4').show(); $('#fiche3').hide();}">Mes publications</a></li>
+                    </ul>
+                         <div id="tab9" class="tab_content" style="display: block;">
+              <form  action="{{path('ajoutmedicament')}}" method="post" {{ form_enctype(formmedicament) }}>
+               <div class="form_element">
+                   
+     <label class="form_attribute_1">
+     Nom de médicament: 
+    </label>
+    <span class="name">
+      {{form_widget(formmedicament.nom)}}
+    </span>
+               
+               </div>
+                      <div class="form_element">
+                   
+                          <label class="form_attribute_1" style="width:240px;">
+     Dans Quel cas utiliser ce Médicament : 
+    </label>
+    <span class="name">
+      {{form_widget(formmedicament.prescription)}}
+    </span>
+               
+               </div>
+                      <div class="form_element">
+      <label class="form_attribute_1" style="width:240px;">
+     Presentation :
+    </label>
+      <br>                      
+     {{form_widget(formmedicament.presentation)}}
+    					
+    </div>
+         <div class="form_element">
+             <label class="form_attribute_1" style="width:240px;">
+       Posologie :
+             </label>
+ <br>      
+{{form_widget(formmedicament.posologie)}}
+							
+    </div>      
+         <div class="form_element">
+             <label class="form_attribute_1" style="width:240px;">
+   Contres indication:
+             </label>
+ <br> 
+     {{form_widget(formmedicament.contreindication)}}
+							
+    </div> 
+     <div class="form_element">
+             <label class="form_attribute_1" style="width:240px;">
+    Effets indesirables :
+             </label>
+ <br> 
+     {{form_widget(formmedicament.effetindesirable)}}
+							
+    </div> 
+                       <div class="form_element">
+             <label class="form_attribute_1" style="width:250px;">
+     Choisir une image pour le médicament:
+             </label>
+     {{form_widget(formmedicament.file)}}
+							
+    </div>                   
+                   <div class="form_element">
+             <label class="form_attribute_1" style="width:240px;">
+     Catégorie :
+             </label>
+                      
+                           
+                           <select name="categoriemedicament" id="categoriemedicament" onchange="return remplirsouscategorie(document.getElementById('categoriemedicament').value,$('#souscategoriemedicament'));">
+                                <option value="0"></option>
+                           {%for cat in categorie %}
+                                   <option value="{{cat.id}}">{{cat.nom}}</option>
+                                {%endfor%}   
+                           
+                           </select>
+                           
+							
+    </div>   
+            <div class="form_element">
+              		<label class="form_attribute_1" style="width:240px;">
+     SousCatégorie :
+             </label>
+                      
+                           
+                           <select name="souscategoriemedicament" id="souscategoriemedicament">
+                              
+                           </select>
+                   
+    </div>
+                        <div class="form_element">
+             <label class="form_attribute_1" style="width:240px;">
+    Classe Thérapeutique :
+             </label>
+ 
+     {{form_widget(formmedicament.classetherapeutique)}}
+							
+    </div>
+            
+                      
+                      
+                      <div class="form_element">
+                          <input class="btn btn-primary" type="submit" value="Publier" onclick=""> 
+                                     </div>
+                      {{form_widget(formmedicament)}}
+                  </form>       
+               </div>
+                         
+                       <div id="tab10" class="tab_content">
+ 
+                          <div id="fiche4"></div>
+                           <div id="fiche3">
+			{%include 'PortailFicheMedicamentBundle::mesarticles.html.twig' with {'fichemedicaments':fichemedicaments}%} 
+                   </div>
+                       
+                       </div>                  
+                       
+                   </div>
+                  </div>
+                  
+        
+        
+    </div>

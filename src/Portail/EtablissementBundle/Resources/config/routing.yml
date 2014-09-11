@@ -1,0 +1,14 @@
+ajoutEtablissement:
+    pattern:  /ajouter
+    defaults: { _controller: PortailEtablissementBundle:Etablissement:ajouter }
+
+listetablissement:
+    pattern:  /list/{page}
+    defaults: { _controller: PortailEtablissementBundle:Etablissement:list,page: 1 }
+ 
+deleteetablissement:
+   pattern:  /delete/{id}
+   defaults: { _controller: PortailEtablissementBundle:Etablissement:delete }
+listlabo:
+   pattern: /listlabo
+   defaults: { _controller: PortailEtablissementBundle:Etablissement:listlabo }

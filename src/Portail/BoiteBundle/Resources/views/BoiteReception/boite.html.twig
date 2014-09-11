@@ -1,0 +1,176 @@
+
+   <link rel="stylesheet" type="text/css" href="{{asset('bundles/portailbloguser/bootstrap/css/bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/portailbloguser/css/fonts/ptsans/stylesheet.css')}}" media="screen">
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/portailbloguser/css/fonts/icomoon/style.css')}}" media="screen">
+
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/portailbloguser/css/mws-style.css')}}" media="screen">
+
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/portailbloguser/css/mws-theme.css')}}" media="screen">
+
+   <!-- Plugin Scripts -->
+       
+    
+    
+                <div class="mws-panel grid_8 mws-collapsible" id="mws-dashboard-chart">
+                    <div style="float: left">
+      
+            
+        <img src="{{asset('bundles/portailfront/images/email.jpg')}}" height="120" width="120">
+                                                                    </div>
+			<div style="width: 400; alignment-adjust: central"><h1>
+      Mes messages perso
+      
+        </h1>
+        
+      <div id="loadingmessage" style='display:none'>
+          <img src="{{asset('bundles/portailfront/images/wait.gif')}}"/></div>      
+    </div>
+          
+                	<div class="mws-panel-header">
+                            
+                    	<span><i class="icon-table"></i></span>
+                    </div>
+                        
+                    <div class="mws-panel-body no-padding">
+                         <div id="supp1"></div>
+        <div id="supp">
+                        <table class="mws-table mws-datatable">
+                            <thead>
+                                <tr>
+                                    <th><strong>Envoyé par</strong></th>
+                                    <th><strong>Sujet</strong></th>
+                                    <th><strong>Reçu le</strong></th>
+                                    <th><strong>Action</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             {%for listmessages in boitereception %}
+                                      <input type="hidden" value="{{listmessages.message}}" id="contenumsg"/>
+                                  <tr>
+                                    <td>{{listmessages.expediteur}}</td>
+                                    <td><a href="" onclick="return loadChamp('{{listmessages.expediteur}}','{{listmessages.sujet}}');">{{listmessages.sujet}}</a></td>
+                                    <td>{{listmessages.dateenvoi|localizeddate('medium', 'medium')}}</td>
+                                  
+                                   
+                                    <td>
+                                        
+                                            <a href="" onclick="return ReplayLoad('{{listmessages.expediteur}}')"><img src="{{asset('bundles/portailfront/images/reply.png')}}" alt="Répondre"></a>
+                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                                            <a href="" onclick="return supprimerMail({{listmessages.id}});"><img src="{{asset('bundles/portailfront/images/cross.png')}}" alt="Supprimer"></a>
+                                           
+                                    </td>
+                                </tr>
+                                {%endfor %}
+                            </tbody>
+                        </table>
+            </div>
+                    </div>
+                </div>
+                
+    
+    
+    
+    
+    
+ 
+    
+<!--
+<div class="content-box">
+
+<div class="content-box-content">
+    <div class="tab-content default-tab" id="tab1"> 
+					
+    <div style="width: 130; float: left">
+      
+            
+        <img src="{{asset('bundles/portailfront/images/email.jpg')}}" height="120" width="120" style="float: top;">
+                                                                    </div>
+    <div style="width: 400; alignment-adjust: central"><h1>
+      Mes messages perso
+      
+        </h1>
+        
+      <div id="loadingmessage" style='display:none'>
+          <img src="{{asset('bundles/portailfront/images/wait.gif')}}"/></div>      
+    </div>
+        </div>
+        
+        <div id="supp1"></div>
+        <div id="supp">
+        
+        		
+<table>
+							
+                                                    <thead>
+                                                        <tr style="background-color: #B8E0F9;">
+                                                                    
+								   <th><input class="check-all" type="checkbox" /></th>
+								   <th>Envoyé par</th>
+								   <th>Sujet</th>
+								   <th rowspan="2">Reçu le</th>
+                                                                   <th rowspan="2">Action</th>
+                                                                   
+                                                                   
+								   	</tr>
+                                                                 
+								
+							</thead>
+                                                       
+							<tfoot>
+								<!--tr>
+									<td colspan="6">
+										
+										<div class="pagination">
+											<a href="#" title="First Page">&laquo; First</a><a href="#" title="Previous Page">&laquo; Previous</a>
+											<a href="#" class="number" title="1">1</a>
+											<a href="#" class="number" title="2">2</a>
+											<a href="#" class="number current" title="3">3</a>
+											<a href="#" class="number" title="4">4</a>
+											<a href="#" title="Next Page">Next &raquo;</a><a href="#" title="Last Page">Last &raquo;</a>
+										</div> 
+										<div class="clear"></div>
+									
+								
+                                                                <div class="clear"></div>
+                                                                <td>
+                                                                    <a href="" onclick="return NouveauMessage(); ">Nouveau message</a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="#">Supprimer</a>
+                                                                </td>
+                                                                
+                                                                
+							</tfoot>
+                                                      
+                                                        
+							<tbody>
+                                                    
+                                                            {%for listmessages in boitereception %}
+                                                            <tr bgcolor="#FFFFFF"  >
+                                                                    
+									<td><input type="checkbox" />
+                                                                        </td>
+                                                        <input type="hidden" value="{{listmessages.message}}" id="contenumsg"/>
+									<td>{{listmessages.expediteur}}</td>
+                                                                                <td><a href="" onclick="return loadChamp('{{listmessages.expediteur}}','{{listmessages.sujet}}');">{{listmessages.sujet}}</a></td>
+                                                                        <td>{{listmessages.dateenvoi|date('d-M-y H:i:s')}}</td>
+									
+                                                                        <td><a href="" onclick="return ReplayLoad('{{listmessages.expediteur}}')"><img src="{{asset('bundles/portailfront/images/reply.png')}}" alt="Répondre"></a></td>
+                                                                        <td><a href="" onclick="return supprimerMail({{listmessages.id}});"><img src="{{asset('bundles/portailfront/images/cross.png')}}" alt="Supprimer"></a></td>
+								</tr>
+								{%endfor%}
+                                                                
+                                                                
+								
+							</tbody>
+							
+						</table>
+				
+        
+        
+        </div>
+						
+</div> 
+</div> <!-- End .content-box-content -->
+
+					

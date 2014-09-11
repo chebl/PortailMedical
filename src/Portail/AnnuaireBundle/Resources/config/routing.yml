@@ -1,0 +1,42 @@
+portail_annuaire_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: PortailAnnuaireBundle:Default:index }
+    		
+AnnuaireMedecin:
+    pattern: /AnnuaireMedecin/{page}
+    defaults: { _controller: PortailAnnuaireBundle:Annuaire:Annuairemedecin,page: 1}
+    
+ListparRegion:
+    pattern: /AnnuaireMedecinparregion/{ville}/{page}
+    defaults: { _controller: PortailAnnuaireBundle:Annuaire:findMedecinParregion,page: 1}
+fiche:
+   pattern: /ficheMédecin/{id}
+   defaults: { _controller: PortailAnnuaireBundle:Annuaire:ficheMedecin}
+fichepharma:
+   pattern: /fichePharmacie/{id}
+   defaults: { _controller: PortailAnnuaireBundle:Annuaire:fichePharmacien}
+  
+  
+contactmedecin:
+   pattern:  /contactmed
+   defaults: { _controller: PortailAnnuaireBundle:Annuaire:contact }
+
+
+AnnuairePharmacie:
+    pattern: /AnnuairePharmacie/{page}
+    defaults: { _controller: PortailAnnuaireBundle:Annuaire:Annuairepharmacie,page: 1}
+
+ListpharmaparRegion:
+    pattern: /AnnuairePharmacieparregion/{ville}/{page}
+    defaults: { _controller: PortailAnnuaireBundle:Annuaire:findPharmacieParregion,page: 1}
+
+AnnuaireEtablissement:
+   pattern: /AnnuaireEtablissement/{page}
+   defaults: { _controller: PortailAnnuaireBundle:Annuaire:Annuaireetablissement,page: 1}
+ListetablissementparRegion:
+   pattern: /AnnuaireEtablissementparregion/{ville}/{page}
+   defaults: { _controller: PortailAnnuaireBundle:Annuaire:findEtablissementParregion,page: 1}
+infosetablissement:
+  pattern: /infoetablissement/{id}
+  defaults: { _controller: PortailAnnuaireBundle:Annuaire:infoEtablissement} 
+  

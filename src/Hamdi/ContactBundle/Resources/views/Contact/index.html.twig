@@ -1,0 +1,179 @@
+{% extends 'HamdiAdminBundle::index.html.twig' %}
+{% block bienvenu%}                 
+                        <h2>Bienvenue {{ user.username }}</h2>
+			<p id="page-intro">Que voulez-vous faire?</p>
+{% endblock %}
+{% block msg %}
+                       {% include 'HamdiAdminBundle:Admin:messages.html.twig' %}  
+{% endblock %}                        
+{% block profile %}
+                              
+           <div id="profile-links">
+	       Bonjour, <a href="#" title="Editer votre profile">{{ user.username }}</a>, Vous avez <a href="#messages" rel="modal" title="3 Messages">{{ n }} Messages</a><br />
+	      <br />
+	   <a href="#" title="View the Site">Voir le Site</a> | <a href="{{path('fos_user_security_logout')}}" title="Sign Out">Déconnexion</a>
+	   </div>
+{% endblock %}	  
+{% block menu %}
+
+     <ul id="main-nav">  <!-- Accordion Menu -->
+				
+				<li>
+					<a href="{{path('hamdi_admin_homepage')}}" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						Tableau de bord
+					</a>       
+				</li>
+				
+				<li> 
+					<a href="#" class="nav-top-item current"> <!-- Add the class "current" to current menu item -->
+					Gestion de Profil
+					</a>
+					<ul>
+						<li><a href="{{ path('contact_list')}}" class="current">Gérer Mes Contactes</a></li>
+						<li><a href="#">Gérer Articles</a></li> <!-- Add class "current" to sub menu items also -->
+						<li><a href="#">Gérer Comments</a></li>
+						<li><a href="#">Gérer Categories</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Pages
+					</a>
+					<ul>
+						<li><a href="#">Create a new Page</a></li>
+						<li><a href="#">Manage Pages</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Mon Gallerie
+					</a>
+					<ul>
+						<li><a href="#">Télécharger une image</a></li>
+						<li><a href="#">Télécharger un vidéo</a></li>
+                                                <li><a href="#">Gérer Mes images</a></li>
+						<li><a href="#">Gérer Mes videos</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Events Calendar
+					</a>
+					<ul>
+						<li><a href="#">Calendar Overview</a></li>
+						<li><a href="#">Add a new Event</a></li>
+						<li><a href="#">Calendar Settings</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Groupes et utilisateurs 
+					</a>
+					<ul>
+						<li><a href="#">Groupes</a></li>
+						<li><a href="{{path('user_list')}}">Utilisateurs</a></li>
+						<li><a href="#">Mon Profile</a></li>
+						
+					</ul>
+				</li>      
+				
+</ul> <!-- End #main-nav -->{# empty Twig template #}
+
+{% endblock %}
+
+{% block tab %} 
+
+			   	
+	<div class="content-box-header">
+					
+					<h3>Liste</h3>
+					
+					<ul class="content-box-tabs">
+                                            <li>   
+                                                <a href="#tab1" class="default-tab">Liste des contactes</a>
+                                            </li>        
+						<!-- End <li><a href="#tab1" class="default-tab">Table</a></li>  -->
+						<!-- End <li><a href="#tab2">Forms</a></li> -->
+					</ul>
+					
+					<div class="clear"></div>
+					
+	</div> <!-- End .content-box-header -->    
+{% endblock %}
+{% block tab1 %}
+
+						
+						<table>
+							
+							<thead>
+								<tr>
+								    <th><input class="check-all" type="checkbox" /></th>
+								    
+                                                                    <th>Sujet</th>
+                                                                    <th>Nom</th>
+                                                                    <th>Telephone</th>
+                                                                    <th>Email</th>
+                                                                    <th>Message</th>
+                                                                    <th>Créer a</th>
+                                                                    
+                                                                    <th>Actions</th>
+                                                                    
+								</tr>
+								
+							</thead>
+						 
+							<tfoot>
+								<tr>
+									<td colspan="6">
+										<div class="bulk-actions align-left">
+											<select name="dropdown">
+												<option value="option1">Choose an action...</option>
+												<option value="option2">Edit</option>
+												<option value="option3">Delete</option>
+											</select>
+											<a class="button" href="#">Apply to selected</a>
+										</div>
+										
+										<div class="pagination">
+											<a href="#" title="First Page">&laquo; First</a><a href="#" title="Previous Page">&laquo; Previous</a>
+											<a href="#" class="number" title="1">1</a>
+											<a href="#" class="number" title="2">2</a>
+											<a href="#" class="number current" title="3">3</a>
+											<a href="#" class="number" title="4">4</a>
+											<a href="#" title="Next Page">Next &raquo;</a><a href="#" title="Last Page">Last &raquo;</a>
+										</div> <!-- End .pagination -->
+										<div class="clear"></div>
+									</td>
+								</tr>
+							</tfoot>
+						 
+							<tbody>
+                                                                {% for entity in entities %}
+								<tr>
+									<td><input type="checkbox" /></td>
+									<td>{{ entity.subject }}</td>
+                                                                        <td>{{ entity.name }}</td>
+
+                                                                        <td>-{{ entity.telephone }}</td>
+                                                                        <td>{{ entity.email }}</td>
+                                                                        <td>{{ entity.message }}</td>
+                                                                        <td>{% if entity.createdat %}{{ entity.createdat|date('Y-m-d H:i:s') }} {% endif %}</td>
+									<td>
+										<!-- Icons -->
+										 <a href="{{ path('contact_repondre', { 'id': entity.id }) }}" title="Repondre"><img src="{{asset('bundles/hamdiadmin/images/icons/reply.png')}}" alt="Repondre" /></a>
+										 <a href="{{ path('contact_delete', { 'id': entity.id }) }}" title="Supprimer"><img src="{{asset('bundles/hamdiadmin/images/icons/cross.png')}}" alt="Supprimer" /></a> 
+										 
+									</td>
+								</tr>
+								
+							{% endfor %}	
+							</tbody>
+							
+						</table>
+						
+
+{% endblock %}

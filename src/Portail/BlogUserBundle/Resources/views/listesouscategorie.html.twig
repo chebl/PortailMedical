@@ -1,0 +1,5 @@
+ <ul>
+                                {%for souscateg in souscategorie%}
+         <li><a href="{{path('listarticlessouscategorie',{'souscategorie':souscateg.id})}}">{{souscateg.nom}}</a></li>
+                                {%endfor%}
+                                </ul>

@@ -1,0 +1,105 @@
+<!-- Resume -->
+                <div id="blogg">
+				 <ul class="tabs-nav">
+		  <li><a href="#" onclick="return newarticle();">Ajouter un article</a></li>
+                                <li><a href="#" onclick="$('#tabblog1').show();$('#tabblog2').hide();">Archives des articles ({{user.blogs|length}})</a></li>
+                                <li><a href="#" onclick="$('#tabblog2').show();$('#tabblog1').hide();" >Notifications</a></li>
+                               
+                            </ul>
+				<div class="tabs-container">
+				<div class="tab-content"></div>
+				<div class="tab-content" id="tabblog1">
+        <table class="footable" data-page-navigation="#pagination" data-page-size="3">
+				   <thead>
+        <tr>
+          <th data-class="expand">
+            <span>Titre</span>
+          </th>
+          <th>
+            <span>Nbre de commentaires</span>
+          </th>
+          <th>
+         Publié Le
+		  
+          </th>
+          <th>
+            Actions
+          </th>
+         
+        </tr>
+		
+      </thead>
+		
+		<tbody>
+			{%for blog in blogs %}
+                                                            <tr>
+                                                                    
+									
+                                                                        <td><a href="{{ path('HamdiBlogBundle_blog_show', { 'id': blog.id }) }}" target="_blank" >{{blog.title}}</a> </td>
+                                                        
+									<td>{{blog.comments|length}}</td>
+                                                                                
+                                                                        <td>{{ blog.created|localizeddate('medium', 'medium')}}</td>
+									
+                                                                        <td><a href="" onclick="return updatearticle({{blog.id}})"><img src="{{asset('bundles/portailfront/images/edit-icon.png')}}" alt="Editer"></a>&nbsp;&nbsp;&nbsp;
+                                                                        <a href="" onclick="return supparticles({{blog.id}})"><img src="{{asset('bundles/portailfront/images/delete-icon.png')}}" alt="Supprimer"></a></td>
+								</tr>	
+		{%endfor %}						
+				</tbody>
+				
+				
+			  </table>
+ 
+    <ul id="pagination" class="footable-nav"><span>Pages:</span></ul>	
+				
+				</div>
+				</div>
+				
+				
+				<div class="articleblog" >
+			<a class="b-close">X</a>
+                    <form action="{{path('ajoutarticleblog')}}" id="compteform" {{ form_enctype(formblog) }}  method="post">
+                              <p>
+                            	<label for="name">Titre:</label>
+                            	  {{form_widget(formblog.title,{ 'attr': {'class': 'input'}})}}
+                            </p>
+                             <p>
+                            	<label for="name">Contenu :</label>
+                            	{{form_widget(formblog.blog,{ 'attr': {'class': 'textarea'}})}}
+                            </p>
+                             <p>
+                            	<label for="name">Choisisez une image :</label>
+                            	{{form_widget(formblog.file)}}
+                            </p>
+                             <p>
+                            	<label for="name">Tags :</label>
+                            	{{form_widget(formblog.tags,{ 'attr': {'class': 'input'}})}}
+                            </p>
+                           
+                          
+                             <p>
+                            	<label for="name">Catégorie :</label>
+                            	 <select name="categorie" id="categorie" onchange="return remplirsouscategorie1(document.getElementById('categorie').value,$('#souscategorie'));">
+                                <option value="0"></option>
+                           {%for cat in categorie %}
+                                   <option value="{{cat.id}}">{{cat.nom}}</option>
+                                {%endfor%}   
+                           
+                           </select>
+                           
+                            </p>
+                     <p>
+					 <select name="souscategorie" id="souscategorie">
+                              
+                           </select>
+					 
+					 </p>
+                                                      
+                            <input type="submit" class="submit" value="Publier sur le blog" onclick=" alert('Votre article est uploadé avec succés');">
+                             
+                        
+                            {{form_widget(formblog)}}
+                          </form>  
+                     </div>   
+                </div>
+                <!-- /Resume --> 

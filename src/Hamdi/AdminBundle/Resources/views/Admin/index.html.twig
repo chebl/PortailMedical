@@ -1,0 +1,267 @@
+{% extends 'PortailFrontBundle::layout.html.twig' %}  
+
+ {% block stylesheets %}
+{{parent()}} 
+ <link rel="stylesheet" href="{{asset('bundles/portailfront/owl-carousel/owl.carousel.css')}}">
+ 
+
+ 
+ 
+ 
+<!-- Default Theme -->
+<link rel="stylesheet" href="{{asset('bundles/portailfront/owl-carousel/owl.theme.css')}}">
+<link rel="stylesheet" href="{{asset('bundles/portailfront/css/stylelogin.css')}}">
+
+ {%endblock%}
+    {%block javascripts %}
+ 
+
+{{parent()}}
+
+
+
+
+<script src="{{asset('bundles/portailfront/owl-carousel/owl.carousel.js')}}"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script type="text/javascript">
+    window.onload=function()  {
+               showGoogleMap();
+   
+         function showGoogleMap()
+        {
+        //<![CDATA[
+
+        var myOptions = {
+            zoom: 10,
+            center: new google.maps.LatLng(35.35292053222656, 10.311216354370117),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"), myOptions);
+        
+            var point1 = new google.maps.LatLng(35.35292053222656,10.311216354370117);
+            var marker1 = new google.maps.Marker({position: point1,draggable: false, map: map,title:""});
+            //marker1.setMap(map);
+           
+    //google.maps.event.addListener(marker1, 'mouseover', function() {
+      
+        }
+       }
+
+
+    
+     
+      </script> 
+
+
+<script type='text/javascript' src="{{asset('bundles/portailbloguser/js/jquery.cookie.js')}}"></script>
+<script type='text/javascript' src="{{asset('bundles/portailbloguser/js/jquery.hoverIntent.minified.js')}}"></script>
+<script type='text/javascript' src="{{asset('bundles/portailbloguser/js/jquery.dcjqaccordion.2.7.min.js')}}"></script>
+<script>
+    jQuery(document).ready(function($) {
+    jQuery('#accordion').dcAccordion();
+    $('#accordion').dcAccordion({
+eventType: 'hover',
+autoClose: true,
+saveState: true,
+disableLink: true,
+showCount: false,
+menuClose: true,
+speed: 'fast'
+});
+});
+</script>
+<script>
+    $(document).ready(function() {
+ 
+ $("#owl-example").owlCarousel({
+ 
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+ 
+      items : 4,
+      itemsDesktop : [1199,3],
+      itemsDesktopSmall : [979,3]
+ 
+  });
+ 
+
+ 
+});
+    </script>
+{%endblock %}
+
+
+
+ {% block header %}{% include 'PortailFrontBundle:Front:header.html.twig'%} {% endblock %}
+{%block container %}     
+    <div id="slider-wrap">
+        <div class="flexslider">
+                                    <ul class="slides"  style="height:320px;">                                        		
+                                            <li>
+                                                <a href="" title="Qualified Doctors"  class="img-hover" ><img style="height:100%" src="{{asset('bundles/portailfront/images/Refined/doctors.jpg')}}" alt="Slider Image"></a>
+                                            </li>
+                                            <li>
+                                                <a href="" title="Clinical Excellence"  class="img-hover" ><img src="{{asset('bundles/portailfront/images/Refined/clinical.jpg')}}" alt="Slider Image"></a>
+                                            </li>
+                                            <li>
+                                                <a href="" title="Dental Treatment"  class="img-hover" ><img src="{{asset('bundles/portailfront/images/Refined/dental.jpg')}}" alt="Slider Image"></a>
+                                            </li>
+                                            <li>
+                                                <a href="" title="Caring Staff"  class="img-hover" ><img src="{{asset('bundles/portailfront/images/Refined/caring-staff.jpg')}}" alt="Slider Image"></a>
+                                            </li>
+                                            <li>
+                                                <a href="" title="Medical Counseling"  class="img-hover" ><img src="{{asset('bundles/portailfront/images/Refined/couseling.jpg')}}" alt="Slider Image"></a>
+                                            </li>
+                                    </ul>
+                                    <ul class="slide-nav slides-5">
+                                                                               
+                                    </ul><!-- end of slider nav -->
+                        		</div>
+                        </div><!-- end of slider-wrap -->
+      
+                        <div id="container" style="background-color: whitesmoke; margin-top:-10%">
+                 		
+                                <!--section class="slogan">
+                                    
+                                    <h2>Awesome Theme for Medical and Health Websites</h2>
+                                    <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h3>
+                                </section>
+                                
+                                <ul class="services">   
+                                    
+                                      <li class="service">
+                                          <figure class="service-thumb"><a href=""><img src="{{asset('bundles/portailfront/images/Refined/small/serv1.png')}}" alt="Diagnostic Imaging"></a></figure>
+                                          <h4><a href="">Diagnostic Imaging</a></h4>
+                                          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                      </li>
+                                      <li class="service">
+                                          <figure class="service-thumb"><a href=""><img src="{{asset('bundles/portailfront/images/Refined/small/serv2.png')}}" alt="Cancer Care"></a></figure>
+                                          <h4><a href="">Cancer Care</a></h4>
+                                          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                      </li>
+                                      <li class="service">
+                                          <figure class="service-thumb"><a href=""><img src="{{asset('bundles/portailfront/images/Refined/small/serv3.png')}}" alt="Rehabilitation Center"></a></figure>
+                                          <h4><a href="">Rehabilitation Center</a></h4>
+                                          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                      </li>
+                                      <li class="service">
+                                          <figure class="service-thumb"><a href=""><img src="{{asset('bundles/portailfront/images/Refined/small/serv4.png')}}" alt="Emergency Services"></a></figure>
+                                          <h4><a href="">Emergency Services</a></h4>
+                                          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                      </li>
+                                      <li class="service">
+                                          <figure class="service-thumb"><a href=""><img src="{{asset('bundles/portailfront/images/Refined/small/serv5.png')}}" alt="Transplant Services"></a></figure>
+                                          <h4><a href="">Transplant Services</a></h4>
+                                          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                      </li>                                               
+                                </ul><!-- end of services -->                                                               
+                                
+                                <div id="content" class="full-width"></div>
+                              
+                                
+                                <div class="official clearfix">
+                                		
+                                        <div class="home-left-side">   
+                                             
+                                            <section class="team clearfix">
+                                                 
+                                                    <h2 class="smart-head">Actualité</h2>
+                                                    <p>A la Une à Tous les actualités médicaux</p>
+                                                    
+                                                    <ul class="doctors">
+                                                         
+                                                       
+													   {%for new in news %}                                                       
+													   <li>
+                                                           
+                                                           <h4><a href=""></a></h4>
+                                                           <figure class="doc-img">													
+                                                               <a href="{{path('lire_suite_news',{'idnews':new.id})}}" title="{{new.titre}}" ><img src="{{asset('bundles/portailfront/images/')}}{{new.logo}}" height="100%" width="100%"></a>
+                                                               <span class="doc-type">{{new.titre}}</span>																																
+                                                           </figure>
+                                                           <p>{{new.extrait}}…<a href="{{path('lire_suite_news',{'idnews':new.id})}}" class="readmore">Suite...</a></p>
+                                                            
+                                                        </li> 
+                                                        
+                                                        {%endfor%}                                                                                                           		
+                                                    </ul><br>
+                                                      <ul id="accordion">
+                                        
+                                 <li><a href="" class="readmore">Plus d'actualités</a>
+                                     
+                              
+
+                                
+                                      
+         <ul class="doctors">
+                                                         
+                                                       
+													   {%for new in restenews %}                                                       
+													   <li>
+                                                           
+                                                           <h4><a href=""></a></h4>
+                                                           <figure class="doc-img">													
+                                                               <a href="{{path('lire_suite_news',{'idnews':new.id})}}" title="{{new.titre}}" ><img src="{{asset('bundles/portailfront/images/')}}{{new.logo}}" height="100%" width="100%"></a>
+                                                               <span class="doc-type">{{new.titre}}</span>																																
+                                                           </figure>
+                                                           <p>{{new.extrait}}…<a href="{{path('lire_suite_news',{'idnews':new.id})}}" class="readmore">Suite...</a></p>
+                                                        </li> 
+                                                        {%endfor%}                                                                                                           		
+                                                    </ul>
+        
+                              
+        
+                  </li>                   
+        
+                                      </ul>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    														
+                                            </section>
+                                            
+                                            <section class="testi">
+                                                    <h2 class="smart-head">Articles Plus Lus</h2>
+                                                    
+                                                    <div class="pslider">
+                                                        <p>ce sont les articles le plus lus du notre blog.</p>
+                                                            <ul class="patients" style="position: relative; height: 133px;"> 
+                                                                {%render 'PortailBlogUserBundle:BlogUser:blogpluslus' %}
+                                                                                                             
+                                                                                                                                 
+                                                                </ul>
+                                                    </div>
+                                                    
+                                                    <p class="patient-nav">
+                                                            <span class="t_left"></span>
+                                                            <span class="t_right"></span>
+                                                    </p>
+                                                    
+                                            </section><!-- end of testi section -->                                       
+                                        </div><!-- home left side -->                                        
+                                        
+                                       {%include 'PortailNewsBundle:News:sidebar.html.twig'%}                                      
+                                                                       
+                                </div> <!-- end of official -->
+                                
+								<!-- twitter update list -->
+       
+<div id="owl-example" class="owl-carousel">
+  {%for partenaire in partenaires %}
+    
+        <div class="item"><a href="{{partenaire.site}}" ><img src="{{asset('bundles/hamdipartenaire/images/')}}{{partenaire.path}}"  width="100%"></a> </div>
+  {%endfor %}
+</div>
+   
+           
+                      
+                        
+						
+  
+                                                                                      
+</div>
+       {%include 'PortailFrontBundle:Front:footer.html.twig'%}                           
+                       
+       {% endblock %}
+                        
+                      

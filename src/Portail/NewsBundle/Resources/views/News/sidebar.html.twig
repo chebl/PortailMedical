@@ -1,0 +1,32 @@
+ <aside id="sidebar">
+                                   
+                                       <section class="widget"><h3 class="title">Newsletter</h3>       
+                                        <div class="newsletter">                  
+                                          <form action="{{path('inscriptionnewsletter')}}" id="newsletter" method="post" novalidate>
+                                              <p>Inscrivez-vous à la newsletter pour recevoir les derniers actualités médicaux</p>
+                                              <p>
+                                                  <label class="display-ie8" for="nl_email">Email</label>
+                                                  <input type="text" name="email" id="nl_email" class="email required" placeholder="Email" title="* Svp entrer une adresse mail valide">
+                                                  <input type="submit" id="nl_submit" value="Inscrire" class="readmore">
+                                              </p>
+                                              <div class="error-container"></div>
+                                          </form>
+                                        </div>               
+                                    </section>
+                                            
+									  
+									  
+									
+                                     
+                                    <section class="widget">
+									
+                                       {%render 'PortailNewsBundle:News:getLatestNews' %}	                         						
+                                    </section>
+                                                
+                                   
+                                            
+                                    
+                                    
+                                 								
+                                </aside>                                
+                                                    

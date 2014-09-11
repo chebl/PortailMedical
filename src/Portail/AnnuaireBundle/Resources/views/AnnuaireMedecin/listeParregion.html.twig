@@ -1,0 +1,44 @@
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/portailbloguser/css/fonts/ptsans/stylesheet.css')}}" media="screen">
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/portailbloguser/css/fonts/icomoon/style.css')}}" media="screen">
+
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/portailbloguser/css/mws-style.css')}}" media="screen">
+
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/portailbloguser/css/mws-theme.css')}}" media="screen"> 
+<div class="mws-panel grid_8 mws-collapsible" id="mws-dashboard-chart"> 
+<div class="mws-panel-header">
+                            
+                    	<span><i class="icon-table"></i></span>
+                    </div>
+  <div class="mws-panel-body no-padding">
+<table  class="mws-table mws-datatable">
+                      <tbody>
+                                                   
+                             {%for entity in medecins%}
+                                                 
+                                                        <tr>
+                                <td class="menus" style="padding-left:15px;"><li >{{entity.nom}}&nbsp;{{entity.prenom}}</li>
+                 <br>
+                    {{entity.adresse}}     
+                       
+                 </td>
+                              </tr>
+                              <tr>
+                                <td align="right" class="lien12"><a href="{{path('fiche',{'id':entity.id})}}">>Consulter la fiche</a></td>
+                              </tr>
+                            
+                                                              <tr>
+       							  <td style="padding-left:15px;"><HR  style="color:#abcd9e; background-color:#abcd9e; height:1px; border:0;" width="95%" align="left"  /> </td>
+        					 </tr>                      
+                      
+                                           {%endfor%}                                  
+                      
+</div>
+        
+                           
+                         </tbody>
+    
+                           
+                           
+                  </table>
+          </div>
+</div>

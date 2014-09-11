@@ -1,0 +1,239 @@
+<?php
+namespace Portail\FrontBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+* @ORM\Entity(repositoryClass="Portail\FrontBundle\Entity\NewsRepository")
+ * @ORM\Table(name="News")
+ */
+class News {
+     /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=50)
+     */
+    private $titre;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=50)
+     */
+    private $slug;
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="text")
+     */
+    private $contenu;
+ /**
+     * @var string
+     *
+     * @ORM\Column(name="urlimage", type="string", length=50)
+     */
+    private $urlimage;
+ /**
+     * @var date
+     *
+     * @ORM\Column(name="datepublication", type="datetime")
+     */
+    private $datepublication;
+    
+     /**
+* @ORM\ManyToOne(targetEntity="Categorie",
+inversedBy="articles")
+*/
+ private $categorie;
+    
+   
+             /**
+* @ORM\ManyToOne(targetEntity="User",
+inversedBy="articles")
+*/
+ private $auteur;
+    
+    
+    
+        
+    
+    
+    
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     * @return News
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string 
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return News
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set contenu
+     *
+     * @param string $contenu
+     * @return News
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+    
+        return $this;
+    }
+
+    /**
+     * Get contenu
+     *
+     * @return string 
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * Set urlimage
+     *
+     * @param string $urlimage
+     * @return News
+     */
+    public function setUrlimage($urlimage)
+    {
+        $this->urlimage = $urlimage;
+    
+        return $this;
+    }
+
+    /**
+     * Get urlimage
+     *
+     * @return string 
+     */
+    public function getUrlimage()
+    {
+        return $this->urlimage;
+    }
+
+    /**
+     * Set datepublication
+     *
+     * @param \DateTime $datepublication
+     * @return News
+     */
+    public function setDatepublication($datepublication)
+    {
+        $this->datepublication = $datepublication;
+    
+        return $this;
+    }
+
+    /**
+     * Get datepublication
+     *
+     * @return \DateTime 
+     */
+    public function getDatepublication()
+    {
+        return $this->datepublication;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \Portail\FrontBundle\Entity\Categorie $categorie
+     * @return News
+     */
+    public function setCategorie(\Portail\FrontBundle\Entity\Categorie $categorie = null)
+    {
+        $this->categorie = $categorie;
+    
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Portail\FrontBundle\Entity\Categorie 
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set auteur
+     *
+     * @param \Portail\FrontBundle\Entity\User $auteur
+     * @return News
+     */
+    public function setAuteur(\Portail\FrontBundle\Entity\User $auteur = null)
+    {
+        $this->auteur = $auteur;
+    
+        return $this;
+    }
+
+    /**
+     * Get auteur
+     *
+     * @return \Portail\FrontBundle\Entity\User 
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+}

@@ -1,0 +1,56 @@
+ <aside id="sidebar">
+                                    <section class="widget">
+                                                      						
+                                    </section>
+                                                
+                                   
+                                            
+                                    
+                                    
+                                    <section class="widget">                   
+                                        <div class="appointment">
+                                            <div class="header">
+                                                    <h2>Make an Appointment</h2>
+                                                    <h3 class="number">1-800-123-4567</h3>
+                                                    <span class="or">OR</span>
+                                            </div>
+                                            <form action="http://inspirythemes.com/templates/healthpress-html/submit.php" id="appoint-form" method="post">
+                                                    <p>
+                                                        <label class="display-ie8" for="apo_name">Full Name</label>
+                                                        <input type="text" name="apo_name" class="required" id="apo_name" placeholder="Full Name" title="* Please enter your Full Name" />
+                                                    </p>
+                                                    <p>
+                                                        <label class="display-ie8" for="apo_phone">Phone Number</label>
+                                                        <input type="text" name="apo_phone" class="required" id="apo_phone" placeholder="Phone Number" title="* Please enter your Phone Number" />
+                                                    </p>
+                                                    <p>
+                                                        <label class="display-ie8" for="apo_email">Email Address</label>
+                                                        <input  type="text" name="apo_email"  class="email required" id="apo_email" placeholder="Email Address" title="* Please enter valide Email Address" />
+                                                    </p>
+                                                    <p>
+                                                        <label class="display-ie8" for="apo_date">"Appointment Date</label>
+                                                        <input type="text" name="apo_date" class="required" id="apo_date" placeholder="Appointment Date" title="* Please select desired appointment date" />
+                                                    </p>
+                                                    <p>
+                                                        <label class="display-ie8" for="apo_date">Message</label>
+                                                        <textarea name="message" class="message required" cols="30" rows="5" placeholder="Message" title="* Please enter your message"></textarea>
+                                                    </p>
+                                                    
+                                                    <div class="captcha-container">
+                                                        <img src="captcha/appointment_captcha.png" alt=""/>
+                                                        <input type="text" class="captcha required" name="captcha" maxlength="5" title="* Please enter the code characters displayed in image!"/>
+                                                    </div>
+                                                    
+                                                    <p>															
+                                                        <input type="submit" value="Submit Request" class="readmore">
+                                                        <input type="hidden" name="action" value="request_appointment" />
+                                                        <input type="hidden" name="target" value="fahid@960development.com" />
+                                                        <img src="images/loading.gif" id="apo-loader" alt="Loader" />
+                                                    </p>
+                                                    <p id="apo-message-sent"></p>
+                                                    <div class="error-container"></div>                            
+                                            </form>
+                                        </div>                          
+                                    </section>										
+                                </aside>                                
+                                                    

@@ -1,0 +1,150 @@
+<!-- Portfolio -->
+{%if fichemaladies %}
+
+<div id="fichemaladie">
+          <ul class="tabs-nav">
+		  <li class="active"><a href="#" onclick="return newfichemaladie();">Editer une Fiche Maladie</a></li>
+                                <li><a href="#" onclick="$('#tabmal1').show();$('#tabmal2').hide();">Mes publications </a></li>
+                                  
+                            </ul>
+                            <div class="tabs-container">
+							<div class="tab-content"></div>
+                                <div class="tab-content" id="tabmal1">
+                    <table class="footable" data-page-navigation="#pagination" data-page-size="5">
+      <thead>
+        <tr>
+          <th data-class="expand">
+            <span>Désignation Maladie</span>
+          </th>
+          <th>
+            <span>Catégorie</span>
+          </th>
+          <th data-hide="phone,tablet">
+          Publié Le 
+		  
+          </th>
+          <th>
+            Actions
+          </th>
+         
+        </tr>
+		
+      </thead>
+		
+		<tbody>
+		{%for fichemaladie in fichemaladies %}
+		         <tr>
+   
+		  <td><a href="{{ path('HamdiBlogBundle_blog_show', { 'id':fichemaladie.id  }) }}" target="_blank" >{{fichemaladie.designation}}</a> </td>
+                                                        
+		<td>{{fichemaladie.souscategorie}}</td>
+        <td>{{ fichemaladie.datepublication|localizeddate('medium', 'medium')}}</td>
+	
+           <td><a href="" onclick="return updatefichemaladie({{fichemaladie.id}})"><img src="{{asset('bundles/portailfront/images/edit-icon.png')}}" alt="Editer"></a>&nbsp;&nbsp;
+           <a href="" onclick="return suppfichemaladie({{fichemaladie.id}})"><img src="{{asset('bundles/portailfront/images/delete-icon.png')}}" alt="Supprimer"></a></td>
+								</tr>
+								{%endfor%}
+                                     
+                     </tbody>	  
+					 
+    </table>
+ 
+    <ul id="pagination" class="footable-nav"><span>Pages:</span></ul>
+                                
+	                       
+                                </div>
+                                
+                                
+                            </div>
+                     </div>
+
+	<div class="articlemaladie" >
+			<a class="b-close">X</a>
+                    <form  action="{{path('fichemaladieadd')}}" id="compteform" method="post" {{ form_enctype(formfiche) }}>
+               <p>
+                            	<label for="name">               
+     
+     Désignation de maladie: 
+    
+   
+      {{form_widget(formfiche.designation,{ 'attr': {'class': 'input'}})}}
+   
+             </label>
+		  </p>
+		  
+     <p>	 
+    
+   <label for="name">             
+     Bref description: 
+     </label>
+      {{form_widget(formfiche.extrait,{ 'attr': {'class': 'textarea'}})}}
+    
+		  </p>
+               
+          <p>	 
+    
+   <label for="name">       
+     Description :
+    </label>                      
+ {{form_widget(formfiche.description,{ 'attr': {'class': 'textarea'}})}}
+    </p>
+	<p>
+	<label for="name">   
+	
+      Symptômes :
+        </label>     
+{{form_widget(formfiche.symptomes,{ 'attr': {'class': 'textarea'}})}}
+	</p>
+	<p>
+	<label for="name">  
+     Causes :
+      </label>      
+     {{form_widget(formfiche.causes,{ 'attr': {'class': 'textarea'}})}}
+		</p>					
+   <p>
+	<label for="name">  
+     Prevention :
+    </label>      
+     {{form_widget(formfiche.prevention,{ 'attr': {'class': 'textarea'}})}}
+</p>							
+    <p>
+	<label for="name">  
+     Choisir une image :
+       </label>     
+     {{form_widget(formfiche.file)}}
+		</p>					
+    <p>
+	<label for="name">  
+     Catégorie :
+     </label>        
+                      
+                           
+                           <select name="categoriemaladie" id="categoriemaladie" onchange="return remplirsouscategorie1(document.getElementById('categoriemaladie').value,$('#souscategoriemaladie'));">
+                                <option value="0"></option>
+                           {%for cat in categorie %}
+                                   <option value="{{cat.id}}">{{cat.nom}}</option>
+                                {%endfor%}   
+                           
+                           </select>
+         </p>                  
+							
+     <p>
+	<label for="name">  
+     SousCatégorie :
+        </label>   
+                           
+                           <select name="souscategoriemaladie" id="souscategoriemaladie">
+                              
+                           </select>
+                   </p>
+                          <input class="submit" type="submit" value="Publier" > 
+    
+	{{form_widget(formfiche)}}
+                  </form>      
+                     </div>	
+
+            
+{%else %}
+<h2>Aucun Article publié</h2>
+{%endif%}
+			<!-- /Portfolio --> 

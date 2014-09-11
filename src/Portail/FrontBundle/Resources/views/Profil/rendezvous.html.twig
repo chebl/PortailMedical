@@ -1,0 +1,78 @@
+ <script>
+   $(document).ready(function(){
+    
+	$("#tabs li").click(function() {
+            
+		//	First remove class "active" from currently active tab
+     //$("#tab3").empty();
+    
+      
+	$("#tabs li").removeClass('active');
+              
+		//	Now add class "active" to the selected/clicked tab
+		$(this).addClass("active");
+             
+		//	Hide all tab content
+		$(".tab_content").hide();
+
+		//	Here we get the href value of the selected tab
+		var selected_tab = $(this).find("a").attr("href");
+
+		//	Show the selected tab content
+		$(selected_tab).fadeIn();
+
+		//	At the end, we add return false so that the click on the link is not executed
+		return false;
+	});
+     });
+function listrendezvousvalide()
+{ var ms=1;
+        var input1="var1="+ms;
+      
+         $.post("{{path('listrendezvousvalide')}}", input1 , function(theResponse){
+               $("#tab4").html(theResponse);
+                   
+               
+                     
+        });
+                    
+                return false;
+    
+ }
+
+</script>
+<div class="form_group_element">
+          
+            <div id="tabs_wrapper">
+               <div id="tabs_container">
+		<ul id="tabs">
+                    <li class="active"><a href="#tab3-1" onclick="$('#tab3').hide();$('#tab4').hide();">Calendrier de mes rendez-vous</a></li>
+                    
+                    <li><a href="#tab3">Demande de rendez-vous reçus</a></li>
+                          
+			<li><a class="icon_accept" href="#tab4" onclick="return listrendezvousvalide();">Rendez-vous accepté</a></li>
+			<!--li><a class="icon_accept" href="" onclick="return agendarendezvous();">Agenda</a></li!-->
+		</ul>
+	</div>
+                   <div id="tabs_content_container">
+                       <div id="tab3" class="tab_content" style="display: block;">
+                        
+			{%include 'PortailRendezvousBundle::listerendezvous.html.twig' with {'mrendezvous':rendezvous}%} 
+                        
+                </div>
+                            <div class="tab_content" style="display: block;" id="form"></div>
+		<div id="tab4" class="tab_content" style="display: block;" >
+                
+		</div>
+                            <div class="tab_content" id="tab3-1" style="display: block;">
+                                <iframe width="100%" height="100%" src="{{path('calendar_by_user',{'year':2013,'month':04,'user':user.id})}}"></iframe>
+                            </div>
+		
+	</div>
+    <!-- End .content-box -->
+   
+    
+     	
+           </div>
+         
+         </div>

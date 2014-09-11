@@ -1,0 +1,14 @@
+portail_accueil:
+    pattern:  /accueil
+    defaults: { _controller: PortailProfilBundle:Profil:index }
+portail_profil:
+    pattern:  /profil
+    defaults: { _controller: PortailFrontBundle:Registration:Profil }
+portail_test:
+    pattern:  /test
+    defaults: { _controller: PortailProfilBundle:Profil:test } 
+listdestinataire:	
+    pattern: /listdestinataire
+    defaults: { _controller:PortailBoiteBundle:BoiteReception:listdestinataire}
+    requirements:
+        _method: POST

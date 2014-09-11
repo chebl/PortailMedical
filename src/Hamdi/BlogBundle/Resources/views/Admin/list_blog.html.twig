@@ -1,0 +1,152 @@
+{% extends 'HamdiAdminBundle::index.html.twig' %}
+{% block bienvenu%}                 
+                        <h2>Bienvenue {{ user.username }}</h2>
+			<p id="page-intro">Que voulez-vous faire?</p>
+{% endblock %}
+{% block msg %}
+                       {% include 'HamdiAdminBundle:Admin:messages.html.twig' with {'msgs': msgs} %}
+                       {% include 'HamdiAdminBundle:Admin:box_image.html.twig' with {'galerie_img': galerie_img,'form1': form1 } %}
+                       {% include 'HamdiAdminBundle:Admin:box_video.html.twig' %}
+                       {% include 'HamdiAdminBundle:Admin:box_gallery.html.twig' with {'form': form } %}
+                       {% include 'HamdiAdminBundle:Admin:box_partners.html.twig' with {'formpart': formpart } %} 
+                       {% include 'HamdiAdminBundle:Admin:box_blog.html.twig' with {'formblog': formblog } %} 
+                       
+                         
+{% endblock %}                        
+{% block profile %}
+                              
+           <div id="profile-links">
+	       Bonjour, <a href="#" title="Editer votre profile">{{ user.username }}</a>, Vous avez <a href="#messages" rel="modal" title="3 Messages">{{ n }} Messages</a><br />
+	      <br />
+	   <a href="#" title="View the Site">Voir le Site</a> | <a href="{{path('fos_user_security_logout')}}" title="Sign Out">Déconnexion</a>
+	   </div>
+{% endblock %}	  
+{% block menu %}
+
+     <ul id="main-nav">  <!-- Accordion Menu -->
+				
+				<li>
+					<a href="{{path('hamdi_admin_homepage')}}" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						Tableau de bord
+					</a>       
+				</li>
+				
+				<li> 
+					<a href="#" class="nav-top-item"> <!-- Add the class "current" to current menu item -->
+					Gestion de Profil
+					</a>
+					<ul>
+						<li><a href="{{ path('contact_list')}}">Gérer Mes Contactes</a></li>
+						<li><a href="#">Gérer Articles</a></li> <!-- Add class "current" to sub menu items also -->
+						<li><a href="#">Gérer Comments</a></li>
+						<li><a href="#">Gérer Categories</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item current">
+						Mon Blog
+					</a>
+					<ul>
+                                            <li><a href="{{ path('list_blog') }}" class="current">Liste des articles</a></li>
+				
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Ma Galerie
+					</a>
+					<ul>
+						<li><a href="#up_img" rel="modal">Télécharger une image</a></li>
+						<li><a href="#up_video" rel="modal">Télécharger un vidéo</a></li>
+                                                <li><a href="#">Gérer Mes images</a></li>
+						<li><a href="#">Gérer Mes videos</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Mes partenaires
+					</a>
+					<ul>
+						<li><a href="#up_partner">Nouveau partenaire</a></li>
+						<li><a href="{{ path('list_partners')}}">Liste de partenaires</a></li>
+						
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Groupes et utilisateurs
+					</a>
+					<ul>
+						<li><a href="#">Groupes</a></li>
+						<li><a href="{{path('user_list')}}">Utilisateurs</a></li>
+						<li><a href="#">Mon Profile</a></li>
+						
+					</ul>
+				</li>       
+				
+</ul> <!-- End #main-nav -->{# empty Twig template #}
+
+{% endblock %}
+
+
+{% block tab1 %}
+<div class="mws-panel grid_8 mws-collapsible" id="mws-dashboard-chart">
+				    
+                    <div class="mws-panel-header">
+                    	
+                        <h3>Liste des articles</h3>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <table class="mws-table mws-datatable">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th>Titre</th>
+                                    <th>Contenu</th>
+                                    <th>Commentaire</th>
+                                    <th>Tags</th>
+                                    
+                                    <th>Auteur</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for blo in blogs %}
+                                <tr>
+                                    <td>{{ blo.title(10) }}</td>
+                                    <td>{{ blo.blog(10) }} ...</td>
+                                    <td><a href="{{path('list_comments',{'id': blo.id})}}">{{ blo.comments|length }}</a></td>
+                                    <td>{{ blo.tags(10) }}</td>
+                                    
+                                    <td>{{ user.username }}</td>
+                                    <td>
+                                        <span class="btn-group">
+                                            <a href="{{path('blog_show',{'id':blo.id})}}"  title="Edit"><img src="{{asset('bundles/hamdiadmin/images/icons/pencil.png')}}" alt="Editer" /></a>
+					    <a href="{{ path('blog_delete', { 'id': blo.id }) }}" title="Delete"><img src="{{asset('bundles/hamdiadmin/images/icons/cross.png')}}" alt="Supprimer" /></a> 
+                                            <a href="{{ path('blog_show_image', { 'id': blo.id }) }}" title="Image"><img src="{{asset('bundles/hamdiadmin/images/icons/img.png')}}" alt="Image" /></a> 
+										 
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                           </tbody>
+                        </table>
+                            	
+                    </div>
+</div>
+  
+{% endblock %}

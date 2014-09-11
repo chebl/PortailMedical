@@ -1,0 +1,33 @@
+listcategorie:
+  pattern: /
+  defaults: { _controller: PortailForumBundle:Forum:listcategory}
+suppsouscategorie:
+  pattern: /suppsouscategorie/{idsouscategorie}
+  defaults: { _controller: PortailForumBundle:Forum:suppsouscategorie} 
+ajoutsouscategorie:
+  pattern: /ajoutsc
+  defaults: { _controller: PortailForumBundle:Forum:ajoutsouscategorie} 
+listquestions:
+  pattern: /listquestion/{souscategorie}/{page}
+  defaults: { _controller: PortailForumBundle:Forum:listquestion,page: 1}
+listdiscussion:
+  pattern: /question/{question}/{page}
+  defaults: { _controller: PortailForumBundle:Forum:listreponse,page: 1}  
+insertquestion:
+  pattern: /ajoutquestion
+  defaults: { _controller: PortailForumBundle:Forum:ajoutquestion}  
+insertreponse:
+  pattern: /ajoutreponse
+  defaults: { _controller: PortailForumBundle:Forum:ajoutreponse}  
+signalquestion:
+  pattern: /signaler/{idquestion}
+  defaults: { _controller: PortailForumBundle:Forum:signalerquestion}  
+signalreponse:
+  pattern: /signalerr/{idreponse}
+  defaults: { _controller: PortailForumBundle:Forum:signalerreponse}  
+suppquestion:
+  pattern: /suppquestion/{idquestion}
+  defaults: { _controller: PortailForumBundle:Forum:supprimerquestion}  
+suppreponse:
+  pattern: /suppreponse/{idreponse}
+  defaults: { _controller: PortailForumBundle:Forum:supprimerreponse}  

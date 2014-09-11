@@ -1,0 +1,167 @@
+{% extends 'HamdiAdminBundle::index.html.twig' %}
+{% block bienvenu%}                 
+                        <h2>Bienvenue {{ user.username }}</h2>
+			<p id="page-intro">Que voulez-vous faire?</p>
+{% endblock %}
+{% block msg %}
+                       {% include 'HamdiAdminBundle:Admin:messages.html.twig' with {'msgs': msgs} %}
+                       {% include 'HamdiAdminBundle:Admin:box_image.html.twig' with {'galerie_img': galerie_img,'form1': form1 } %}
+                       {% include 'HamdiAdminBundle:Admin:box_video.html.twig' %}
+                       {% include 'HamdiAdminBundle:Admin:box_gallery.html.twig' with {'form': form } %}
+                       {% include 'HamdiAdminBundle:Admin:box_partners.html.twig' with {'formpart': formpart } %} 
+                       {% include 'HamdiAdminBundle:Admin:box_blog.html.twig' with {'formblog': formblog } %} 
+                         
+{% endblock %}                        
+{% block profile %}
+                              
+           <div id="profile-links">
+	       Bonjour, <a href="#" title="Editer votre profile">{{ user.username }}</a>, Vous avez <a href="#messages" rel="modal" title="3 Messages">{{ n }} Messages</a><br />
+	      <br />
+	   <a href="#" title="View the Site">Voir le Site</a> | <a href="{{path('fos_user_security_logout')}}" title="Sign Out">Déconnexion</a>
+	   </div>
+{% endblock %}	  
+{% block menu %}
+
+     <ul id="main-nav">  <!-- Accordion Menu -->
+				
+				<li>
+					<a href="{{path('hamdi_admin_homepage')}}" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						Tableau de bord
+					</a>       
+				</li>
+				
+				<li> 
+					<a href="#" class="nav-top-item"> <!-- Add the class "current" to current menu item -->
+					Gestion de Profil
+					</a>
+					<ul>
+						<li><a href="{{ path('contact_list')}}">Gérer Mes Contactes</a></li>
+						<li><a href="#">Gérer Articles</a></li> <!-- Add class "current" to sub menu items also -->
+						<li><a href="#">Gérer Comments</a></li>
+						<li><a href="#">Gérer Catégories</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item current">
+						Mon Blog
+					</a>
+					<ul>
+                                            <li><a href="{{ path('list_blog') }}" class="current">Liste des articles</a></li>
+					
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Ma Galerie
+					</a>
+					<ul>
+						<li><a href="#up_img" rel="modal">Télécharger une image</a></li>
+						<li><a href="#up_video" rel="modal">Télécharger un vidéo</a></li>
+                                                <li><a href="#">Gérer Mes images</a></li>
+						<li><a href="#">Gérer Mes videos</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Mes partenaires
+					</a>
+					<ul>
+						<li><a href="#up_partner">Nouveau partenaire</a></li>
+						<li><a href="{{ path('list_partners')}}">Liste de partenaires</a></li>
+						
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						Groupes et utilisateurs
+					</a>
+					<ul>
+						<li><a href="#">Groupes</a></li>
+						<li><a href="{{path('user_list')}}">Utilisateurs</a></li>
+						<li><a href="#">Mon Profile</a></li>
+						
+					</ul>
+				</li>       
+				
+</ul> <!-- End #main-nav -->{# empty Twig template #}
+
+{% endblock %}
+
+{% block tab %} 
+
+			   	
+	<div class="content-box-header">
+					
+					<h3>Liste</h3>
+					
+					<ul class="content-box-tabs">
+                                            <li>   
+                                                <a href="#tab1" class="default-tab">Liste des commentaires</a>
+                                            </li>        
+						<!-- End <li><a href="#tab1" class="default-tab">Table</a></li>  -->
+						<!-- End <li><a href="#tab2">Forms</a></li> -->
+					</ul>
+					
+					<div class="clear"></div>
+					
+	</div> <!-- End .content-box-header -->    
+{% endblock %}
+{% block tab1 %}
+
+						
+						
+						
+						
+<div class="mws-panel grid_8 mws-collapsible" id="mws-dashboard-chart">
+				    
+                    <div class="mws-panel-header">
+                        <a href="{{path('list_blog')}}"><button type="button" class="btn btn-small"><img src="{{asset('bundles/hamdiadmin/images/icons/return.png')}}"/></button></a>
+                        <h3>Liste des articles</h3>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <table class="mws-table mws-datatable">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+				  <th><input class="check-all" type="checkbox" /></th>
+				  <th>Utilisateur</th>
+                                  <th>Commentaire</th>
+                                  <th>Créer à</th>
+                                  <th>Modifer à</th>
+                                  <th>Actions</th>
+				</tr>
+                            </thead>
+                            <tbody>
+                                {% for comment in comments %}
+				<tr>
+				   <td><input type="checkbox" /></td>
+				   <td>{{ comment.user }}</td>
+                                   <td>{{ comment.comment }}</td>
+                                   <td>{{ comment.created|date("m/d/Y") }}</td>
+                                   <td>{{ comment.updated|date("m/d/Y") }}</td>
+                                   <td>
+				   <!-- Icons -->
+				   	 <a href="{{ path('comment_delete', { 'id': comment.id }) }}" title="Delete"><img src="{{asset('bundles/hamdiadmin/images/icons/cross.png')}}" alt="Delete" /></a> 
+				   </td>
+				</tr>
+				{% endfor %}	
+			    </tbody>
+                        </table>
+                            	
+                    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+Newsletter_ajout:
+   pattern: /ajoutNewsletter
+   defaults: { _controller: PortailNewsletterBundle:Newsletter:ajouter }
+Newsletter_creer:
+   pattern: /validNewsletter
+   defaults: { _controller: PortailNewsletterBundle:Newsletter:creer }
+Newsletter_envoi:
+   pattern: /envoiNewsletter/{id}
+   defaults: { _controller: PortailNewsletterBundle:Newsletter:envoi }
+Newsletter_list:
+   pattern: /listNewsletter
+   defaults: { _controller: PortailNewsletterBundle:Newsletter:list }
+inscriptionnewsletter:  
+   pattern: /inscriptionNewsletter
+   defaults: { _controller:  PortailNewsletterBundle:Newsletter:inscrire }  
+desinscriptionNewsletter:
+   pattern: /desinscriptionNewsletter
+   defaults: { _controller: PortailNewsletterBundle:Newsletter:desinscrire }  
+confirmnewsletter:
+  pattern: /confirmNewsletter/{email}
+  defaults: { _controller:  PortailNewsletterBundle:Newsletter:confirm }  

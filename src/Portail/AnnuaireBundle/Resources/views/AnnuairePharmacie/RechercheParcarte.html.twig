@@ -1,0 +1,55 @@
+ {% extends 'PortailFrontBundle::layout.html.twig' %}
+
+{%block stylesheets%}
+{{parent() }}
+{%endblock%}
+ {%block javascripts %}
+{{parent() }}
+  	 
+	 
+ {%endblock %}
+  {%block header %}
+
+  
+  	{% include 'PortailProfilBundle:Front:header.html.twig'%}
+ {%endblock%}
+ {%block container %}
+ 
+ <hgroup class="page-head">                                    		
+                                <h2> <span>Annuaire des pharmacies</span></h2>
+                               
+                        </hgroup>
+       <div id="container" class="clearfix" style="background-color: whitesmoke;">
+           {%include 'PortailAnnuaireBundle:AnnuairePharmacie:sidebar.html.twig'%}
+	<!-- Content Area -->
+          <div id="content">
+	   <section class="doc_list two_col clearfix">
+                                	
+										<ul class="doctors clearfix">	
+                                              {%for entity in  pager.currentPageResults%}
+                                                <li>
+                                                    <figure class="doc-img">	
+													{% if entity.logo%}
+                                                    	<a href="#" title="Dr.{{entity.nom}} {{entity.prenom}}"><img src="{{asset('bundles/portailbloguser/uploads/')}}{{entity.logo}}"  width="100%" height="100%" alt="Dr.{{entity.nom}} {{entity.prenom}}"></a><span class="doc-type"><a href=""> {{entity.specialite}}</a></span>																																
+                                                    {%else %}
+													<a href="#" title="Dr.{{entity.nom}} {{entity.prenom}}"><img src="{{asset('bundles/portailbloguser/uploads/avatar.gif')}}" width="214" height="170" alt="Dr.{{entity.nom}} {{entity.prenom}} "></a><span class="doc-type"><a href=""> {{entity.specialite}}</a></span>																																
+                                                   
+													{%endif%}
+													</figure>
+                                                    <h4><a href="#">Dr.{{entity.nom}} {{entity.prenom}}</a></h4>
+                                                    <p> {{entity.adresse}} </p>
+                                                    <a href="{{path('fichepharma',{'id':entity.id})}}" class="readmore">Consulter la fiche</a>
+                                                </li>  
+	                                           {%endfor%}  												
+										</ul>
+									  
+                                        
+                                        <div id="pagination">{{ pagerfanta(pager, 'default') }}</div>
+										                                                                               
+                                </section>
+	
+	</div>
+    </div>
+   {%include 'PortailFrontBundle:Front:footer.html.twig'%}       
+                
+{%endblock%}

@@ -1,0 +1,124 @@
+   <div class="form_group_element">
+               <div class="form_element">
+     <label class="form_attribute_1">
+      Pseudo :
+    </label>
+                           <span style="float:right"><a onclick="return DOC_popup(this)" href="">
+      Changer mon pseudo
+    </a></span> 
+                          <span class="name">
+      {{form_widget(form.username)}}
+    </span></div>
+  <div class="form_element_last">
+      <label class="form_attribute_1">
+      Mot de passe :
+    </label>
+     {{form_widget(form.plainPassword.first)}}
+							
+    <span style="float:right"><a onclick="return DOC_popup(this)" href="">
+      Changer mon mot de passe
+    </a></span></div>
+         <div class="form_element_last"><label class="form_attribute_1">
+     Retaper le mot de passe SVP :
+    </label>
+     {{form_widget(form.plainPassword.second)}}
+							
+    <span style="float:right"><a onclick="return DOC_popup(this)" href="">
+      Changer mon mot de passe
+    </a></span></div>      
+               
+               
+               </div>
+    <div class="form_group_element"><div class="form_element"><label class="form_attribute_1 form_attribute_1_without_lock" for="email">
+      Email :
+    </label><b>
+      {{form_widget(form.email)}}
+    </b><span style="float:right"><a onclick="return DOC_popup(this)" href="">
+      Modifier mon adresse email
+    </a></span></div><div class="form_element">
+     <label class="form_attribute_1 form_attribute_1_without_lock" for="sex1">
+     Sexe : </label>
+      {{form_widget(form.sexe)}}
+    
+        </div>
+         <div class="form_element">
+            <label class="form_attribute_1 form_attribute_1_without_lock">
+      Nom :
+    
+    </label>
+                  {{form_widget(form.nom)}}
+            </div>
+            
+         <div class="form_element">
+            <label class="form_attribute_1 form_attribute_1_without_lock">
+      Prenom :
+    
+    </label>
+                  {{form_widget(form.prenom)}}
+            </div>
+            <div class="form_element">
+            <label class="form_attribute_1 form_attribute_1_without_lock">
+      Date de naissance :
+    
+    </label>
+                  {{form_widget(form.datenaissance)}}
+            </div>
+            
+            
+            <div class="form_element">
+            <label class="form_attribute_1 form_attribute_1_without_lock">
+      Ville :
+    
+    </label>
+                  {{form_widget(form.ville)}}
+            </div>
+            <div class="form_element">
+            <label class="form_attribute_1 form_attribute_1_without_lock">
+      Adresse :
+    
+    </label>
+                  {{form_widget(form.adresse)}}
+            </div>
+            <div class="form_element">
+            <label class="form_attribute_1 form_attribute_1_without_lock">
+      Téléphone :
+    
+    </label>
+                  {{form_widget(form.telephone)}}
+            </div>
+            
+             <label class="form_attribute_1 form_attribute_1_without_lock">
+     Indiquer votre position actuelle: 
+   
+    </label>
+            <div style="display: none">
+                  {{form_widget(form.latitude)}}
+                {{form_widget(form.longitude)}}
+            
+            </div> 
+  
+      
+            <div id="map">
+                   
+        </div> 
+           
+    
+        </div>     
+   <div class="form_group_element">
+       <label style="color: tomato">Historique de Connexion</label>
+         <div class="form_element">
+           <label class="form_attribute_1 form_attribute_1_without_lock">
+           Dernier date de modification :
+           </label>
+            {{user.lastLogin|date("d/m/Y  H:i'")}}
+       <a class="remove" onclick="return DOC_popup(this, null, redirect_remove_profil);" href="">
+      
+								Supprimer mon compte
+    </a>
+       
+       
+       </div>
+              </div>
+                <input type="submit" class="btn-primary"  value="Valider"></input>
+                      {{form_widget(form)}}
+                 </form>  

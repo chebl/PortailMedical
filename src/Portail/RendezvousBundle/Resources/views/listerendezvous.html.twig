@@ -1,0 +1,75 @@
+ 
+
+   <!-- Plugin Scripts -->
+       
+    
+    
+                <div class="mws-panel grid_8 mws-collapsible" id="mws-dashboard-chart">
+                    <div style="width: 130; float: left">
+      
+            
+        <img src="{{asset('bundles/portailfront/images/email.jpg')}}" height="120" width="120" style="float: top;">
+                                                                    </div>
+			<div style="width: 400; alignment-adjust: central"><h1>
+      
+          Mes Rendez-vous
+        </h1>
+        
+      <div id="loadingmessage" style='display:none'>
+          <img src="{{asset('bundles/portailfront/images/wait.gif')}}"/></div>      
+    </div>
+          
+                	<div class="mws-panel-header">
+                            
+                    	<span><i class="icon-table"></i></span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <div id="supp1"></div>
+        <div id="supp">
+                        <table class="mws-table mws-datatable">
+                            <thead>
+                                <tr>
+                                    <th><strong>Demande Envoyé par</strong></th>
+                                    <th><strong>Messsage</strong></th>
+                                    <th><strong>Reçu le</strong></th>
+                                    <th><strong>Action</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             {%for listmessages in mrendezvous %}
+                                        <input type="hidden" value="{{listmessages.messageexpediteur}}" id="contenumsg"/>
+                                  <tr>
+                                    <td>{{listmessages.expediteur}}</td>
+                                    <td></td>
+                                    <td>{{listmessages.dateenvoi|date('d-M-y H:i:s')}}</td>
+                                    
+                                  
+                                   
+                                    <td>
+                                        
+                                           <a href="" onclick="return acceptRendezvous({{listmessages.id}},'{{listmessages.expediteur}}');"  ><img src="{{asset('bundles/portailfront/assets/success.gif')}}" alt="Accepter" ></a>
+                                         
+
+                                        
+                                           
+                                           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                                            <a href="" ><img src="{{asset('bundles/portailfront/images/cross.png')}}" alt="Ignorer"></a>
+                                           
+                                    </td>
+                                </tr>
+                                {%endfor %}
+                            </tbody>
+                        </table>
+            </div>
+                    </div>
+                </div>
+
+   
+   
+   
+   
+
+
+
+
+					

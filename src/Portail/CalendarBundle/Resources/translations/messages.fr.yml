@@ -1,0 +1,48 @@
+bladetester_calendar.label.event.add: Ajouter un événement
+bladetester_calendar.label.event.update: Modifier événement
+bladetester_calendar.label.event.delete: Supprimer
+bladetester_calendar.label.event.delete_warning: Voulez-vous vraiment supprimer cet événement?
+bladetester_calendar.label.event_category.delete_warning: Voulez-vous vraiment supprimer cette catégorie?
+bladetester_calendar.label.event.category.none: Non classé
+bladetester_calendar.label.agenda: Agenda
+bladetester_calendar.label.day: Jour
+bladetester_calendar.label.week: Semaine
+bladetester_calendar.label.month: Mois
+bladetester_calendar.label.print: Imprimer
+bladetester_calendar.label.settings: réglages
+bladetester_calendar.label.cancel: Annuler
+bladetester_calendar.label.configuration_parameters: Configuration des paramétres
+bladetester_calendar.label.back_to_calendar: revenir au calendrier
+
+bladetester_calendar.label.category.add: Ajouter une catéorie
+bladetester_calendar.title.category.add: Ajouter une nouvelle catégorie
+bladetester_calendar.label.category.edit: Modifier
+bladetester_calendar.title.category.edit: Modifier Cette catégorie
+bladetester_calendar.label.category.delete: Supprimer
+bladetester_calendar.title.category.list: Liste des catégories
+
+bladetester_calendar.label.settings.update: Sauvegarder
+bladetester_calendar.label.settings.default_view: Affichage par défaut
+
+bladetester_calendar.list.no_events: Aucun événement trouvé
+bladetester_calendar.list.no_categories: Aucun catégories Trouvé
+
+bladetester_calendar.flash.event_added: Le nouvel événement "% title%" a été créé
+bladetester_calendar.flash.event_updated: L'événement "% title%" a été mis à jour
+bladetester_calendar.flash.event_deleted: L'événement "% title%" a été supprimé
+bladetester_calendar.flash.category_added: Une nouvelle catégorie avec le nom% name% a été ajoutée
+bladetester_calendar.flash.category_updated: La catégorie% name% a été mis à jour
+bladetester_calendar.flash.category_deleted: La catégorie% name% a été supprimé
+bladetester_calendar.flash.settings_updated: Paramètres de l'agenda ont été mis à jour
+
+bladetester_calendar.exception.event_not_found: Événement avec l'ID% id% introuvable
+bladetester_calendar.exception.category_not_found: Catégorie avec l'ID% id% introuvable
+
+bladetester_calendar.abbr.monday: Lun
+bladetester_calendar.abbr.tuesday: Mar
+bladetester_calendar.abbr.wednesday: Mer
+bladetester_calendar.abbr.thursday: Jeu
+bladetester_calendar.abbr.friday: Ven
+bladetester_calendar.abbr.saturday: Sam
+bladetester_calendar.abbr.sunday: Dim
+

@@ -1,0 +1,65 @@
+HamdiBlogBundle_blog_index:
+    pattern:  /blog
+    defaults: { _controller: HamdiBlogBundle:Blog:index }
+HamdiBlogBundle_blog_show:
+    pattern:  /blog/{id}
+    defaults: { _controller: HamdiBlogBundle:Blog:show }
+    requirements:
+        _method:  GET
+        id: \d+
+HamdiBlogBundle_comment_create:
+    pattern:  /comment/{blog_id}
+    defaults: { _controller: HamdiBlogBundle:Comment:create }
+    requirements:
+        _method:  POST
+        blog_id: \d+        
+ajouter_blog:
+    pattern:  /admin/blog/add
+    defaults: { _controller: HamdiBlogBundle:Blog:ajouter }
+list_blog:
+    pattern:  /admin/blog/list
+    defaults: { _controller: HamdiBlogBundle:Blog:list } 
+list_comments:
+    pattern:  /admin/blog/comments/{id}
+    defaults: { _controller: HamdiBlogBundle:Blog:comments } 
+    requirements:
+        _method:  POST|GET
+        id: \d+
+comment_delete:     
+    pattern:  /admin/blog/comments/delete/{id}
+    defaults: { _controller: HamdiBlogBundle:Blog:deleteComment } 
+    requirements:
+        _method:  POST|GET
+        id: \d+
+blog_delete:     
+    pattern:  /admin/blog/delete/{id}
+    defaults: { _controller: HamdiBlogBundle:Blog:deleteBlog } 
+    requirements:
+        _method:  POST|GET
+        id: \d+
+blog_show:     
+    pattern:  /admin/blog/show/{id}
+    defaults: { _controller: HamdiBlogBundle:Blog:showBlog } 
+    requirements:
+        _method:  POST|GET
+        id: \d+
+blog_show_image:     
+    pattern:  /admin/blog/show/image/{id}
+    defaults: { _controller: HamdiBlogBundle:Blog:showImageBlog } 
+    requirements:
+        _method:  POST|GET
+        id: \d+        
+update_blog:   
+    pattern:  /admin/blog/update/{id}
+    defaults: { _controller: HamdiBlogBundle:Blog:updateBlog } 
+    requirements:
+        _method:  POST|GET
+        id: \d+
+update_blog_image:   
+    pattern:  /admin/blog/update/image/{id}
+    defaults: { _controller: HamdiBlogBundle:Blog:changeImageBlog } 
+    requirements:
+        _method:  POST|GET
+        id: \d+
+        
+      

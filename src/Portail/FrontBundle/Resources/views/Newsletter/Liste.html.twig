@@ -1,0 +1,64 @@
+<html>
+    <body>
+        <h1>Liste de Newsletter </h1>
+        <table border="1">
+            <tr>
+                <td>
+                Titre
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+               Date de Creation
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                Date de modification
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                Etat
+                </td>
+                <td></td>
+                <td></td>
+                
+                
+            </tr>
+            {% for entity in entities %}
+            <tr>
+                <td>
+               {{entity.titre}}
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+               {{entity.Datecreation|date('d-M-Y H:i:s')}}
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                {{entity.Datemodification|date('d-M-Y H:i:s')}}
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                {%if entity.envoi==1%}
+                        <img src="{{asset('bundles/portailfront/images/message-success.png')}}">
+                        {%else%}
+                        <a href="{{path('Newsletter_envoi',{'id':entity.id})}}"><img src="{{asset('bundles/portailfront/images/message-error.png')}}" alt="Envoyer la Newsletter"></a>
+                        {%endif%}
+                </td>
+                <td></td>
+                <td></td>
+                
+                
+            </tr>
+            {%endfor %}
+            
+        
+        </table>
+    </body>
+    
+</html>

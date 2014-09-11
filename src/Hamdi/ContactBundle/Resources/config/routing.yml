@@ -1,0 +1,23 @@
+hamdi_contact_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: HamdiContactBundle:Default:index }
+hamdi_contact:
+    pattern:  /contact
+    defaults: { _controller: HamdiContactBundle:ContactAction:index }
+hamdi_submit_contact:
+    pattern:  /contact/submit
+    defaults: { _controller: HamdiContactBundle:ContactAction:submit }
+    requirements:
+        _method:  POST
+hamdi_envoi_contact:
+    pattern:  /admin/contact/envoi
+    defaults: { _controller: HamdiContactBundle:ContactAction:envoi }
+    requirements: { _method: post }
+contact_repondre:
+    pattern:  /admin/repondre/{id}
+    defaults: { _controller: HamdiContactBundle:ContactAction:repondre }
+    requirements:
+        _method:  GET
+        
+     
+            
