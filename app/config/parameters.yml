@@ -7,8 +7,8 @@ parameters:
     database_password: null
     mailer_transport: smtp
     mailer_host: smtp.gmail.com
-    mailer_user: lellahemhamdi
-    mailer_password: lallahem1989
+    mailer_user: lllll
+    mailer_password: ******
     locale: fr
     secret: fb1d20040e7dad14cf1464f4adcec594f1bcb43b
     database_path: null
