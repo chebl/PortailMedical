@@ -1,0 +1,109 @@
+hamdi_user_user:
+    resource: "@PortailFrontBundle/Resources/config/routing/user.yml"
+    prefix:   /admin
+hamdi_user_group:
+    resource: "@PortailFrontBundle/Resources/config/routing/group.yml"
+    prefix:   /admin    
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+    prefix: /group
+NewsletterBundle:
+    resource: "@PortailNewsletterBundle/Resources/config/routing.yml"
+    prefix:   /newslett
+NewsBundle:
+    resource: "@PortailNewsBundle/Resources/config/routing.yml"
+    prefix:   /news
+BoiteBundle:
+    resource: "@PortailBoiteBundle/Resources/config/routing.yml"
+    prefix:   /boite
+AnnuaireBundle:
+    resource: "@PortailAnnuaireBundle/Resources/config/routing.yml"
+    prefix:   /annuaire
+hamdi_partenaire:
+    resource: "@HamdiPartenaireBundle/Resources/config/routing.yml"
+    prefix:   /partenaire
+
+hamdi_media:
+    resource: "@HamdiMediaBundle/Resources/config/routing.yml"
+    prefix:   /media
+hamdi_admin:
+    resource: "@HamdiAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+hamdi_blog:
+    resource: "@HamdiBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog1
+
+hamdi_contact:
+    resource: "@HamdiContactBundle/Resources/config/routing.yml"
+    prefix:   /contact
+gregwar_captcha_routing:
+    resource: "@GregwarCaptchaBundle/Resources/config/routing/routing.yml"
+    prefix: /_gcb    
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+#fos_user_group:
+#    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+#    prefix: /group    
+HamdiContactBundle_contact:
+        resource: "@HamdiContactBundle/Resources/config/routing/contact.yml"
+        prefix:   /admin    
+# Internal routing configuration
+#Front Interface
+
+
+portail_front:
+    resource: "@PortailFrontBundle/Resources/config/routing.yml"
+    prefix:   /portail
+NewsletterBundle:
+    resource: "@PortailNewsletterBundle/Resources/config/routing.yml"
+    prefix:   /annuairefront
+
+AnnuaireBundle:
+    resource: "@PortailAnnuaireBundle/Resources/config/routing.yml"
+    prefix:   /
+ 
+RendezvousBundle:
+    resource: "@PortailRendezvousBundle/Resources/config/routing.yml"
+    prefix:   /rdv 
+EtablissementBundle:
+    resource: "@PortailEtablissementBundle/Resources/config/routing.yml"
+    prefix:   /Etablissement 
+EvenementBundle:
+    resource: "@PortailEvenementBundle/Resources/config/routing.yml"
+    prefix:   /Evenement
+FicheMedicamentBundle:
+    resource: "@PortailFicheMedicamentBundle/Resources/config/routing.yml"
+    prefix:   /medicaments
+  
+BlogBundle1:
+   resource: "@PortailBlogUserBundle/Resources/config/routing.yml"
+   prefix:   /blog 
+
+BladeTesterCalendarBundle:
+    resource: "@PortailCalendarBundle/Resources/config/routing.yml"
+    prefix:   /rendezvous  
+front_bn:
+    resource: "@PortailProfilBundle/Resources/config/front.yml"
+    prefix:   /profil  
+ForumBundle:
+    resource: "@PortailForumBundle/Resources/config/routing.yml"
+    prefix:   /forum    
+
+

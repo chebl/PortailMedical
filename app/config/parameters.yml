@@ -1,0 +1,14 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: portailv1
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: smtp.gmail.com
+    mailer_user: lellahemhamdi
+    mailer_password: lallahem1989
+    locale: fr
+    secret: fb1d20040e7dad14cf1464f4adcec594f1bcb43b
+    database_path: null
