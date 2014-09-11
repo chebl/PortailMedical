@@ -1,0 +1,718 @@
+@CHARSET "UTF-8";
+
+/* --- bb_code.css --- */
+
+/* .bbCodeX classes are designed to exist inside .baseHtml. ie: they have no CSS reset applied */
+
+.bbCodeBlock
+{
+	margin: 1em 140px 1em 0;
+border: 1px solid #d7edfc;
+border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px;
+
+}
+
+	.messageList.withSidebar .bbCodeBlock
+	{
+		margin-right: 0;
+	}
+
+	/* mini CSS reset */
+	.bbCodeBlock pre,
+	.bbCodeBlock blockquote
+	{
+		margin: 0;
+	}
+	
+	.bbCodeBlock img
+	{
+		border: none;
+	}
+
+.bbCodeBlock .type
+{
+	font-size: 11px;
+font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif;
+color: #6cb2e4;
+background: #d7edfc url('styles/custom/xenforo/gradients/form-button-white-25px.png') repeat-x top;
+padding: 3px 8px;
+border-bottom: 1px solid #a5cae4;
+border-top-left-radius: 4px; -webkit-border-top-left-radius: 4px; -moz-border-radius-topleft: 4px; -khtml-border-top-left-radius: 4px;
+border-top-right-radius: 4px; -webkit-border-top-right-radius: 4px; -moz-border-radius-topright: 4px; -khtml-border-top-right-radius: 4px;
+
+}
+
+.bbCodeBlock pre,
+.bbCodeBlock .code
+{
+	font-size: 10pt;
+font-family: Consolas, 'Courier New', Courier, monospace;
+background: #f0f7fc url('styles/custom/xenforo/gradients/category-23px-light.png') repeat-x top;
+padding: 10px;
+border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px;
+word-wrap: normal;
+overflow: auto;
+line-height: 1.24;
+min-height: 30px;
+max-height: 500px;
+_width: 600px;
+direction: ltr;
+
+}
+
+.bbCodeBlock .code
+{
+	white-space: nowrap;
+}
+
+.bbCodeQuote
+{
+	border-color: #f9d9b0;
+
+}
+
+.bbCodeQuote .attribution
+{
+	color: rgb(20,20,20);
+background: #f9d9b0 url('styles/custom/xenforo/gradients/form-button-white-25px.png') repeat-x top;
+border-bottom: 1px solid #f9bc6d;
+
+}
+
+.bbCodeQuote blockquote
+{
+	font-style: italic;
+font-size: 9pt;
+background: #fff4e5 url('styles/custom/xenforo/gradients/category-23px-light.png') repeat-x top;
+padding: 10px;
+border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;
+
+}
+
+/* --- login_bar.css --- */
+
+/** Login bar basics **/
+
+#loginBar
+{
+	color: rgb(5, 47, 77);
+background-color: #bbdbe7;
+border-bottom: 1px solid #65a5d1;
+position: relative;
+z-index: 1;
+
+}
+
+	#loginBar .pageContent
+	{
+		padding-top: 5px;
+		position: relative;
+		_height: 0px;
+	}
+
+	#loginBar a
+	{
+		color: rgb(5, 47, 77);
+text-decoration: underline;
+
+	}
+
+	#loginBar form
+	{
+		padding: 5px 0;
+margin: 0 auto;
+display: none;
+line-height: 20px;
+position: relative;
+width: 500px;
+
+	}
+	
+		#loginBar .xenForm .ctrlUnit,		
+		#loginBar .xenForm .ctrlUnit dt label
+		{
+			margin: 0;
+			border: none;
+		}
+	
+		#loginBar .xenForm .ctrlUnit dt
+		{
+			width: 215px;
+		}
+		
+		#loginBar .xenForm .ctrlUnit dd
+		{
+			position: relative;
+			width: 250px;
+		}
+
+	#loginBar .xenForm .ctrlUnit dd .textCtrl,
+	#loginBar .passwordOptions
+	{
+		width: 250px;
+		box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box;
+	}
+	
+	#loginBar .lostPassword
+	{
+		margin-top: 38px;
+		font-size: 11px;
+	}
+
+	#loginBar .lostPasswordLogin
+	{
+		font-size: 11px;
+	}
+	
+	#loginBar .rememberPassword
+	{
+		font-size: 11px;
+	}
+
+	#loginBar .textCtrl
+	{
+		color: rgb(5, 47, 77);
+background-color: white;
+border-color: rgb(5, 47, 77);
+
+	}
+	
+	#loginBar .textCtrl[type=text]
+	{
+		font-weight: bold;
+font-size: 18px;
+
+	}
+
+	#loginBar .textCtrl:-webkit-autofill /* http://code.google.com/p/chromium/issues/detail?id=1334#c35 */
+	{
+		background: white !important;
+		color: rgb(5, 47, 77);
+	}
+
+	#loginBar .textCtrl:focus
+	{
+		background-image: none;
+
+	}
+	
+	#loginBar input.textCtrl.disabled
+	{
+		color: white;
+background-color: rgb(5, 47, 77);
+border-style: dashed;
+border-color: white;
+
+	}
+	
+	#loginBar .button
+	{
+		min-width: 85px;
+		*width: 85px;
+	}
+	
+		#loginBar .button.primary
+		{
+			font-weight: bold;
+		}
+		
+/** changes when eAuth is present **/
+
+#loginBar form.eAuth
+{
+	width: 700px; /* normal width + 170px */
+}
+
+	#loginBar form.eAuth .ctrlWrapper
+	{
+		border-right: 1px dotted #176093;
+		margin-right: 200px;
+		box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box;
+	}
+
+	#loginBar form.eAuth #eAuthUnit
+	{
+		position: absolute;
+		top: 0px;
+		right: 0px;
+	}
+
+		#eAuthUnit li
+		{
+			margin-top: 10px;
+		}
+	
+			#eAuthUnit li a
+			{
+				width: 180px;
+				box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box;
+			}
+	
+/** handle **/
+
+#loginBar #loginBarHandle
+{
+	font-size: 11px;
+color: rgb(5, 47, 77);
+background-color: #bbdbe7;
+padding: 0 10px;
+margin-right: 20px;
+border-bottom-right-radius: 10px; -webkit-border-bottom-right-radius: 10px; -moz-border-radius-bottomright: 10px; -khtml-border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px; -webkit-border-bottom-left-radius: 10px; -moz-border-radius-bottomleft: 10px; -khtml-border-bottom-left-radius: 10px;
+position: absolute;
+right: 0px;
+bottom: -20px;
+text-align: center;
+z-index: 1;
+line-height: 20px;
+box-shadow: 0px 2px 5px #094E7F; -webkit-box-shadow: 0px 2px 5px #094E7F; -moz-box-shadow: 0px 2px 5px #094E7F; -khtml-box-shadow: 0px 2px 5px #094E7F;
+
+}
+
+/* --- message.css --- */
+
+.messageList
+{
+	
+}
+
+.messageList .message
+{
+	padding-top: 10px;
+padding-bottom: 30px;
+border-top: 1px solid #d7edfc;
+
+}
+
+/* clearfix */ .messageList .message { zoom: 1; } .messageList .message:after { content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
+
+/*** Message block ***/
+
+.message .messageInfo
+{
+	padding: 0;
+margin-left: 140px;
+border-bottom: 1px none black;
+
+	zoom: 1;
+}
+
+	.message .newIndicator
+	{
+		font-size: 11px;
+color: #176093;
+background: #6cb2e4 url('styles/custom/xenforo/gradients/form-button-white-25px.png') repeat-x top;
+padding: 1px 5px;
+margin: -5px -5px 5px 5px;
+border: 1px solid #6cb2e4;
+border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -khtml-border-radius: 3px;
+border-top-right-radius: 0px; -webkit-border-top-right-radius: 0px; -moz-border-radius-topright: 0px; -khtml-border-top-right-radius: 0px;
+display: block;
+float: right;
+position: relative;
+box-shadow: 1px 1px 3px rgba(0,0,0, 0.25); -webkit-box-shadow: 1px 1px 3px rgba(0,0,0, 0.25); -moz-box-shadow: 1px 1px 3px rgba(0,0,0, 0.25); -khtml-box-shadow: 1px 1px 3px rgba(0,0,0, 0.25);
+
+		
+		margin-right: -25px;
+	}
+	
+		.message .newIndicator span
+		{
+			background-color: #6cb2e4;
+border-top-right-radius: 3px; -webkit-border-top-right-radius: 3px; -moz-border-radius-topright: 3px; -khtml-border-top-right-radius: 3px;
+position: absolute;
+top: -4px;
+right: -1px;
+width: 5px;
+height: 4px;
+
+		}
+
+	.message .messageContent
+	{
+		min-height: 100px;
+
+	}
+
+		.message .messageText,
+		.message .signature
+		{
+			font-size: 11pt;
+font-family: Georgia, "Times New Roman", Times, serif;
+line-height: 1.4;
+
+		}
+
+		.message .signature
+		{
+			font-size: 9pt;
+padding: 5px 0 0;
+margin-top: 5px;
+border-top: 1px dashed #d7edfc;
+
+		}
+
+	.message .messageMeta
+	{
+		font-size: 11px;
+padding: 15px 5px 5px;
+margin: -5px;
+overflow: hidden;
+zoom: 1;
+
+	}
+
+		.message .privateControls
+		{
+			float: left;
+
+		}
+
+		.message .publicControls
+		{
+			float: right;
+
+		}
+		
+			.message .privateControls .item
+			{
+				margin-right: 10px;
+				float: left;
+			}
+
+			.message .publicControls .item
+			{
+				margin-left: 10px;
+				float: left;
+			}
+	
+				.message .messageMeta .control
+				{
+					
+				}
+				
+					.message .messageMeta .control:focus
+					{
+						
+					}
+				
+					.message .messageMeta .control:hover
+					{
+						
+					}
+				
+					.message .messageMeta .control:active
+					{
+						
+					}
+	
+		.messageNotices li
+	{
+		font-size: 11px;
+background: #f9d9b0 url('styles/custom/xenforo/gradients/form-button-white-25px.png') repeat-x top;
+padding: 5px;
+margin: 10px 0;
+border: 1px solid #f9d9b0;
+border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px;
+line-height: 16px;
+
+	}
+	
+		.messageNotices .icon
+		{
+			float: right;
+			width: 16px;
+			height: 16px;
+			background: url('styles/custom/xenforo/xenforo-ui-sprite.png') no-repeat 1000px 1000px;
+		}
+	
+			.messageNotices .warningNotice .icon { background-position: -48px -32px; }		
+			.messageNotices .deletedNotice .icon { background-position: -64px -32px; }		
+			.messageNotices .moderatedNotice .icon {background-position: -32px -16px; }
+
+	
+	.message .likesSummary
+	{
+		padding: 5px;
+margin-top: 10px;
+border: 1px solid #d7edfc;
+border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px;
+
+	}
+	
+	.message .messageText > *:first-child
+	{
+		margin-top: 0;
+	}
+
+/* inline moderation changes */
+
+.InlineModChecked .messageUserBlock,
+.InlineModChecked .messageInfo,
+.InlineModChecked .messageNotices,
+.InlineModChecked .bbCodeBlock .type,
+.InlineModChecked .bbCodeBlock blockquote
+{
+	background: rgb(255, 255, 200) url('styles/custom/xenforo/gradients/category-23px-light.png') repeat-x top;
+
+}
+
+.InlineModChecked .messageUserBlock div.avatarHolder
+{
+	background: transparent;
+}
+
+.InlineModChecked .messageUserBlock .arrow span
+{
+	border-left-color: rgb(255, 255, 200);
+}
+
+/* message list */
+
+.messageList .newMessagesNotice
+{
+	margin: 10px auto;
+	padding: 5px 10px;
+	border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px;
+	border: 1px solid #a5cae4;
+	background: #d7edfc url(styles/custom/xenforo/gradients/category-23px-light.png) repeat-x top;
+	font-size: 11px;
+}
+
+/* deleted / ignored message placeholder */
+
+.messageList .message.placeholder
+{
+}
+
+.messageList .placeholder .placeholderContent
+{	
+	overflow: hidden; zoom: 1;
+	color: #65a5d1;
+	font-size: 11px;
+}
+
+	.messageList .placeholder a.avatar
+	{
+		float: left;
+		display: block;
+	}
+	
+		.messageList .placeholder a.avatar img
+		{
+			display: block;
+			width: 32px;
+			height: 32px;
+		}
+		
+	.messageList .placeholder .privateControls
+	{
+		margin-top: -5px;
+	}
+
+/* messages remaining link */
+
+/*.postsRemaining
+{
+	margin: 5px 0 10px;
+	text-align: right;
+}*/
+
+	.postsRemaining a,
+	a.postsRemaining
+	{
+		font-size: 11px;
+		color: rgb(150,150,150);
+	}
+
+/* --- message_user_info.css --- */
+
+.messageUserInfo
+{
+	float: left;
+width: 124px;
+
+}
+
+	.messageUserBlock
+	{
+		background: #d7edfc url('styles/custom/xenforo/gradients/tab-selected-light.png') repeat-x bottom;
+border: 1px solid #d7edfc;
+border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px;
+
+		
+		position: relative;
+	}
+		
+		.messageUserBlock div.avatarHolder
+		{
+			background-color: #f0f7fc;
+padding: 10px;
+border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;
+	
+		}
+		
+			.messageUserBlock div.avatarHolder a
+			{
+				display: block;
+			}
+			
+		/*.messageUserBlock .ipLink
+		{
+			display: block;
+			float: right;
+			font-size: 8px;
+			width: 12px;
+			height: 12px;
+			line-height: 12px;
+			text-align: center;
+			background-color: #a5cae4;
+			border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -khtml-border-radius: 3px;
+		}
+		
+			.messageUserBlock .ipLink:hover
+			{
+				background-color: #f0f7fc;
+				text-decoration: none;
+			}*/
+			
+		.messageUserBlock h3.userText
+		{
+			padding: 6px;
+
+		}
+	
+		.messageUserBlock a.username
+		{
+			font-weight: bold;
+display: block;
+overflow: hidden;
+line-height: 16px;
+
+			
+		}
+		
+		.messageUserBlock .userTitle
+		{
+			font-size: 11px;
+display: block;
+
+		}
+		
+		.messageUserBlock .extraUserInfo
+		{
+			font-size: 11px;
+background-color: #f0f7fc;
+padding: 4px 6px;
+border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;
+
+		}
+		
+			.messageUserBlock .extraUserInfo dl
+			{
+				margin: 2px 0;
+			}
+			
+				.messageUserBlock .extraUserInfo dt
+				{
+					font-size: 9px;
+					display: block;
+				}
+				
+			.messageUserBlock .extraUserInfo img
+			{
+				max-width: 100%;
+			}
+		
+		.messageUserBlock .arrow
+		{
+			position: absolute;
+			top: 10px;
+			right: -10px;
+			
+			display: block;
+			width: 0px;
+			height: 0px;
+			line-height: 0px;
+			
+			border: 10px solid transparent;
+			border-left-color: #d7edfc;
+			border-right: none;
+			
+			/* Hide from IE6 */
+			_display: none;
+		}
+		
+			.messageUserBlock .arrow span
+			{
+				position: absolute;
+				top: -10px;
+				left: -11px;
+				
+				display: block;
+				width: 0px;
+				height: 0px;
+				line-height: 0px;
+				
+				border: 10px solid transparent;
+				border-left-color: #f0f7fc;
+				border-right: none;
+			}
+
+/* --- thread_view.css --- */
+
+.thread_view .threadAlerts
+{
+	border: 1px solid #d7edfc;
+	border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px;
+	font-size: 11px;
+	margin: 10px 0;
+	padding: 5px;
+	line-height: 16px;
+	background-image: url('styles/custom/xenforo/gradients/form-button-white-25px.png');
+}
+	
+	.thread_view .threadAlerts dt
+	{
+		color: #6cb2e4;
+		display: inline;
+	}
+	
+	.thread_view .threadAlerts dd
+	{
+		color: #2b485c;
+		font-weight: bold;
+		display: inline;
+	}
+	
+		.thread_view .threadAlerts .icon
+		{
+			float: right;
+			width: 16px;
+			height: 16px;
+			margin-left: 5px;
+			background: url('styles/custom/xenforo/xenforo-ui-sprite.png') no-repeat -1000px -1000px;
+		}
+		
+			.thread_view .threadAlerts .deletedAlert .icon { background-position: -64px -32px; }
+			.thread_view .threadAlerts .moderatedAlert .icon { background-position: -32px -16px; }
+			.thread_view .threadAlerts .lockedAlert .icon { background-position: -16px -16px; }
+	
+.thread_view .threadAlerts + * > .messageList
+{
+	border-top: none;
+}
+
+.thread_view .threadNotices
+{
+	background-color: #f0f7fc;
+	border: 1px solid #a5cae4;
+	border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px;
+	padding: 10px;
+	margin: 10px auto;
+}
+
+.thread_view .InlineMod
+{
+	overflow: hidden; zoom: 1;
+}
